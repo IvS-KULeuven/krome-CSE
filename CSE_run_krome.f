@@ -51,9 +51,9 @@ C
       
       
 C  RATE FILE NAME
-      FRATES = '/STER/silkem/fortran_0D/rates/rate16.rates'
+      FRATES = 'umist_rate16.rates'
 C  SPECIES FILE NAME
-      FSPECS = '/STER/silkem/fortran_0D/rates/rate16_krome.specs' 
+      FSPECS = 'rate16_krome.specs' 
 C  OUTPUT FILE NAME
 c      FOUTF = 'fortrandc13-C-rho5.63E+06-T2500-d1-Av1.out' 
       
@@ -81,7 +81,7 @@ CCCCCCCCCCCCCCCCCCCCCCCCCCCC
 
       IF(INFILE.EQ.'') THEN
           WRITE(*,*) 'ERROR: No input file specified!'
-          WRITE(*,*) 'Useage: % ./csmodel input_parameters.in'
+          WRITE(*,*) 'Useage: % ./run_CSE_krome input_parameters.in'
           STOP
       END IF
 
