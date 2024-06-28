@@ -172,7 +172,7 @@ C
       print *, 'Initial abundances:', Y
 
       call krome_init()
-      call krome(Y, DN, TEMP, TFINAL-TSTART)
+      call krome(Y,  TEMP, TFINAL-TSTART)
 c      call krome_dump(n,rwork,iwork,ni)
 
 

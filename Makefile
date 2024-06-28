@@ -10,7 +10,7 @@ cc = $(ifort_cc)
 clib = -nofor_main
 
 #executable name
-exec = CSE_krome
+exec = run_CSE_krome
 
 #default libraries
 lib = -llapack

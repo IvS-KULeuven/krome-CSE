@@ -11,5 +11,5 @@ cd krome/build
 make gfortran
 
 # # Move the executable 
-# cd ../../
-# cp krome/build/CSE_krome .
+cd ../../
+cp krome/build/run_CSE_krome .

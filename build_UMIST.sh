@@ -7,4 +7,4 @@ cp -r react_umist_rate16 krome/networks
 
 # Load the krome module
 cd krome
-python krome -n networks/react_umist_rate16 -noSinkCheck -noRecCheck -iRHS 
+python krome -n networks/react_umist_rate16.dat -noSinkCheck -noRecCheck -iRHS 
