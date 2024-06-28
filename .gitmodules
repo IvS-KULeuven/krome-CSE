@@ -1,0 +1,3 @@
+[submodule "krome"]
+	path = krome
+	url = https://bitbucket.org/tgrassi/krome.git
