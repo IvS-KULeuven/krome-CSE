@@ -10,6 +10,6 @@ cp -r Makefile krome/build
 cd krome/build
 make gfortran
 
-# # Move the executable 
-cd ../../
-cp krome/build/run_CSE_krome .
+# # # Move the executable 
+# cd ../../
+# cp krome/build/run_CSE_krome .

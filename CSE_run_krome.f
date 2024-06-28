@@ -41,17 +41,11 @@ C  NC = Number of conserved species, NR = Number of reactions, N = Number of spe
 C  PHYSICAL CONSTANTS
       DATA PI,MH,MU,KB/3.1415927,1.6605E-24,2.2,1.3807E-16/
 C
-      OPEN(UNIT=11, FILE="rate13steady.state")
-      
-C
-C  PHYSICAL CONSTANTS
-      DATA PI,MH,MU,KB/3.1415927,1.6605E-24,2.2,1.3807E-16/
-C
-      OPEN(UNIT=11, FILE="rate13steady.state")
-      
-      
-C  RATE FILE NAME
-      FRATES = 'umist_rate16.rates'
+      write(*,*) '--------------------------------'
+      write(*,*) 'CSE_run_krome is running ...'
+      write(*,*) '--------------------------------'
+
+
 C  SPECIES FILE NAME
       FSPECS = 'rate16_krome.specs' 
 C  OUTPUT FILE NAME
@@ -78,6 +72,7 @@ CCCCCCCCCCCCCCCCCCCCCCCCCCCC
       CALL GETARG(1,INFILE)
 
       INFILE = TRIM(INFILE)
+      write(*,*) 'Input file:', INFILE
 
       IF(INFILE.EQ.'') THEN
           WRITE(*,*) 'ERROR: No input file specified!'
@@ -136,17 +131,11 @@ C     ACCR = GR*DN
       WRITE(*,*)'--------------------------------'
       WRITE(*,*)'Input parameters:'
       WRITE(*,*)'       dens   ',DN
-      WRITE(11,*)'Density..     ',DN
       WRITE(*,*)'       temp   ',TEMP
-      WRITE(11,*)'Temperature.. ',TEMP
-c      WRITE(*,*)'CR Ionisation rate scaling.. ',ZETA
-      WRITE(11,*)'CR Ionisation rate scaling.. ',ZETA
       WRITE(*,*)'       RAD    ',RAD
-      WRITE(11,*)'UV radiation field scaling.. ',RAD
       WRITE(*,*)'       Av     ',AV
-      WRITE(11,*)'Visual extinction.. ',AV
       WRITE(*,*)'       TFINAL ',TFINAL
-c      WRITE(*,*)'Reading species and initial abundances..'
+      WRITE(*,*)'--------------------------------'
 C
 c Input section
 c -------------
@@ -157,7 +146,7 @@ C  density #/cm3
 c      WRITE(*,*)'Initially, relative to H2'
       WRITE(11,*)'Initially, relative to H2'
       DO 2 I = 1,N
-         print *, 'Reading species:', I
+c    print *, 'Reading species:', I
          READ(UPARENTS,100) Y(I)
          IF(Y(I).GT.0) THEN
 c            WRITE(*,100)SP(I),2*Y(I),MASS(I)
@@ -169,7 +158,9 @@ c            Y(I)=Y(I)*DN
 C
 
 
-      print *, 'Initial abundances:', Y
+c      print *, 'Initial abundances:', Y
+
+      write(*,*) 'num densities loaded'
 
       call krome_init()
       call krome(Y,  TEMP, TFINAL-TSTART)
