@@ -1,17 +1,38 @@
 #!/bin/bash
 echo "---------------------------------------------"
 
+arg=$1
+
 # This script is used to build the krome code compatible with the UMIST rate16 chemical network.
 
 # Copy the UMIST rate16 network to the krome tools directory
 cp -r choose_umist.py krome/tools/
-cp -r umist_rate16.rates krome/tools/
+
+if [ -z $arg ]
+then
+    echo "No chemical network specified as bash argument."
+    echo "Please specify the network." 
+    echo "Example: ./build_UMIST.sh UMIST_rate16"
+    echo "---------------------------------------------"
+    exit 1
+
+fi
+
+if [ $arg == 'UMIST_rate16' ]; then
+    echo "UMIST rate16 network selected."
+    cp -r umist_rate16.rates krome/tools/
+else
+    echo $arg "is not a present chemical network."
+fi
+
 
 # Navigate to correct krome directory
 cd krome/tools
 
 # Use the krome tool to convert the UMIST rate16 network to the correct format, with correct network
-python choose_umist.py -n $1
+python choose_umist.py -n $arg
+
+
 python umist2krome.py
 cp -r network_umist.dat ../networks/
 

@@ -1,6 +1,12 @@
 import sys
 
+
+
 network = sys.argv[2]
+
+if network == 'UMIST_rate16':
+    network = 'umist_rate16.rates'
+
 
 ## File to be adjusted: umist2krome.py
 file = 'umist2krome.py'
