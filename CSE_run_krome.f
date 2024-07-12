@@ -16,6 +16,7 @@ c  for more info see http://www.udfa.net
 c
       PROGRAM MAIN
       use krome_main 
+      use krome_user
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
 
       CHARACTER*10  SP(468),CSP(2),RE1,RE2,P1,P2,P3,P4,PARENT(468)
@@ -41,9 +42,9 @@ C  NC = Number of conserved species, NR = Number of reactions, N = Number of spe
 C  PHYSICAL CONSTANTS
       DATA PI,MH,MU,KB/3.1415927,1.6605E-24,2.2,1.3807E-16/
 C
-      write(*,*) '--------------------------------'
-      write(*,*) 'CSE_run_krome is running ...'
-      write(*,*) '--------------------------------'
+C      write(*,*) '--------------------------------'
+      write(*,*) ' >> CSE_run_krome is running ...'
+C      write(*,*) '--------------------------------'
 
 
 C  SPECIES FILE NAME
@@ -72,7 +73,7 @@ CCCCCCCCCCCCCCCCCCCCCCCCCCCC
       CALL GETARG(1,INFILE)
 
       INFILE = TRIM(INFILE)
-      write(*,*) 'Input file:', INFILE
+c      write(*,*) 'Input file:', INFILE
 
       IF(INFILE.EQ.'') THEN
           WRITE(*,*) 'ERROR: No input file specified!'
@@ -101,7 +102,7 @@ C      END DO
       
 c      
 C  OPEN RATE, SPECIES AND OUTPUT FILES
-      OPEN(UNIT=USPEC, FILE=FSPECS, STATUS='OLD')
+c      OPEN(UNIT=USPEC, FILE=FSPECS, STATUS='OLD')
       OPEN(UNIT=UPARENTS, FILE=FPARENTS, STATUS='OLD')
       OPEN(UNIT=UFRAC, FILE=FOUTF)
 C
@@ -128,14 +129,14 @@ C     GR = 5.2E-17*(TEMP*3.33E-3)**0.5
 C     ACCR = GR*DN
 
 
-      WRITE(*,*)'--------------------------------'
+C      WRITE(*,*)'--------------------------------'
       WRITE(*,*)'Input parameters:'
       WRITE(*,*)'       dens   ',DN
       WRITE(*,*)'       temp   ',TEMP
       WRITE(*,*)'       RAD    ',RAD
       WRITE(*,*)'       Av     ',AV
       WRITE(*,*)'       TFINAL ',TFINAL
-      WRITE(*,*)'--------------------------------'
+C      WRITE(*,*)'--------------------------------'
 C
 c Input section
 c -------------
@@ -143,28 +144,29 @@ C read species file.. get species names, masses and initial abundances
 C
 C  parent species tov H
 C  density #/cm3
-c      WRITE(*,*)'Initially, relative to H2'
       WRITE(11,*)'Initially, relative to H2'
       DO 2 I = 1,N
 c    print *, 'Reading species:', I
          READ(UPARENTS,100) Y(I)
          IF(Y(I).GT.0) THEN
-c            WRITE(*,100)SP(I),2*Y(I),MASS(I)
-C CONVERT ABUNDANCES TO PER UNIT VOLUME RATHER THAN FRACTIONAL WRT H2
-c            Y(I)=Y(I)*DN
             Y(I)=Y(I)
          ENDIF
  2    CONTINUE
-C
 
 
-c      print *, 'Initial abundances:', Y
-
-      write(*,*) 'num densities loaded'
+C      write(*,*) 'num densities loaded'
 
       call krome_init()
+
+      call krome_set_user_av(AV)
+      call krome_set_user_xi(RAD)
+      call krome_set_user_alb(1./(1.-ALBEDO))
+
       call krome(Y,  TEMP, TFINAL-TSTART)
 c      call krome_dump(n,rwork,iwork,ni)
+
+      
+
 
 
  100  FORMAT(20X,E20.2)

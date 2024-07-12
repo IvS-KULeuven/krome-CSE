@@ -21,10 +21,14 @@ for i in range(len(lines)):
     line = lines[i].split(' ')
     lines_split.append(line)
 
+## ------------ Select the correct network ------------
+
 ## Change the file to the correct UMIST network
 for i in range(len(lines_split)):
     if 'fname_umist' in lines_split[i]:
         lines_split[i] = ['fname_umist', '=', "'"+network+"'", "\n"]
+
+
 
 ## Write the file
 with open(file, 'w') as f:
