@@ -43,4 +43,4 @@ echo ""
 
 # Load the krome module
 cd ../
-python krome -n networks/network_umist.dat -noSinkCheck -noRecCheck -iRHS 
+python krome -n networks/network_umist.dat -noSinkCheck -noRecCheck -iRHS -useN
