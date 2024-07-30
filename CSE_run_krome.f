@@ -163,9 +163,7 @@ C      write(*,*) 'num densities loaded'
       call krome_set_user_alb(1./(1.-ALBEDO))
 
       call krome(Y,  TEMP, TFINAL-TSTART)
-c      call krome_dump(n,rwork,iwork,ni)
-
-      
+    
 
 
 
