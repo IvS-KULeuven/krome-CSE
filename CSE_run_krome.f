@@ -104,7 +104,7 @@ c
 C  OPEN RATE, SPECIES AND OUTPUT FILES
 c      OPEN(UNIT=USPEC, FILE=FSPECS, STATUS='OLD')
       OPEN(UNIT=UPARENTS, FILE=FPARENTS, STATUS='OLD')
-      OPEN(UNIT=UFRAC, FILE=FOUTF)
+     
 C
 C  Physical parameters - temperature, density, cosmic ray
 c  ionisation and UV radiation field scaling factors and visual extinction
@@ -135,7 +135,7 @@ C      WRITE(*,*)'--------------------------------'
       WRITE(*,*)'       temp   ',TEMP
       WRITE(*,*)'       RAD    ',RAD
       WRITE(*,*)'       Av     ',AV
-      WRITE(*,*)'       TFINAL ',TFINAL
+      WRITE(*,*)'       time ',TFINAL-TSTART
 C      WRITE(*,*)'--------------------------------'
 C
 c Input section
@@ -148,8 +148,10 @@ C  density #/cm3
       DO 2 I = 1,N
 c    print *, 'Reading species:', I
          READ(UPARENTS,100) Y(I)
+c        write(*,*) Y(I)
          IF(Y(I).GT.0) THEN
             Y(I)=Y(I)
+c          write(*,*) Y(I)
          ENDIF
  2    CONTINUE
 
@@ -162,11 +164,23 @@ C      write(*,*) 'num densities loaded'
       call krome_set_user_xi(RAD)
       call krome_set_user_alb(1./(1.-ALBEDO))
 
-      call krome(Y,  TEMP, TFINAL-TSTART)
+      call krome_consistent_x(Y)
+
+
+      DN = DN * (2.0 + 4.0*0.17) * 1.6605E-24
+
+      call krome(Y,  DN, TEMP, TFINAL-TSTART)
+
+
+      OPEN(UNIT=222, FILE=FOUTF, STATUS = 'REPLACE')
+      do i=1, size(Y)
+          write(222, 100) Y(i)
+      enddo
+
     
 
 
 
- 100  FORMAT(20X,E20.2)
+ 100  FORMAT(20X,ES11.2E3)
       
       end program main
