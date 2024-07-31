@@ -19,23 +19,15 @@ c
       use krome_user
       IMPLICIT DOUBLE PRECISION (A-H,O-Z)
 
-      CHARACTER*10  SP(468),CSP(2),RE1,RE2,P1,P2,P3,P4,PARENT(468)
-      CHARACTER*5 FLG
-      CHARACTER*1 SR
-      CHARACTER*11 JAC
-      CHARACTER*500 FRATES,FSPECS,FOUTF,FOUTN,FPARENTS,INFILE,DUMMY
+      CHARACTER*500 FSPECS,FOUTF,FPARENTS,INFILE,DUMMY
       CHARACTER*500 FTIME
       INTEGER OU
-      INTEGER IWORK(1025),I,J,FSPEC,FRATE,FFRAC,FNUM,UFRAC,URATES,USPEC,
-     *     NSPEC,NCONS,NPAR,ICO,ICOR,IRUN,ITOL,ITASK,ISTATE,IOPT,LRW,
-     *     LIW,MF,NREAC,IS,IF,LI,LTAG,NEXTRA,IFREEZE,IANA,UANA,
-     *     UPARENTS, UIN, UTIME
-      DOUBLE PRECISION K(10000),MASS(468),NGD,RTOL,ATOL,TSTART,Y(468),
-     *     T,RWORK(2000000),TOTAL(10),B(468,300),CINP(2),TAGE(300),SH,
-     *     X(10),GR,DN,TFINAL,TLAST,KJ,ACCR,HNR,PI,KB,MH,MU,PABUND(468)
-      COMMON/BL1/ K,X,TOTAL,GR,DN,ACCR,HNR,IFREEZE
-      COMMON/BL10/ MASS,SH
-      COMMON/BL3/ Y,X_G,A_G,TEMP,AV,ZETA,ALBEDO,RAD
+      INTEGER I,J,FSPEC,URATES,USPEC,UPARENTS, UIN, UTIME
+      DOUBLE PRECISION TSTART,Y(468),T,SH,
+     *     X(10),GR,DN,TFINAL,ACCR,HNR,PI,KB,MH,MU
+c      COMMON/BL1/ X,GR,DN,ACCR,HNR
+c      COMMON/BL10/ SH
+c      COMMON/BL3/ Y,X_G,A_G,TEMP,AV,ZETA,ALBEDO,RAD
 C  NC = Number of conserved species, NR = Number of reactions, N = Number of species (ODEs)
       PARAMETER(OU=8,NC=2,NR=6173,N=468)
 
@@ -55,7 +47,6 @@ c      FOUTF = 'fortrandc13-C-rho5.63E+06-T2500-d1-Av1.out'
 c      FPARENTS = 'rates/C.parents'
 C
       USPEC = 1
-      UFRAC = 3
       URATES = 4
       UANA = 5
       UPARENTS = 37
@@ -101,8 +92,7 @@ C      END DO
 
       
 c      
-C  OPEN RATE, SPECIES AND OUTPUT FILES
-c      OPEN(UNIT=USPEC, FILE=FSPECS, STATUS='OLD')
+C  open parent species file
       OPEN(UNIT=UPARENTS, FILE=FPARENTS, STATUS='OLD')
      
 C
@@ -142,9 +132,8 @@ c Input section
 c -------------
 C read species file.. get species names, masses and initial abundances
 C
-C  parent species tov H
+C  parent species tov H2
 C  density #/cm3
-      WRITE(11,*)'Initially, relative to H2'
       DO 2 I = 1,N
 c    print *, 'Reading species:', I
          READ(UPARENTS,100) Y(I)
@@ -155,8 +144,6 @@ c          write(*,*) Y(I)
          ENDIF
  2    CONTINUE
 
-
-C      write(*,*) 'num densities loaded'
 
       call krome_init()
 
@@ -169,7 +156,7 @@ C      write(*,*) 'num densities loaded'
 
       DN = DN * (2.0 + 4.0*0.17) * 1.6605E-24
 
-      call krome(Y,  DN, TEMP, TFINAL-TSTART)
+      call krome(Y,  TEMP, TFINAL-TSTART)
 
 
       OPEN(UNIT=222, FILE=FOUTF, STATUS = 'REPLACE')

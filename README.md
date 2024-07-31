@@ -43,3 +43,6 @@ run_CSE_krome.sh
     Reading in parent species file + physical input parameters works. Initialising KROME works. Saving output of KROME works. 
 
     KROME chemical evolution does NOT coincide with our [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code). We (Mats Esseldeurs and me, Silke Maes) think the issue lies within the cosmic ray reaction of H2. In the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code) it is assumed that H2 is fully self-shielding, so that it stays roughly constant throughout the CSE. At the moment, this assumption is not yet realised in the kromeCSE code.
+
+    Note to self:
+    Abundances (resulting from KROME) change when using -useX (mass fractions) or -useN (number density). Check later why!
