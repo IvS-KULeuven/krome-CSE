@@ -19,9 +19,9 @@ The chemistry code KROME is *in the process of* being made compatible with our A
 - 12/07/'24:
 
     Correct rates, including radiation parameters $A_V$ and $\xi$ implemented (more info see [Maes et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024ApJ...969...79M/abstract)), via script 
-    '''
+    ```
     umist2krome_custm.py
-    '''
+    ```
     originally written by Tommaso Grassi.
 
 - 31/07/'24:
