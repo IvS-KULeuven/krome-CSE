@@ -4,9 +4,23 @@ The chemistry code KROME is *in the process of* being made compatible with our A
 ---
 
 ### How to run?
-1. Run the bash script "build_UMIST.sh" with a chemical network as argument. 
-2. Run the bash script "make_CSEkrome.sh". This will make an executable for file CSE_run_krome.f.
-3. Run the bash script "run_CSE_krome.sh" with a inputfile as argument to properly run the executable.
+1. Run the bash script 
+```
+build_UMIST.sh chem_netw
+```
+with a chemical network as argument. 
+
+2. Run the bash script 
+```
+make_CSEkrome.sh
+```
+This will make an executable for file CSE_run_krome.f.
+
+3. Run the bash script 
+```
+run_CSE_krome.sh
+```
+ with a inputfile as argument to properly run the executable.
 
 ---
 
