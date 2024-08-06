@@ -36,18 +36,18 @@ run_CSE_krome.sh
 ---
 
 ### Updates
+(Latest first)
 
-- 08/07/'24:
-    
-    KROME runs, but the radiation component for the photodissociation reactions does not work yet. 
+- 06/08/'24
 
-- 12/07/'24:
+    1. Found the first bug in the system!! Because of a type (on my side), the cosmic ray reaction rates were way to high. Fixed this.
 
-    Correct rates, including radiation parameters $A_V$ and $\xi$ implemented (more info see [Maes et al. 2024](https://ui.adsabs.harvard.edu/abs/2024ApJ...969...79M/abstract)), via script 
-    ```
-    umist2krome_custm.py
-    ```
-    originally written by Tommaso Grassi.
+    2. In our setup, every timestep the density is lower ($\frac{1}{^2}$-law in density). Hence, we cannot use the -useN flag (using number densities), bus have to use the -useX flag (fractions). This fixes a lot!
+
+    --> Results now are getting decent :D
+
+    *To do*: The photodissociation know seems to set in too late, and too few electrons. See figure, dash lines are the abundances calculated by the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code), full lines are the abundances calculated by KROME.
+    ![First decent results](output_krome.png)
 
 - 31/07/'24:
 
@@ -57,3 +57,15 @@ run_CSE_krome.sh
 
     Note to self:
     Abundances (resulting from KROME) change when using -useX (mass fractions) or -useN (number density). Check later why!
+
+- 12/07/'24:
+
+    Correct rates, including radiation parameters $A_V$ and $\xi$ implemented (more info see [Maes et al. 2024](https://ui.adsabs.harvard.edu/abs/2024ApJ...969...79M/abstract)), via script 
+    ```
+    umist2krome_custm.py
+    ```
+    originally written by Tommaso Grassi.
+
+- 08/07/'24:
+    
+    KROME runs, but the radiation component for the photodissociation reactions does not work yet. 
