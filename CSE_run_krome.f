@@ -113,8 +113,8 @@ C   GRAIN ALBEDO
 C SET STICKING COEFFICIENT FOR H ATOMS
       SH = 0.3
 C
-C  H-ATOM ACCRETION RATE
       ACCR = SH*PI*(A_G**2.0)*DN*X_G*(8.0*KB*TEMP/(PI*MH))**0.5
+C  H-ATOM ACCRETION RATE
 C SET GRAIN SURFACE FORMATION OF H2 TO CLASSICAL RATE
 C     GR = 5.2E-17*(TEMP*3.33E-3)**0.5
 C     ACCR = GR*DN
@@ -173,12 +173,13 @@ c      write(*,*) 'kfile: ', kfile
           write(223, 101) i, k(i)
       enddo
 
-      call krome_consistent_x(Y)
+
 
       DN = DN * (2.0 + 4.0*0.17) * 1.6605E-24   
 
       call krome(Y, DN,  TEMP, TFINAL-TSTART)
 
+      
 
       OPEN(UNIT=222, FILE=FOUTF, STATUS = 'REPLACE')
       do i=1, size(Y)
