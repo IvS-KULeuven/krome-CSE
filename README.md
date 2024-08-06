@@ -2,6 +2,13 @@
 The chemistry code KROME is *in the process of* being made compatible with our AGB circumstellar envelope (CSE) chemistry, usually calculated using the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code), see also this [link](http://udfa.ajmarkwick.net/index.php?mode=downloads).
 
 ---
+### Notes
+
+- KROME was once coupled to PHANTOM by W. Homan, see code [here](https://github.com/danieljprice/phantom/blob/master/src/main/krome.f90). --> Didn't work as it should, chemically speaking.
+
+- Chemical networks were added to KROME for AGB outflows by J. Bolte, see details [here](https://github.com/IvS-KULeuven/KROME).
+
+---
 
 ### How to run?
 1. Run the bash script 
@@ -32,7 +39,7 @@ run_CSE_krome.sh
 
 - 12/07/'24:
 
-    Correct rates, including radiation parameters $A_V$ and $\xi$ implemented (more info see [Maes et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024ApJ...969...79M/abstract)), via script 
+    Correct rates, including radiation parameters $A_V$ and $\xi$ implemented (more info see [Maes et al. 2024](https://ui.adsabs.harvard.edu/abs/2024ApJ...969...79M/abstract)), via script 
     ```
     umist2krome_custm.py
     ```
