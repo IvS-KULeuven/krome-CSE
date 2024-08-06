@@ -42,4 +42,4 @@ echo ""
 
 # Load the krome module
 cd ../
-python krome -n networks/network_umist.dat -noSinkCheck -noRecCheck  -conserve -useN -noTlimits -unsafe -skipODEthermo -skipJacobian -iRHS 
+python krome -n networks/network_umist.dat -iRHS -noSinkCheck -noRecCheck  -conserve -useX -noTlimits -unsafe -skipODEthermo -skipJacobian 

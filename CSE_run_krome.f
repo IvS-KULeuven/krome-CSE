@@ -17,19 +17,22 @@ c
       PROGRAM MAIN
       use krome_main 
       use krome_user
-      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      IMPLICIT NONE
 
       CHARACTER*500 FSPECS,FOUTF,FPARENTS,INFILE,DUMMY
-      CHARACTER*500 FTIME
-      INTEGER OU
+      CHARACTER*500 DIR, kfile, IDX
+      INTEGER OU, N, IANA, IRUN, UANA, NR
       INTEGER I,J,FSPEC,URATES,USPEC,UPARENTS, UIN, UTIME
       DOUBLE PRECISION TSTART,Y(468),T,SH,
-     *     X(10),GR,DN,TFINAL,ACCR,HNR,PI,KB,MH,MU
+     *     X(10),GR,DN,TFINAL,ACCR,HNR,PI,KB,MH,MU,
+     *     ZETA, A_G, X_G, AV, ALBEDO, RAD, TEMP,
+     *     test_Av, test_xi, test_alb
+      DOUBLE PRECISION, DIMENSION(6180) :: k
 c      COMMON/BL1/ X,GR,DN,ACCR,HNR
 c      COMMON/BL10/ SH
 c      COMMON/BL3/ Y,X_G,A_G,TEMP,AV,ZETA,ALBEDO,RAD
 C  NC = Number of conserved species, NR = Number of reactions, N = Number of species (ODEs)
-      PARAMETER(OU=8,NC=2,NR=6173,N=468)
+      PARAMETER(OU=8,NR=6173,N=468)
 
 C  PHYSICAL CONSTANTS
       DATA PI,MH,MU,KB/3.1415927,1.6605E-24,2.2,1.3807E-16/
@@ -84,13 +87,11 @@ C      END DO
       READ(UIN,*) DUMMY,DUMMY,TSTART
       READ(UIN,*) DUMMY,DUMMY,FPARENTS
       READ(UIN,*) DUMMY,DUMMY,FOUTF
-      READ(UIN,*) DUMMY,DUMMY,FTIME
+      READ(UIN,*) DUMMY,DUMMY,DIR
+      READ(UIN,*) DUMMY,DUMMY,IDX
       CLOSE(UNIT=UIN)
 
-      OPEN(UNIT=UTIME, FILE=FTIME)
-
-
-      
+     
 c      
 C  open parent species file
       OPEN(UNIT=UPARENTS, FILE=FPARENTS, STATUS='OLD')
@@ -151,12 +152,32 @@ c          write(*,*) Y(I)
       call krome_set_user_xi(RAD)
       call krome_set_user_alb(1./(1.-ALBEDO))
 
+c     Normalise abudances and balance charge conservation with e-
+c      call krome_consistent_x(Y)
+
+c     Test if values are correct in KROME
+c
+c      test_Av =  krome_get_user_av()
+c      test_xi =  krome_get_user_xi()
+c      test_alb =  krome_get_user_alb()
+c      WRITE(*,*) 'xi  ',test_xi
+c      WRITE(*,*) 'Av  ',test_Av
+c      WRITE(*,*) 'abl ',test_alb
+c
+      kfile = DIR 
+c      write(*,*) 'kfile: ', kfile
+
+      k = krome_get_coef(TEMP,Y)
+      OPEN(UNIT=223, FILE=kfile, STATUS = 'REPLACE')
+      do i=1, size(k)
+          write(223, 101) i, k(i)
+      enddo
+
       call krome_consistent_x(Y)
 
+      DN = DN * (2.0 + 4.0*0.17) * 1.6605E-24   
 
-      DN = DN * (2.0 + 4.0*0.17) * 1.6605E-24
-
-      call krome(Y,  TEMP, TFINAL-TSTART)
+      call krome(Y, DN,  TEMP, TFINAL-TSTART)
 
 
       OPEN(UNIT=222, FILE=FOUTF, STATUS = 'REPLACE')
@@ -169,5 +190,6 @@ c          write(*,*) Y(I)
 
 
  100  FORMAT(20X,ES11.2E3)
+ 101  FORMAT(20X,I4,ES11.2E3)
       
       end program main
