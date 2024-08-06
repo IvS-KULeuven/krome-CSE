@@ -1,9 +1,9 @@
 # krome-CSE
 The chemistry code [KROME](https://kromepackage.org/) is *in the process of* being made compatible with our AGB circumstellar envelope (CSE) chemistry, usually calculated using the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code), see also this [link](http://udfa.ajmarkwick.net/index.php?mode=downloads).
 
-*** Aim ***: Couple [KROME](https://bitbucket.org/tgrassi/krome/) to [PHANTOM](https://github.com/danieljprice/phantom/tree/master) to run 3D hydro-chem model of AGB outflow. 
+**Aim**: Couple [KROME](https://bitbucket.org/tgrassi/krome/) to [PHANTOM](https://github.com/danieljprice/phantom/tree/master) to run 3D hydro-chem model of AGB outflow. 
 
-*** Why KROME? ***: KROME is implemented in such a way that it can deal with running in parallel, which is needed for a coupling with PHANTOM.
+**Why KROME?**: KROME is implemented in such a way that it can deal with running in parallel, which is needed for a coupling with PHANTOM.
 
 ---
 ### Notes
