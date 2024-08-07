@@ -25,8 +25,8 @@ c
       INTEGER I,J,FSPEC,URATES,USPEC,UPARENTS, UIN, UTIME
       DOUBLE PRECISION TSTART,Y(468),T,SH,
      *     X(10),GR,DN,TFINAL,ACCR,HNR,PI,KB,MH,MU,
-     *     ZETA, A_G, X_G, AV, ALBEDO, RAD, TEMP,
-     *     test_Av, test_xi, test_alb
+     *     ZETA, A_G, X_G, AUV, ALBEDO, RAD, TEMP,
+     *     test_Av, test_xi, test_alb, AuvAv
       DOUBLE PRECISION, DIMENSION(6180) :: k
 c      COMMON/BL1/ X,GR,DN,ACCR,HNR
 c      COMMON/BL10/ SH
@@ -82,7 +82,7 @@ C      END DO
       READ(UIN,*) DUMMY,DUMMY,DN
       READ(UIN,*) DUMMY,DUMMY,TEMP
       READ(UIN,*) DUMMY,DUMMY,RAD
-      READ(UIN,*) DUMMY,DUMMY,AV
+      READ(UIN,*) DUMMY,DUMMY,AUV
       READ(UIN,*) DUMMY,DUMMY,TFINAL
       READ(UIN,*) DUMMY,DUMMY,TSTART
       READ(UIN,*) DUMMY,DUMMY,FPARENTS
@@ -112,6 +112,8 @@ C   GRAIN ALBEDO
       ALBEDO = 0.5
 C SET STICKING COEFFICIENT FOR H ATOMS
       SH = 0.3
+
+      AuvAv = 4.65
 C
       ACCR = SH*PI*(A_G**2.0)*DN*X_G*(8.0*KB*TEMP/(PI*MH))**0.5
 C  H-ATOM ACCRETION RATE
@@ -125,7 +127,7 @@ C      WRITE(*,*)'--------------------------------'
       WRITE(*,*)'       dens   ',DN
       WRITE(*,*)'       temp   ',TEMP
       WRITE(*,*)'       RAD    ',RAD
-      WRITE(*,*)'       Av     ',AV
+      WRITE(*,*)'       Auv    ',AUV
       WRITE(*,*)'       time ',TFINAL-TSTART
 C      WRITE(*,*)'--------------------------------'
 C
@@ -148,9 +150,10 @@ c          write(*,*) Y(I)
 
       call krome_init()
 
-      call krome_set_user_av(AV)
+      call krome_set_user_Auv(AUV)
       call krome_set_user_xi(RAD)
       call krome_set_user_alb(1./(1.-ALBEDO))
+      call krome_set_user_AuvAv(AuvAv)
 
 c     Normalise abudances and balance charge conservation with e-
 c      call krome_consistent_x(Y)

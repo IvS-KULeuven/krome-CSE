@@ -12,7 +12,7 @@ fname = "network_umist.dat"  # output file
 
 skip = ["PHOTON", "CRPHOT", "CRP"]
 body = "@format:idx,R,R,P,P,P,P,tmin,tmax,rate\n"
-body += "@common:user_av,user_alb,user_xi\n"
+body += "@common:user_Auv,user_alb,user_xi,user_AuvAv\n"
 count = 0
 for row in open(fname_umist):
     srow = row.strip()
@@ -31,7 +31,7 @@ for row in open(fname_umist):
     elif rtype == 'CP':
         rate = "%.2e " % ka
     elif rtype == "PH":
-        rate = "%.2e * user_xi * exp(-%.2f * user_av)" % (ka, kc)
+        rate = "%.2e * user_xi * exp(-%.2f * user_Auv / user_AuvAv)" % (ka, kc)
     else:
         rate = "%.2e" % ka
         if kb != 0e0:
