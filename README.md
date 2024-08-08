@@ -15,6 +15,12 @@ The chemistry code [KROME](https://kromepackage.org/) is *in the process of* bei
 ---
 
 ### How to run?
+
+0. Initialise the Krome git submodule:
+```
+git submodule init krome
+```
+
 1. Run the bash script 
 ```
 build_UMIST.sh chem_netw
