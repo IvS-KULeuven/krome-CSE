@@ -15,6 +15,8 @@ The chemistry code [KROME](https://kromepackage.org/) is *in the process of* bei
 ---
 
 ### How to run?
+> Clone using the recursive option: ```git clone --recursive```.
+
 1. Run the bash script 
 ```
 build_UMIST.sh chem_netw
