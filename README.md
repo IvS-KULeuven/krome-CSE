@@ -40,6 +40,12 @@ run_CSE_krome.sh
 ### Updates
 (Latest first)
 
+- 06/09/'24
+    Added test input file so that users can do a test run.
+
+    ***Benchmark***: Still something wrong with (probably) the density. Might be unit issues, or discrepancy with H vs. H2. --> #todo 
+        - Multiplied abundances with 2, but does not solve the problem.
+
 - 06/08/'24
 
     1. Found the first bug in the system!! Because of a type (on my side), the cosmic ray reaction rates were way to high. Fixed this.

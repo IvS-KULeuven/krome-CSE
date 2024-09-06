@@ -142,7 +142,7 @@ c    print *, 'Reading species:', I
          READ(UPARENTS,100) Y(I)
 c        write(*,*) Y(I)
          IF(Y(I).GT.0) THEN
-            Y(I)=Y(I)
+            Y(I)=Y(I) 
 c          write(*,*) Y(I)
          ENDIF
  2    CONTINUE
@@ -152,7 +152,7 @@ c          write(*,*) Y(I)
 
       call krome_set_user_Auv(AUV)
       call krome_set_user_xi(RAD)
-      call krome_set_user_alb(1./(1.-ALBEDO))
+      call krome_set_user_alb(ALBEDO)
       call krome_set_user_AuvAv(AuvAv)
 
 c     Normalise abudances and balance charge conservation with e-

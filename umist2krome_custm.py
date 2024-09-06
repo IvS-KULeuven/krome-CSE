@@ -27,7 +27,7 @@ for row in open(fname_umist):
     # print(rr, pp, ka, kb, kc)
     rate = None
     if rtype == "CR":
-        rate = "%.2e *  (Tgas / 3.0e2)**(%.2f) * user_alb * (%.2f)" % (ka, kb, kc)
+        rate = "%.2e *  (Tgas / 3.0e2)**(%.2f) * (1./(1.-user_alb)) * (%.2f)" % (ka, kb, kc)
     elif rtype == 'CP':
         rate = "%.2e " % ka
     elif rtype == "PH":
