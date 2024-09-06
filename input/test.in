@@ -1,0 +1,10 @@
+DN = 128800000.0
+TEMP = 939.1
+RAD = 5.356e-16
+AV = 32.03
+TFINAL = 4342857.142857142
+TSTART = 4114285.7142857164
+FPARENTS = '../../input/abs1.in'
+FOUT = '../../input/abs2.in'
+dir = '../../output/k1.out'
+idx = '1'
