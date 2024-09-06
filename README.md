@@ -15,7 +15,7 @@ The chemistry code [KROME](https://kromepackage.org/) is *in the process of* bei
 ---
 
 ### How to run?
-> Clone using the recursive option: ```git clone --recursive```.
+> Clone using the recursive option: ```git clone --recursive```, to also clone the KROME package.
 
 1. Run the bash script 
 ```
