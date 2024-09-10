@@ -178,7 +178,8 @@ c      write(*,*) 'kfile: ', kfile
 
 
 
-      DN = DN * (2.0 + 4.0*0.17) * 1.6605E-24   
+      DN = (DN * (2.0 + 4.0*0.17) * 1.6605E-24  ) 
+c     ! DN = HNR * mu * mH   w.r.t. H2
 
       call krome(Y, DN,  TEMP, TFINAL-TSTART)
 

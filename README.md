@@ -48,9 +48,9 @@ run_CSE_krome.sh
 
 - 06/08/'24
 
-    1. Found the first bug in the system!! Because of a type (on my side), the cosmic ray reaction rates were way to high. Fixed this.
+    1. Found the first bug in the system!! Because of a typo (on my side), the cosmic ray reaction rates were way to high. Fixed this.
 
-    2. In our setup, every timestep the density is lower ($\frac{1}{^2}$-law in density). Hence, we cannot use the -useN flag (using number densities), bus have to use the -useX flag (fractions). This fixes a lot!
+    2. In our setup, every timestep the density is lower ($\frac{1}{^2}$-law in density). Hence, we cannot use the -useN flag (using number densities), but have to use the -useX flag (fractions). This fixes a lot!
 
     --> Results now are getting decent :D
 
