@@ -1,5 +1,5 @@
 # krome-CSE
-The chemistry code [KROME](https://kromepackage.org/) is *in the process of* being made compatible with our AGB circumstellar envelope (CSE) chemistry, usually calculated using the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code), see also this [link](http://udfa.ajmarkwick.net/index.php?mode=downloads).
+The chemistry code [KROME](https://kromepackage.org/) is *in the process of* being made compatible with our AGB circumstellar envelope (CSE) chemistry, usually calculated using the [UMIST Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code), see also this [link](http://udfa.ajmarkwick.net/index.php?mode=downloads).
 
 **Aim**: Couple [KROME](https://bitbucket.org/tgrassi/krome/) to [PHANTOM](https://github.com/danieljprice/phantom/tree/master) to run 3D hydro-chem model of AGB outflow. 
 
@@ -44,6 +44,8 @@ run_CSE_krome.sh
 
     Added benchmark to results from [ChemPy](https://github.com/silkemaes/ChemPy), see figure below.
 
+    Discrepancy in CO between UMIST model and ChemPy model is due to CO self-shielding; this is not present in the ChemPy model.
+
 - 06/09/'24:
 
     Added test input file so that users can do a test run.
@@ -58,14 +60,14 @@ run_CSE_krome.sh
 
     --> Results now are getting decent :D
 
-    *To do*: The photodissociation know seems to set in too late, and too few electrons. See figure, dotted lines are the abundances calculated by the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code) ("absolute truth"), full lines are the abundances calculated by KROME. The dashed lines are results for the same physical setup by [ChemPy](https://github.com/silkemaes/ChemPy).
+    *To do*: The photodissociation know seems to set in too late, and too few electrons. See figure, dotted lines are the abundances calculated by the [UMIST Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code) ("absolute truth"), full lines are the abundances calculated by KROME. The dashed lines are results for the same physical setup by [ChemPy](https://github.com/silkemaes/ChemPy).
     ![First decent results](output_krome.png)
 
 - 31/07/'24:
 
     Reading in parent species file + physical input parameters works. Initialising KROME works. Saving output of KROME works. 
 
-    KROME chemical evolution does NOT coincide with our [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code). We (Mats Esseldeurs and me, Silke Maes) think the issue lies within the cosmic ray reaction of H2. In the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code) it is assumed that H2 is fully self-shielding, so that it stays roughly constant throughout the CSE. At the moment, this assumption is not yet realised in the kromeCSE code.
+    KROME chemical evolution does NOT coincide with our [UMIST Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code). We (Mats Esseldeurs and me, Silke Maes) think the issue lies within the cosmic ray reaction of H2. In the [UMIST Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code) it is assumed that H2 is fully self-shielding, so that it stays roughly constant throughout the CSE. At the moment, this assumption is not yet realised in the kromeCSE code.
 
     Note to self:
     Abundances (resulting from KROME) change when using -useX (mass fractions) or -useN (number density). Check later why!
