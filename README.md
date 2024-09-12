@@ -40,18 +40,17 @@ run_CSE_krome.sh
 ### Updates
 (Latest first)
 
-- 12/09/'24
+- 12/09/'24:
+
     Added benchmark to results from [ChemPy](https://github.com/silkemaes/ChemPy), see figure below.
 
-- 06/09/'24
+- 06/09/'24:
+
     Added test input file so that users can do a test run.
 
-    ***Benchmark***: Still something wrong with (probably) the density. Might be unit issues, or discrepancy with H vs. H2. 
-    
-    --> #todo 
-        - Multiplied abundances with 2, but does not solve the problem.
+    ***Benchmark***: Still something wrong with (probably) the density/photodissociation. 
 
-- 06/08/'24
+- 06/08/'24:
 
     1. Found the first bug in the system!! Because of a typo (on my side), the cosmic ray reaction rates were way to high. Fixed this.
 
