@@ -40,10 +40,15 @@ run_CSE_krome.sh
 ### Updates
 (Latest first)
 
+- 12/09/'24
+    Added benchmark to results from [ChemPy](https://github.com/silkemaes/ChemPy), see figure below.
+
 - 06/09/'24
     Added test input file so that users can do a test run.
 
-    ***Benchmark***: Still something wrong with (probably) the density. Might be unit issues, or discrepancy with H vs. H2. --> #todo 
+    ***Benchmark***: Still something wrong with (probably) the density. Might be unit issues, or discrepancy with H vs. H2. 
+    
+    --> #todo 
         - Multiplied abundances with 2, but does not solve the problem.
 
 - 06/08/'24
@@ -54,7 +59,7 @@ run_CSE_krome.sh
 
     --> Results now are getting decent :D
 
-    *To do*: The photodissociation know seems to set in too late, and too few electrons. See figure, dash lines are the abundances calculated by the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code), full lines are the abundances calculated by KROME.
+    *To do*: The photodissociation know seems to set in too late, and too few electrons. See figure, dotted lines are the abundances calculated by the [Rate22-CSE code](https://github.com/MarieVdS/rate22_cse_code) ("absolute truth"), full lines are the abundances calculated by KROME. The dashed lines are results for the same physical setup by [ChemPy](https://github.com/silkemaes/ChemPy).
     ![First decent results](output_krome.png)
 
 - 31/07/'24:
