@@ -128,7 +128,7 @@ C      WRITE(*,*)'--------------------------------'
       WRITE(*,*)'       temp   ',TEMP
       WRITE(*,*)'       RAD    ',RAD
       WRITE(*,*)'       Auv    ',AUV
-      WRITE(*,*)'       time ',TFINAL-TSTART
+      WRITE(*,*)'       time   ',TSTART
 C      WRITE(*,*)'--------------------------------'
 C
 c Input section
@@ -181,7 +181,7 @@ c      write(*,*) 'kfile: ', kfile
       DN = (DN * (1.0 + 4.0*0.085) * 1.6605E-24  ) 
 c     ! DN = HNR * mu * mH   w.r.t. Htot
 
-      call krome(Y, DN,  TEMP, TFINAL-TSTART)
+      call krome(Y, DN,  TEMP, TSTART)
 
       
 
