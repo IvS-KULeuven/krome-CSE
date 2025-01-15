@@ -21,18 +21,18 @@ c
 
       CHARACTER*500 FSPECS,FOUTF,FPARENTS,INFILE,DUMMY
       CHARACTER*500 DIR, kfile, IDX
-      INTEGER OU, N, IANA, IRUN, UANA, NR
-      INTEGER I,J,FSPEC,URATES,USPEC,UPARENTS, UIN, UTIME
-      DOUBLE PRECISION TSTART,Y(468),T,SH,
+      INTEGER OU, N, NR
+      INTEGER I,J,FSPEC,UPARENTS, UIN
+      DOUBLE PRECISION TSTART,Y(krome_nmols),T,SH,
      *     X(10),GR,DN,TFINAL,ACCR,HNR,PI,KB,MH,MU,
      *     ZETA, A_G, X_G, AUV, ALBEDO, RAD, TEMP,
      *     test_Av, test_xi, test_alb, AuvAv
-      DOUBLE PRECISION, DIMENSION(6180) :: k
+      DOUBLE PRECISION, DIMENSION(krome_nrea) :: k
 c      COMMON/BL1/ X,GR,DN,ACCR,HNR
 c      COMMON/BL10/ SH
 c      COMMON/BL3/ Y,X_G,A_G,TEMP,AV,ZETA,ALBEDO,RAD
 C  NC = Number of conserved species, NR = Number of reactions, N = Number of species (ODEs)
-      PARAMETER(OU=8,NR=6173,N=468)
+      PARAMETER(OU=8,NR=6173,N=krome_nmols)
 
 C  PHYSICAL CONSTANTS
       DATA PI,MH,MU,KB/3.1415927,1.6605E-24,2.2,1.3807E-16/
@@ -49,17 +49,8 @@ c      FOUTF = 'fortrandc13-C-rho5.63E+06-T2500-d1-Av1.out'
       
 c      FPARENTS = 'rates/C.parents'
 C
-      USPEC = 1
-      URATES = 4
-      UANA = 5
       UPARENTS = 37
       UIN = 16
-      UTIME = 12
-      
-C  ANALYSE CHEMISTRY?
-      IANA = 0
-C  ANALYSIS TIME (IRUN)
-      IRUN = 51
 
 C  ---> READ IN INPUT PARAMETERS
 CCCCCCCCCCCCCCCCCCCCCCCCCCCC
@@ -95,7 +86,7 @@ C      END DO
 c      
 C  open parent species file
       OPEN(UNIT=UPARENTS, FILE=FPARENTS, STATUS='OLD')
-     
+
 C
 C  Physical parameters - temperature, density, cosmic ray
 c  ionisation and UV radiation field scaling factors and visual extinction
@@ -121,7 +112,6 @@ C SET GRAIN SURFACE FORMATION OF H2 TO CLASSICAL RATE
 C     GR = 5.2E-17*(TEMP*3.33E-3)**0.5
 C     ACCR = GR*DN
 
-
 C      WRITE(*,*)'--------------------------------'
       WRITE(*,*)'Input parameters:'
       WRITE(*,*)'       dens   ',DN
@@ -146,7 +136,6 @@ c        write(*,*) Y(I)
 c          write(*,*) Y(I)
          ENDIF
  2    CONTINUE
-
 
       call krome_init()
 
@@ -175,8 +164,7 @@ c      write(*,*) 'kfile: ', kfile
       do i=1, size(k)
           write(223, 101) i, k(i)
       enddo
-
-
+      CLOSE(UNIT=223)
 
       DN = (DN * (1.0 + 4.0*0.085) * 1.6605E-24  ) 
 c     ! DN = HNR * mu * mH   w.r.t. Htot
@@ -189,10 +177,7 @@ c     ! DN = HNR * mu * mH   w.r.t. Htot
       do i=1, size(Y)
           write(222, 100) Y(i)
       enddo
-
-    
-
-
+      CLOSE(UNIT=222)
 
  100  FORMAT(20X,ES11.2E3)
  101  FORMAT(20X,I4,ES11.2E3)
