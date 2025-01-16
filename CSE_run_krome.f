@@ -166,11 +166,12 @@ c      write(*,*) 'kfile: ', kfile
       enddo
       CLOSE(UNIT=223)
 
-      DN = (DN * (1.0 + 4.0*0.085) * 1.6605E-24  ) 
+      ! DN = (DN * (1.0 + 4.0*0.085) * 1.6605E-24  ) 
 c     ! DN = HNR * mu * mH   w.r.t. Htot
 
-      call krome(Y, DN,  TEMP, TSTART)
-
+      Y = Y*DN
+      call krome(Y,  TEMP, TSTART)
+      Y = Y/DN
       
 
       OPEN(UNIT=222, FILE=FOUTF, STATUS = 'REPLACE')
