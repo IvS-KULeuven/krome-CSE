@@ -57,7 +57,7 @@ cd krome/tools
 pwd
 echo ">> Building the UMIST rate16 network in KROME format."
 python umist2krome_custm.py $arg $extra_args
-exit 1
+
 # Add shielding to the H2 reaction (deactivate the H2 photodissociation reaction)
 sed -i '/,H2,,H,H,,,.*user_xi/s/$/ * 0/' network_umist.dat
 
@@ -73,5 +73,5 @@ echo ""
 # Load the krome module
 cd ../
 # Pass extra_args to krome if present
-python krome -n networks/network_umist.dat -iRHS -noSinkCheck -noRecCheck -noTlimits -unsafe -skipODEthermo -skipJacobian $extra_args
+python krome -n networks/network_umist.dat -iRHS -noSinkCheck -noRecCheck -noTlimits -unsafe -skipODEthermo -skipJacobian
 # -shielding R14

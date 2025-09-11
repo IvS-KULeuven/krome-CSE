@@ -16,6 +16,8 @@ fname_umist = network+'.rates'
 fname = "network_umist.dat"  # output file
 
 skip = ["PHOTON", "CRPHOT", "CRP"]
+if IP: skip.append("INPHOTON")
+if AP: skip.append("ACPHOTON")
 body = "@format:idx,R,R,P,P,P,P,tmin,tmax,rate\n"
 body += "@common:user_Auv,user_alb,user_xi,user_AuvAv"
 if IP or AP: body += ",user_rscale"
