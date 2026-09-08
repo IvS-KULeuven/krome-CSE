@@ -27,30 +27,30 @@ then
 
 fi
 
-# if [ $arg == 'umist_rate16' ]; then
-#     echo "umist rate16 network selected."
+if [ $arg == 'umist_rate16' ]; then
+    echo "umist rate16 network selected."
 #     cp -r umist_rate16.rates krome/tools/
-# elif [ $arg == 'umist_rate22' ]; then
-#     echo "umist rate22 network selected."
+elif [ $arg == 'umist_rate22' ]; then
+    echo "umist rate22 network selected."
 #     cp -r ../rate22_cse_code/rate22_final.rates krome/tools/umist_rate22.rates
-#     if [ -z "$extra_args" ]; then
-#         echo "No extra arguments provided."
-#     else
-#         echo "Extra arguments provided: $extra_args"
-#         if [[ "$extra_args" == *"-AP"* ]]; then
-#             ap_value=$(echo "$extra_args" | grep -oP '(?<=-AP=)[^ ]*')
-#             echo "AP option detected. Activating accretion photons for a companion with $ap_value K."
+    if [ -z "$extra_args" ]; then
+        echo "No extra arguments provided."
+    else
+        echo "Extra arguments provided: $extra_args"
+        if [[ "$extra_args" == *"-AP"* ]]; then
+            ap_value=$(echo "$extra_args" | grep -oP '(?<=-AP=)[^ ]*')
+            echo "AP option detected. Activating accretion photons for a companion with $ap_value K."
 #             [ -n "$ap_value" ] && cp -r ../rate22_cse_code/AP_"$ap_value"K.rates krome/tools/
-#         fi
-#         if [[ "$extra_args" == *"-IP"* ]]; then
-#             echo "IP option detected. Activating internal photons from the AGB star."
+        fi
+        if [[ "$extra_args" == *"-IP"* ]]; then
+            echo "IP option detected. Activating internal photons from the AGB star."
 #             cp -r ../rate22_cse_code/IP.rates krome/tools/
-#         fi
-#     fi
-# else
-#     echo $arg "is not a present chemical network."
-#     exit 1
-# fi
+        fi
+    fi
+else
+    echo $arg "is not a present chemical network."
+    exit 1
+fi
 
 # Navigate to correct krome directory
 cd umist_network

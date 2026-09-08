@@ -19,19 +19,24 @@ The chemistry code [KROME](https://kromepackage.org/) is *in the process of* bei
 
 1. Run the bash script 
 ```
-build_UMIST.sh chem_netw
+./build_UMIST.sh umist_rate22 -AP=4000 -IP
 ```
 with a chemical network as argument. 
 
 2. Run the bash script 
 ```
-make_CSEkrome.sh
+./make_CSEkrome.sh
 ```
 This will make an executable for file CSE_run_krome.f.
 
-3. Run the bash script 
+3. Run the benchmark script 
 ```
-run_CSE_krome.sh
+./benchmark_runs.sh
+```
+which runs
+
+```
+./run_CSE_krome.sh
 ```
  with a inputfile as argument to properly run the executable.
 

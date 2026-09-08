@@ -22,7 +22,7 @@ body = "@format:idx,R,R,P,P,P,P,tmin,tmax,rate\n"
 body += "@common:user_Auv,user_alb,user_xi,user_AuvAv"
 if IP or AP: body += ",user_rscale"
 if IP: body += ",user_Gstar,user_Auv_star"
-if AP: body += ",user_Gcomp,user_Auv_comp"
+if AP: body += ",user_Gcomp,user_Auv_comp,user_rbinscale"
 body += "\n"
 count = 0
 for row in open(fname_umist):
