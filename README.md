@@ -34,10 +34,9 @@ This will make an executable for file CSE_run_krome.f.
 ./benchmark_runs.sh
 ```
 which runs
-
-```
-./run_CSE_krome.sh
-```
+``
+./krome/build/run_CSE_krome
+``
  with a inputfile as argument to properly run the executable.
 
 ---

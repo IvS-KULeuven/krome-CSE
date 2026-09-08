@@ -1,5 +1,5 @@
 @format:idx,R,R,P,P,P,P,tmin,tmax,rate
-@common:user_Auv,user_alb,user_xi,user_AuvAv,user_rbinscale,user_rscale,user_Gstar,user_Auv_star,user_Gcomp,user_Auv_comp
+@common:user_Auv,user_alb,user_xi,user_AuvAv,user_rscale,user_Gstar,user_Auv_star,user_Gcomp,user_Auv_comp,user_rbinscale
 0,C-,C,C2,E,,,1.00e+01,4.10e+04,5.00e-10
 1,C-,CH2,C2H2,E,,,1.00e+01,4.10e+04,5.00e-10
 2,C-,CH,C2H,E,,,1.00e+01,4.10e+04,5.00e-10
