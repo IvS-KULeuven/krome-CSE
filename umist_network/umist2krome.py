@@ -19,7 +19,7 @@ skip = ["PHOTON", "CRPHOT", "CRP"]
 if IP: skip.append("INPHOTON")
 if AP: skip.append("ACPHOTON")
 body = "@format:idx,R,R,P,P,P,P,tmin,tmax,rate\n"
-body += "@common:user_Auv,user_alb,user_xi,user_AuvAv"
+body += "@common:user_Auv,user_alb,user_xi,user_AuvAv,user_CO_shielding"
 if IP or AP: body += ",user_rscale"
 if IP: body += ",user_Gstar,user_Auv_star"
 if AP: body += ",user_Gcomp,user_Auv_comp,user_rbinscale"
@@ -41,6 +41,8 @@ for row in open(fname_umist):
         rate = "%.2e " % ka
     elif rtype == "PH":
         rate = "%.2e * user_xi * exp(-%.2f * user_Auv / user_AuvAv)" % (ka, kc)
+        if rr[0] == "CO":
+            rate = "user_CO_shielding"
     else:
         rate = "%.2e" % ka
         if kb != 0e0:
