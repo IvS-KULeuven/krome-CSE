@@ -43,3 +43,4 @@ __pycache__/
 run_CSE_krome
 out/
 data/
+*.mod

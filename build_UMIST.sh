@@ -27,7 +27,10 @@ then
 
 fi
 
-if [ $arg == 'umist_rate16' ]; then
+if [ $arg == 'umist_rate13' ]; then
+    echo "umist rate13 network selected."
+#     cp -r umist_rate13.rates krome/tools/
+elif [ $arg == 'umist_rate16' ]; then
     echo "umist rate16 network selected."
 #     cp -r umist_rate16.rates krome/tools/
 elif [ $arg == 'umist_rate22' ]; then

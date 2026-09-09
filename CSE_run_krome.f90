@@ -8,7 +8,7 @@ program main
     character(len=500) :: directory, index, label, message
     integer :: i, input_unit, parent_unit, output_unit, io_status
     real(real64) :: timestep, abundance(krome_nmols), density, final_time
-    real(real64) :: temperature, radiation, auv, albedo, auv_av, CO_shielding
+    real(real64) :: temperature, radiation, auv, albedo, auv_av, gamma_CO, CO_shielding
     real(real64) :: frace, lamdae, fosce, bands, ge0, taue
     real(real64) :: gammad, betae, getcor, h2col, xco, v
 
@@ -37,6 +37,7 @@ program main
 
     albedo = 0.5_real64
     auv_av = 4.65_real64
+    gamma_CO = 3.0_real64
 
     write (*, '(a)') ' >> CSE_run_krome is running ...'
     write (*, '(a)') '--------------------------------'
@@ -62,6 +63,7 @@ program main
     call krome_set_user_xi(radiation)
     call krome_set_user_alb(albedo)
     call krome_set_user_AuvAv(auv_av)
+    call krome_set_user_gamma_CO(gamma_CO)
 
     ! fractional population of lower level
     frace = 1.0_real64 / 3.0_real64
@@ -87,9 +89,8 @@ program main
     betae = (1.0_real64 - exp(-1.5_real64 * taue)) / (1.5_real64 * taue)
     ! calculate co photodissociation rate
     getcor = ge0 * betae * gammad * bands
-
     call krome_set_user_CO_shielding(getcor)
-    print *, 'CO_shielding = ', getcor
+
       ! if krome_set_user_rscale routine exists, call it here to set the radial scale.
       ! RADIUS AT WHICH PHOTORATES DUE TO BINARY PHOTONS ARE CALCULATED
       ! RSCALE = 50 * R_STAR

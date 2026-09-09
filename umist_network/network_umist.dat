@@ -1,5 +1,5 @@
 @format:idx,R,R,P,P,P,P,tmin,tmax,rate
-@common:user_Auv,user_alb,user_xi,user_AuvAv,user_CO_shielding
+@common:user_Auv,user_alb,user_xi,user_AuvAv,user_gamma_CO,user_CO_shielding
 0,C-,C,C2,E,,,1.00e+01,4.10e+04,5.00e-10
 1,C-,CH2,C2H2,E,,,1.00e+01,4.10e+04,5.00e-10
 2,C-,CH,C2H,E,,,1.00e+01,4.10e+04,5.00e-10
@@ -5705,342 +5705,342 @@
 5702,Si,CO,SiO,C,,,2.72e+03,5.19e+03,1.30e-09 * exp(-34513.00 / Tgas)
 5703,Si,NO,SiO,N,,,1.00e+01,3.00e+02,9.00e-11 * (Tgas / 3.0e2)**(-0.96) * exp(-28.00 / Tgas)
 5704,Si,O2,SiO,O,,,1.00e+01,3.00e+02,1.72e-10 * (Tgas / 3.0e2)**(-0.53) * exp(-17.00 / Tgas)
-5705,C-,,C,E,,,1.00e+01,4.10e+04,1.45e-08 * user_xi * exp(-0.50 * user_Auv / user_AuvAv)
-5706,C10-,,C10,E,,,1.00e+01,4.10e+04,2.16e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5707,C10,,C10+,E,,,1.00e+01,4.10e+04,5.49e-10 * user_xi * exp(-3.10 * user_Auv / user_AuvAv)
-5708,C10,,C6,C3,C,,1.00e+01,4.10e+04,1.16e-12 * user_xi * exp(-5.20 * user_Auv / user_AuvAv)
-5709,C10,,C6,C4,,,1.00e+01,4.10e+04,9.47e-12 * user_xi * exp(-3.90 * user_Auv / user_AuvAv)
-5710,C10,,C7,C2,C,,1.00e+01,4.10e+04,3.46e-12 * user_xi * exp(-5.10 * user_Auv / user_AuvAv)
-5711,C10,,C8,C2,,,1.00e+01,4.10e+04,1.96e-10 * user_xi * exp(-3.00 * user_Auv / user_AuvAv)
-5712,C10,,C9,C,,,1.00e+01,4.10e+04,9.37e-10 * user_xi * exp(-2.60 * user_Auv / user_AuvAv)
-5713,C10H-,,C10H,E,,,1.00e+01,3.00e+02,2.17e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5714,C10H2,,C10,H,H,,1.00e+01,4.10e+04,3.10e-12 * user_xi * exp(-5.20 * user_Auv / user_AuvAv)
-5715,C10H2,,C10H2+,E,,,1.00e+01,4.10e+04,4.94e-10 * user_xi * exp(-3.10 * user_Auv / user_AuvAv)
-5716,C10H2,,C10H,H,,,1.00e+01,4.10e+04,5.27e-10 * user_xi * exp(-3.10 * user_Auv / user_AuvAv)
-5717,C10H2,,C7H,C3,H,,1.00e+01,4.10e+04,6.14e-13 * user_xi * exp(-5.20 * user_Auv / user_AuvAv)
-5718,C10H,,C10,H,,,1.00e+01,4.10e+04,7.36e-10 * user_xi * exp(-2.60 * user_Auv / user_AuvAv)
-5719,C10H,,C10H+,E,,,1.00e+01,4.10e+04,5.45e-10 * user_xi * exp(-3.10 * user_Auv / user_AuvAv)
-5720,C10H,,C5,C5,H,,1.00e+01,4.10e+04,2.30e-11 * user_xi * exp(-3.80 * user_Auv / user_AuvAv)
-5721,C10H,,C5H,C5,,,1.00e+01,4.10e+04,3.19e-11 * user_xi * exp(-3.00 * user_Auv / user_AuvAv)
-5722,C10H,,C7,C3,H,,1.00e+01,4.10e+04,5.95e-11 * user_xi * exp(-3.90 * user_Auv / user_AuvAv)
-5723,C10H,,C7H,C3,,,1.00e+01,4.10e+04,1.86e-10 * user_xi * exp(-2.60 * user_Auv / user_AuvAv)
-5724,C10H,,C8,C2,H,,1.00e+01,4.10e+04,1.42e-12 * user_xi * exp(-5.00 * user_Auv / user_AuvAv)
-5725,C10H,,C9,C,H,,1.00e+01,4.10e+04,2.07e-11 * user_xi * exp(-4.60 * user_Auv / user_AuvAv)
-5726,C11,,C11+,E,,,1.00e+01,4.10e+04,5.73e-10 * user_xi * exp(-3.00 * user_Auv / user_AuvAv)
-5727,C11,,C5,C3,C3,,1.00e+01,4.10e+04,3.83e-11 * user_xi * exp(-4.50 * user_Auv / user_AuvAv)
-5728,C11,,C6,C5,,,1.00e+01,4.10e+04,5.28e-11 * user_xi * exp(-3.10 * user_Auv / user_AuvAv)
-5729,C11,,C7,C4,,,1.00e+01,4.10e+04,2.31e-11 * user_xi * exp(-3.30 * user_Auv / user_AuvAv)
-5730,C11,,C8,C3,,,1.00e+01,4.10e+04,4.41e-10 * user_xi * exp(-2.70 * user_Auv / user_AuvAv)
-5731,C11,,C9,C2,,,1.00e+01,4.10e+04,2.86e-10 * user_xi * exp(-2.80 * user_Auv / user_AuvAv)
-5732,C2+,,C+,C,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5733,C2-,,C2,E,,,1.00e+01,4.10e+04,2.94e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5734,C2,,C2+,E,,,1.00e+01,4.10e+04,4.09e-10 * user_xi * exp(-4.19 * user_Auv / user_AuvAv)
-5735,C2,,C,C,,,1.00e+01,4.10e+04,2.35e-10 * user_xi * exp(-3.04 * user_Auv / user_AuvAv)
-5736,C2H+,,C2+,H,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5737,C2H-,,C2H,E,,,1.00e+01,4.10e+04,2.98e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5738,C2H2,,C2H2+,E,,,1.00e+01,4.10e+04,5.40e-10 * user_xi * exp(-3.92 * user_Auv / user_AuvAv)
-5739,C2H2,,C2H,H,,,1.00e+01,4.10e+04,2.40e-09 * user_xi * exp(-2.64 * user_Auv / user_AuvAv)
-5740,C2H3,,C2H2,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5741,C2H3,,C2H3+,E,,,1.00e+01,4.10e+04,3.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-5742,C2H4,,C2H2,H2,,,1.00e+01,4.10e+04,3.04e-09 * user_xi * exp(-2.49 * user_Auv / user_AuvAv)
-5743,C2H4,,C2H4+,E,,,1.00e+01,4.10e+04,4.08e-10 * user_xi * exp(-3.63 * user_Auv / user_AuvAv)
-5744,C2H5,,C2H3,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5745,C2H5,,C2H5+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5746,C2H5CN,,CH2CHCNH+,H,E,,1.00e+01,4.10e+04,6.20e-10 * user_xi * exp(-3.10 * user_Auv / user_AuvAv)
-5747,C2H5CN,,CN,C2H5,,,1.00e+01,4.10e+04,3.40e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5748,C2H5OH,,C2H5,OH,,,1.00e+01,4.10e+04,2.48e-09 * user_xi * exp(-2.77 * user_Auv / user_AuvAv)
-5749,C2H5OH,,C2H5OH+,E,,,1.00e+01,4.10e+04,4.89e-10 * user_xi * exp(-3.72 * user_Auv / user_AuvAv)
-5750,C2H,,C2,H,,,1.00e+01,4.10e+04,1.58e-09 * user_xi * exp(-2.67 * user_Auv / user_AuvAv)
-5751,C2H,,C2H+,E,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5752,C2N,,C2,N,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5753,C2N,,CN,C,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5754,C2O,,C2,O,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5755,C2O,,CO,C,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5756,C2S,,S,C2,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5757,C3-,,C3,E,,,1.00e+01,4.10e+04,6.79e-09 * user_xi * exp(-1.50 * user_Auv / user_AuvAv)
-5758,C3,,C2,C,,,1.00e+01,4.10e+04,4.97e-09 * user_xi * exp(-2.39 * user_Auv / user_AuvAv)
-5759,C3H-,,C3H,E,,,1.00e+01,4.10e+04,6.16e-09 * user_xi * exp(-1.50 * user_Auv / user_AuvAv)
-5760,C3H2,,C3H,H,,,1.00e+01,4.10e+04,1.39e-09 * user_xi * exp(-2.26 * user_Auv / user_AuvAv)
-5761,C3H,,C3,H,,,1.00e+01,4.10e+04,1.77e-09 * user_xi * exp(-2.08 * user_Auv / user_AuvAv)
-5762,C3N-,,C3N,E,,,1.00e+01,3.00e+02,9.63e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5763,C3N,,CN,C2,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5764,C3O,,CO,C2,,,1.00e+01,4.10e+04,7.00e-09 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5765,C3P,,C2,CP,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5766,C3S,,CS,C2,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5767,C4-,,C4,E,,,1.00e+01,4.10e+04,2.19e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5768,C4,,C2,C2,,,1.00e+01,4.10e+04,4.25e-09 * user_xi * exp(-2.22 * user_Auv / user_AuvAv)
-5769,C4,,C3,C,,,1.00e+01,4.10e+04,4.25e-09 * user_xi * exp(-2.22 * user_Auv / user_AuvAv)
-5770,C4H-,,C4H,E,,,1.00e+01,4.10e+04,1.96e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5771,C4H3,,C4H,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5772,C4H3,,HC4H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5773,C4H,,C2H,C2,,,1.00e+01,4.10e+04,1.83e-09 * user_xi * exp(-2.36 * user_Auv / user_AuvAv)
-5774,C4H,,C4,H,,,1.00e+01,4.10e+04,1.83e-09 * user_xi * exp(-2.36 * user_Auv / user_AuvAv)
-5775,C4N,,C3,CN,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5776,C4N,,C4,N,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5777,C4P,,C3,CP,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5778,C4S,,CS,C3,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5779,C5-,,C5,E,,,1.00e+01,4.10e+04,3.75e-09 * user_xi * exp(-1.50 * user_Auv / user_AuvAv)
-5780,C5,,C3,C2,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5781,C5H-,,C5H,E,,,1.00e+01,4.10e+04,2.63e-09 * user_xi * exp(-1.50 * user_Auv / user_AuvAv)
-5782,C5H2,,C3H,C2H,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5783,C5H2,,C5H,H,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5784,C5H,,C3,C2H,,,1.00e+01,4.10e+04,4.47e-10 * user_xi * exp(-1.76 * user_Auv / user_AuvAv)
-5785,C5H,,C3H,C2,,,1.00e+01,4.10e+04,4.47e-10 * user_xi * exp(-1.76 * user_Auv / user_AuvAv)
-5786,C5H,,C5,H,,,1.00e+01,4.10e+04,4.47e-10 * user_xi * exp(-1.76 * user_Auv / user_AuvAv)
-5787,C5N-,,C5N,E,,,1.00e+01,3.00e+02,1.20e-08 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5788,C5N,,C4,CN,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5789,C6-,,C6,E,,,1.00e+01,4.10e+04,1.91e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5790,C6,,C5,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5791,C6,,C6+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.60 * user_Auv / user_AuvAv)
-5792,C6H-,,C6H,E,,,1.00e+01,4.10e+04,1.09e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5793,C6H2,,C6H2+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5794,C6H2,,C6H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5795,C6H6,,C2H2,CH2CHCCH,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5796,C6H,,C3H,C3,,,1.00e+01,4.10e+04,5.00e-12 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5797,C6H,,C4,C2H,,,1.00e+01,4.10e+04,5.00e-12 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5798,C7-,,C7,E,,,1.00e+01,4.10e+04,2.40e-09 * user_xi * exp(-1.50 * user_Auv / user_AuvAv)
-5799,C7,,C6,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5800,C7,,C7+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5801,C7H-,,C7H,E,,,1.00e+01,4.10e+04,1.39e-09 * user_xi * exp(-1.50 * user_Auv / user_AuvAv)
-5802,C7H2,,C7H2+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5803,C7H2,,C7H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5804,C7H,,C7,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5805,C7H,,C7H+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5806,C7N,,C6,CN,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5807,C7N,,C7N+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5808,C8-,,C8,E,,,1.00e+01,4.10e+04,1.76e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5809,C8,,C7,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5810,C8,,C8+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5811,C8H-,,C8H,E,,,1.00e+01,4.10e+04,6.34e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5812,C8H2,,C8H2+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5813,C8H2,,C8H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5814,C8H,,C8,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5815,C8H,,C8H+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5816,C9-,,C9,E,,,1.00e+01,4.10e+04,2.39e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5817,C9,,C8,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5818,C9,,C9+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5819,C9H-,,C9H,E,,,1.00e+01,4.10e+04,5.84e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5820,C9H2,,C9H2+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5821,C9H2,,C9H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5822,C9H,,C9,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5823,C9H,,C9H+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5824,C9N,,C8,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5825,C9N,,C9N+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5826,C,,C+,E,,,1.00e+01,4.10e+04,3.50e-10 * user_xi * exp(-3.76 * user_Auv / user_AuvAv)
-5827,CCP,,C2,P,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5828,CCP,,CP,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5829,CCl,,Cl,C,,,1.00e+01,4.10e+04,2.90e-10 * user_xi * exp(-3.54 * user_Auv / user_AuvAv)
-5830,CH+,,C,H+,,,1.00e+01,4.10e+04,3.26e-10 * user_xi * exp(-3.54 * user_Auv / user_AuvAv)
-5831,CH-,,CH,E,,,1.00e+01,4.10e+04,1.45e-08 * user_xi * exp(-1.50 * user_Auv / user_AuvAv)
-5832,CH2+,,C+,H2,,,1.00e+01,4.10e+04,4.53e-11 * user_xi * exp(-2.73 * user_Auv / user_AuvAv)
-5833,CH2+,,CH+,H,,,1.00e+01,4.10e+04,4.53e-11 * user_xi * exp(-2.73 * user_Auv / user_AuvAv)
-5834,CH2+,,CH,H+,,,1.00e+01,4.10e+04,4.53e-11 * user_xi * exp(-2.73 * user_Auv / user_AuvAv)
-5835,CH2,,CH2+,E,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-5836,CH2,,CH,H,,,1.00e+01,4.10e+04,5.81e-10 * user_xi * exp(-2.35 * user_Auv / user_AuvAv)
-5837,CH2CCH2,,C3H4+,E,,,1.00e+01,4.10e+04,2.20e-09 * user_xi * exp(-2.40 * user_Auv / user_AuvAv)
-5838,CH2CCH2,,CH2CCH,H,,,1.00e+01,4.10e+04,3.30e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5839,CH2CCH2,,H2CCC,H2,,,1.00e+01,4.10e+04,2.25e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5840,CH2CCH,,C3H2,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5841,CH2CCH,,C3H,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5842,CH2CHCCH,,CH2CCH2,C,,,1.00e+01,4.10e+04,5.65e-10 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5843,CH2CHCCH,,CH3CCH,C,,,1.00e+01,4.10e+04,5.65e-10 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5844,CH2CHCHCH2,,CH3CHCH2,C,,,1.00e+01,4.10e+04,1.13e-09 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5845,CH2CHCN,,C2H3,CN,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5846,CH2CHCN,,CH2CHCN+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5847,CH2CN,,CH2,CN,,,1.00e+01,4.10e+04,1.56e-09 * user_xi * exp(-1.90 * user_Auv / user_AuvAv)
-5848,CH2CO,,CH2CO+,E,,,1.00e+01,4.10e+04,6.60e-10 * user_xi * exp(-2.80 * user_Auv / user_AuvAv)
-5849,CH2CO,,CO,CH2,,,1.00e+01,4.10e+04,1.40e-09 * user_xi * exp(-2.70 * user_Auv / user_AuvAv)
-5850,CH2NH,,HNC,H2,,,1.00e+01,4.10e+04,3.50e-09 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5851,CH2PH,,CH2,PH,,,1.00e+01,4.10e+04,9.54e-10 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5852,CH3+,,CH+,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5853,CH3+,,CH2+,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5854,CH3,,CH2,H,,,1.00e+01,4.10e+04,3.14e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5855,CH3,,CH3+,E,,,1.00e+01,4.10e+04,3.28e-10 * user_xi * exp(-3.36 * user_Auv / user_AuvAv)
-5856,CH3,,CH,H2,,,1.00e+01,4.10e+04,3.14e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5857,CH3C3N,,C3N,CH3,,,1.00e+01,4.10e+04,2.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5858,CH3C4H,,C4H,CH3,,,1.00e+01,4.10e+04,2.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5859,CH3C5N,,CH3,C5N,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5860,CH3C6H,,CH3,C6H,,,1.00e+01,4.10e+04,2.00e-11 * user_xi * exp(-5.00 * user_Auv / user_AuvAv)
-5861,CH3C7N,,CH3,C7N,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5862,CH3CCH,,C3H4+,E,,,1.00e+01,4.10e+04,2.20e-09 * user_xi * exp(-2.40 * user_Auv / user_AuvAv)
-5863,CH3CCH,,CH2CCH,H,,,1.00e+01,4.10e+04,3.30e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5864,CH3CCH,,H2CCC,H2,,,1.00e+01,4.10e+04,2.25e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5865,CH3CH3,,CH3CH3+,E,,,1.00e+01,4.10e+04,2.26e-10 * user_xi * exp(-4.17 * user_Auv / user_AuvAv)
-5866,CH3CHCH2,,C2H4,CH2,,,1.00e+01,4.10e+04,1.13e-09 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5867,CH3CHO,,CH3CHO+,E,,,1.00e+01,4.10e+04,8.40e-10 * user_xi * exp(-3.42 * user_Auv / user_AuvAv)
-5868,CH3CHO,,CO,CH4,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-2.46 * user_Auv / user_AuvAv)
-5869,CH3CHO,,HCO,CH3,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-2.46 * user_Auv / user_AuvAv)
-5870,CH3CN,,CH3CN+,E,,,1.00e+01,4.10e+04,1.20e-10 * user_xi * exp(-4.19 * user_Auv / user_AuvAv)
-5871,CH3CN,,CN,CH3,,,1.00e+01,4.10e+04,2.95e-09 * user_xi * exp(-3.07 * user_Auv / user_AuvAv)
-5872,CH3COCH3,,CH3COCH3+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5873,CH3COCH3,,CO,CH3,CH3,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5874,CH3OCH3,,CH3OCH3+,E,,,1.00e+01,4.10e+04,4.60e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-5875,CH3OCH3,,H2CO,CH4,,,1.00e+01,4.10e+04,1.50e-09 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5876,CH3OH,,CH3OH+,E,,,1.00e+01,4.10e+04,3.08e-10 * user_xi * exp(-3.78 * user_Auv / user_AuvAv)
-5877,CH3OH,,H2CO,H2,,,1.00e+01,4.10e+04,6.90e-10 * user_xi * exp(-2.76 * user_Auv / user_AuvAv)
-5878,CH3OH,,H3CO+,H,E,,1.00e+01,4.10e+04,1.22e-10 * user_xi * exp(-2.76 * user_Auv / user_AuvAv)
-5879,CH3OH,,OH,CH3,,,1.00e+01,4.10e+04,6.90e-10 * user_xi * exp(-2.76 * user_Auv / user_AuvAv)
-5880,CH4+,,CH2+,H2,,,1.00e+01,4.10e+04,2.20e-10 * user_xi * exp(-3.11 * user_Auv / user_AuvAv)
-5881,CH4+,,CH3+,H,,,1.00e+01,4.10e+04,5.50e-11 * user_xi * exp(-3.11 * user_Auv / user_AuvAv)
-5882,CH4,,CH2,H2,,,1.00e+01,4.10e+04,1.06e-09 * user_xi * exp(-3.08 * user_Auv / user_AuvAv)
-5883,CH4,,CH3,H,,,1.00e+01,4.10e+04,2.28e-10 * user_xi * exp(-3.08 * user_Auv / user_AuvAv)
-5884,CH4,,CH4+,E,,,1.00e+01,4.10e+04,1.03e-11 * user_xi * exp(-4.31 * user_Auv / user_AuvAv)
-5885,CH4,,CH,H2,H,,1.00e+01,4.10e+04,2.28e-10 * user_xi * exp(-3.08 * user_Auv / user_AuvAv)
-5886,CH,,C,H,,,1.00e+01,4.10e+04,9.19e-10 * user_xi * exp(-2.12 * user_Auv / user_AuvAv)
-5887,CH,,CH+,E,,,1.00e+01,4.10e+04,7.64e-10 * user_xi * exp(-3.67 * user_Auv / user_AuvAv)
-5888,CN-,,CN,E,,,1.00e+01,4.10e+04,6.30e-09 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5889,CN,,N,C,,,1.00e+01,4.10e+04,5.19e-10 * user_xi * exp(-3.50 * user_Auv / user_AuvAv)
-5890,CNO,,CN,O,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5891,CO+,,C+,O,,,1.00e+01,4.10e+04,1.01e-10 * user_xi * exp(-2.89 * user_Auv / user_AuvAv)
-5892,CO2,,CO,O,,,1.00e+01,4.10e+04,9.20e-10 * user_xi * exp(-3.40 * user_Auv / user_AuvAv)
+5705,C-,,C,E,,,1.00e+01,4.10e+04,1.45e-08 * user_xi * exp((user_gamma_CO - 0.50) * user_Auv / user_AuvAv)
+5706,C10-,,C10,E,,,1.00e+01,4.10e+04,2.16e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5707,C10,,C10+,E,,,1.00e+01,4.10e+04,5.49e-10 * user_xi * exp((user_gamma_CO - 3.10) * user_Auv / user_AuvAv)
+5708,C10,,C6,C3,C,,1.00e+01,4.10e+04,1.16e-12 * user_xi * exp((user_gamma_CO - 5.20) * user_Auv / user_AuvAv)
+5709,C10,,C6,C4,,,1.00e+01,4.10e+04,9.47e-12 * user_xi * exp((user_gamma_CO - 3.90) * user_Auv / user_AuvAv)
+5710,C10,,C7,C2,C,,1.00e+01,4.10e+04,3.46e-12 * user_xi * exp((user_gamma_CO - 5.10) * user_Auv / user_AuvAv)
+5711,C10,,C8,C2,,,1.00e+01,4.10e+04,1.96e-10 * user_xi * exp((user_gamma_CO - 3.00) * user_Auv / user_AuvAv)
+5712,C10,,C9,C,,,1.00e+01,4.10e+04,9.37e-10 * user_xi * exp((user_gamma_CO - 2.60) * user_Auv / user_AuvAv)
+5713,C10H-,,C10H,E,,,1.00e+01,3.00e+02,2.17e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5714,C10H2,,C10,H,H,,1.00e+01,4.10e+04,3.10e-12 * user_xi * exp((user_gamma_CO - 5.20) * user_Auv / user_AuvAv)
+5715,C10H2,,C10H2+,E,,,1.00e+01,4.10e+04,4.94e-10 * user_xi * exp((user_gamma_CO - 3.10) * user_Auv / user_AuvAv)
+5716,C10H2,,C10H,H,,,1.00e+01,4.10e+04,5.27e-10 * user_xi * exp((user_gamma_CO - 3.10) * user_Auv / user_AuvAv)
+5717,C10H2,,C7H,C3,H,,1.00e+01,4.10e+04,6.14e-13 * user_xi * exp((user_gamma_CO - 5.20) * user_Auv / user_AuvAv)
+5718,C10H,,C10,H,,,1.00e+01,4.10e+04,7.36e-10 * user_xi * exp((user_gamma_CO - 2.60) * user_Auv / user_AuvAv)
+5719,C10H,,C10H+,E,,,1.00e+01,4.10e+04,5.45e-10 * user_xi * exp((user_gamma_CO - 3.10) * user_Auv / user_AuvAv)
+5720,C10H,,C5,C5,H,,1.00e+01,4.10e+04,2.30e-11 * user_xi * exp((user_gamma_CO - 3.80) * user_Auv / user_AuvAv)
+5721,C10H,,C5H,C5,,,1.00e+01,4.10e+04,3.19e-11 * user_xi * exp((user_gamma_CO - 3.00) * user_Auv / user_AuvAv)
+5722,C10H,,C7,C3,H,,1.00e+01,4.10e+04,5.95e-11 * user_xi * exp((user_gamma_CO - 3.90) * user_Auv / user_AuvAv)
+5723,C10H,,C7H,C3,,,1.00e+01,4.10e+04,1.86e-10 * user_xi * exp((user_gamma_CO - 2.60) * user_Auv / user_AuvAv)
+5724,C10H,,C8,C2,H,,1.00e+01,4.10e+04,1.42e-12 * user_xi * exp((user_gamma_CO - 5.00) * user_Auv / user_AuvAv)
+5725,C10H,,C9,C,H,,1.00e+01,4.10e+04,2.07e-11 * user_xi * exp((user_gamma_CO - 4.60) * user_Auv / user_AuvAv)
+5726,C11,,C11+,E,,,1.00e+01,4.10e+04,5.73e-10 * user_xi * exp((user_gamma_CO - 3.00) * user_Auv / user_AuvAv)
+5727,C11,,C5,C3,C3,,1.00e+01,4.10e+04,3.83e-11 * user_xi * exp((user_gamma_CO - 4.50) * user_Auv / user_AuvAv)
+5728,C11,,C6,C5,,,1.00e+01,4.10e+04,5.28e-11 * user_xi * exp((user_gamma_CO - 3.10) * user_Auv / user_AuvAv)
+5729,C11,,C7,C4,,,1.00e+01,4.10e+04,2.31e-11 * user_xi * exp((user_gamma_CO - 3.30) * user_Auv / user_AuvAv)
+5730,C11,,C8,C3,,,1.00e+01,4.10e+04,4.41e-10 * user_xi * exp((user_gamma_CO - 2.70) * user_Auv / user_AuvAv)
+5731,C11,,C9,C2,,,1.00e+01,4.10e+04,2.86e-10 * user_xi * exp((user_gamma_CO - 2.80) * user_Auv / user_AuvAv)
+5732,C2+,,C+,C,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5733,C2-,,C2,E,,,1.00e+01,4.10e+04,2.94e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5734,C2,,C2+,E,,,1.00e+01,4.10e+04,4.09e-10 * user_xi * exp((user_gamma_CO - 4.19) * user_Auv / user_AuvAv)
+5735,C2,,C,C,,,1.00e+01,4.10e+04,2.35e-10 * user_xi * exp((user_gamma_CO - 3.04) * user_Auv / user_AuvAv)
+5736,C2H+,,C2+,H,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5737,C2H-,,C2H,E,,,1.00e+01,4.10e+04,2.98e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5738,C2H2,,C2H2+,E,,,1.00e+01,4.10e+04,5.40e-10 * user_xi * exp((user_gamma_CO - 3.92) * user_Auv / user_AuvAv)
+5739,C2H2,,C2H,H,,,1.00e+01,4.10e+04,2.40e-09 * user_xi * exp((user_gamma_CO - 2.64) * user_Auv / user_AuvAv)
+5740,C2H3,,C2H2,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5741,C2H3,,C2H3+,E,,,1.00e+01,4.10e+04,3.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+5742,C2H4,,C2H2,H2,,,1.00e+01,4.10e+04,3.04e-09 * user_xi * exp((user_gamma_CO - 2.49) * user_Auv / user_AuvAv)
+5743,C2H4,,C2H4+,E,,,1.00e+01,4.10e+04,4.08e-10 * user_xi * exp((user_gamma_CO - 3.63) * user_Auv / user_AuvAv)
+5744,C2H5,,C2H3,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5745,C2H5,,C2H5+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5746,C2H5CN,,CH2CHCNH+,H,E,,1.00e+01,4.10e+04,6.20e-10 * user_xi * exp((user_gamma_CO - 3.10) * user_Auv / user_AuvAv)
+5747,C2H5CN,,CN,C2H5,,,1.00e+01,4.10e+04,3.40e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5748,C2H5OH,,C2H5,OH,,,1.00e+01,4.10e+04,2.48e-09 * user_xi * exp((user_gamma_CO - 2.77) * user_Auv / user_AuvAv)
+5749,C2H5OH,,C2H5OH+,E,,,1.00e+01,4.10e+04,4.89e-10 * user_xi * exp((user_gamma_CO - 3.72) * user_Auv / user_AuvAv)
+5750,C2H,,C2,H,,,1.00e+01,4.10e+04,1.58e-09 * user_xi * exp((user_gamma_CO - 2.67) * user_Auv / user_AuvAv)
+5751,C2H,,C2H+,E,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5752,C2N,,C2,N,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5753,C2N,,CN,C,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5754,C2O,,C2,O,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5755,C2O,,CO,C,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5756,C2S,,S,C2,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5757,C3-,,C3,E,,,1.00e+01,4.10e+04,6.79e-09 * user_xi * exp((user_gamma_CO - 1.50) * user_Auv / user_AuvAv)
+5758,C3,,C2,C,,,1.00e+01,4.10e+04,4.97e-09 * user_xi * exp((user_gamma_CO - 2.39) * user_Auv / user_AuvAv)
+5759,C3H-,,C3H,E,,,1.00e+01,4.10e+04,6.16e-09 * user_xi * exp((user_gamma_CO - 1.50) * user_Auv / user_AuvAv)
+5760,C3H2,,C3H,H,,,1.00e+01,4.10e+04,1.39e-09 * user_xi * exp((user_gamma_CO - 2.26) * user_Auv / user_AuvAv)
+5761,C3H,,C3,H,,,1.00e+01,4.10e+04,1.77e-09 * user_xi * exp((user_gamma_CO - 2.08) * user_Auv / user_AuvAv)
+5762,C3N-,,C3N,E,,,1.00e+01,3.00e+02,9.63e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5763,C3N,,CN,C2,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5764,C3O,,CO,C2,,,1.00e+01,4.10e+04,7.00e-09 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5765,C3P,,C2,CP,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5766,C3S,,CS,C2,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5767,C4-,,C4,E,,,1.00e+01,4.10e+04,2.19e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5768,C4,,C2,C2,,,1.00e+01,4.10e+04,4.25e-09 * user_xi * exp((user_gamma_CO - 2.22) * user_Auv / user_AuvAv)
+5769,C4,,C3,C,,,1.00e+01,4.10e+04,4.25e-09 * user_xi * exp((user_gamma_CO - 2.22) * user_Auv / user_AuvAv)
+5770,C4H-,,C4H,E,,,1.00e+01,4.10e+04,1.96e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5771,C4H3,,C4H,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5772,C4H3,,HC4H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5773,C4H,,C2H,C2,,,1.00e+01,4.10e+04,1.83e-09 * user_xi * exp((user_gamma_CO - 2.36) * user_Auv / user_AuvAv)
+5774,C4H,,C4,H,,,1.00e+01,4.10e+04,1.83e-09 * user_xi * exp((user_gamma_CO - 2.36) * user_Auv / user_AuvAv)
+5775,C4N,,C3,CN,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5776,C4N,,C4,N,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5777,C4P,,C3,CP,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5778,C4S,,CS,C3,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5779,C5-,,C5,E,,,1.00e+01,4.10e+04,3.75e-09 * user_xi * exp((user_gamma_CO - 1.50) * user_Auv / user_AuvAv)
+5780,C5,,C3,C2,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5781,C5H-,,C5H,E,,,1.00e+01,4.10e+04,2.63e-09 * user_xi * exp((user_gamma_CO - 1.50) * user_Auv / user_AuvAv)
+5782,C5H2,,C3H,C2H,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5783,C5H2,,C5H,H,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5784,C5H,,C3,C2H,,,1.00e+01,4.10e+04,4.47e-10 * user_xi * exp((user_gamma_CO - 1.76) * user_Auv / user_AuvAv)
+5785,C5H,,C3H,C2,,,1.00e+01,4.10e+04,4.47e-10 * user_xi * exp((user_gamma_CO - 1.76) * user_Auv / user_AuvAv)
+5786,C5H,,C5,H,,,1.00e+01,4.10e+04,4.47e-10 * user_xi * exp((user_gamma_CO - 1.76) * user_Auv / user_AuvAv)
+5787,C5N-,,C5N,E,,,1.00e+01,3.00e+02,1.20e-08 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5788,C5N,,C4,CN,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5789,C6-,,C6,E,,,1.00e+01,4.10e+04,1.91e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5790,C6,,C5,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5791,C6,,C6+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.60) * user_Auv / user_AuvAv)
+5792,C6H-,,C6H,E,,,1.00e+01,4.10e+04,1.09e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5793,C6H2,,C6H2+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5794,C6H2,,C6H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5795,C6H6,,C2H2,CH2CHCCH,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5796,C6H,,C3H,C3,,,1.00e+01,4.10e+04,5.00e-12 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5797,C6H,,C4,C2H,,,1.00e+01,4.10e+04,5.00e-12 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5798,C7-,,C7,E,,,1.00e+01,4.10e+04,2.40e-09 * user_xi * exp((user_gamma_CO - 1.50) * user_Auv / user_AuvAv)
+5799,C7,,C6,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5800,C7,,C7+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5801,C7H-,,C7H,E,,,1.00e+01,4.10e+04,1.39e-09 * user_xi * exp((user_gamma_CO - 1.50) * user_Auv / user_AuvAv)
+5802,C7H2,,C7H2+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5803,C7H2,,C7H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5804,C7H,,C7,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5805,C7H,,C7H+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5806,C7N,,C6,CN,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5807,C7N,,C7N+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5808,C8-,,C8,E,,,1.00e+01,4.10e+04,1.76e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5809,C8,,C7,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5810,C8,,C8+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5811,C8H-,,C8H,E,,,1.00e+01,4.10e+04,6.34e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5812,C8H2,,C8H2+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5813,C8H2,,C8H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5814,C8H,,C8,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5815,C8H,,C8H+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5816,C9-,,C9,E,,,1.00e+01,4.10e+04,2.39e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5817,C9,,C8,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5818,C9,,C9+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5819,C9H-,,C9H,E,,,1.00e+01,4.10e+04,5.84e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5820,C9H2,,C9H2+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5821,C9H2,,C9H,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5822,C9H,,C9,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5823,C9H,,C9H+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5824,C9N,,C8,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5825,C9N,,C9N+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5826,C,,C+,E,,,1.00e+01,4.10e+04,3.50e-10 * user_xi * exp((user_gamma_CO - 3.76) * user_Auv / user_AuvAv)
+5827,CCP,,C2,P,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5828,CCP,,CP,C,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5829,CCl,,Cl,C,,,1.00e+01,4.10e+04,2.90e-10 * user_xi * exp((user_gamma_CO - 3.54) * user_Auv / user_AuvAv)
+5830,CH+,,C,H+,,,1.00e+01,4.10e+04,3.26e-10 * user_xi * exp((user_gamma_CO - 3.54) * user_Auv / user_AuvAv)
+5831,CH-,,CH,E,,,1.00e+01,4.10e+04,1.45e-08 * user_xi * exp((user_gamma_CO - 1.50) * user_Auv / user_AuvAv)
+5832,CH2+,,C+,H2,,,1.00e+01,4.10e+04,4.53e-11 * user_xi * exp((user_gamma_CO - 2.73) * user_Auv / user_AuvAv)
+5833,CH2+,,CH+,H,,,1.00e+01,4.10e+04,4.53e-11 * user_xi * exp((user_gamma_CO - 2.73) * user_Auv / user_AuvAv)
+5834,CH2+,,CH,H+,,,1.00e+01,4.10e+04,4.53e-11 * user_xi * exp((user_gamma_CO - 2.73) * user_Auv / user_AuvAv)
+5835,CH2,,CH2+,E,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+5836,CH2,,CH,H,,,1.00e+01,4.10e+04,5.81e-10 * user_xi * exp((user_gamma_CO - 2.35) * user_Auv / user_AuvAv)
+5837,CH2CCH2,,C3H4+,E,,,1.00e+01,4.10e+04,2.20e-09 * user_xi * exp((user_gamma_CO - 2.40) * user_Auv / user_AuvAv)
+5838,CH2CCH2,,CH2CCH,H,,,1.00e+01,4.10e+04,3.30e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5839,CH2CCH2,,H2CCC,H2,,,1.00e+01,4.10e+04,2.25e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5840,CH2CCH,,C3H2,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5841,CH2CCH,,C3H,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5842,CH2CHCCH,,CH2CCH2,C,,,1.00e+01,4.10e+04,5.65e-10 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5843,CH2CHCCH,,CH3CCH,C,,,1.00e+01,4.10e+04,5.65e-10 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5844,CH2CHCHCH2,,CH3CHCH2,C,,,1.00e+01,4.10e+04,1.13e-09 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5845,CH2CHCN,,C2H3,CN,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5846,CH2CHCN,,CH2CHCN+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5847,CH2CN,,CH2,CN,,,1.00e+01,4.10e+04,1.56e-09 * user_xi * exp((user_gamma_CO - 1.90) * user_Auv / user_AuvAv)
+5848,CH2CO,,CH2CO+,E,,,1.00e+01,4.10e+04,6.60e-10 * user_xi * exp((user_gamma_CO - 2.80) * user_Auv / user_AuvAv)
+5849,CH2CO,,CO,CH2,,,1.00e+01,4.10e+04,1.40e-09 * user_xi * exp((user_gamma_CO - 2.70) * user_Auv / user_AuvAv)
+5850,CH2NH,,HNC,H2,,,1.00e+01,4.10e+04,3.50e-09 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5851,CH2PH,,CH2,PH,,,1.00e+01,4.10e+04,9.54e-10 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5852,CH3+,,CH+,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5853,CH3+,,CH2+,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5854,CH3,,CH2,H,,,1.00e+01,4.10e+04,3.14e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5855,CH3,,CH3+,E,,,1.00e+01,4.10e+04,3.28e-10 * user_xi * exp((user_gamma_CO - 3.36) * user_Auv / user_AuvAv)
+5856,CH3,,CH,H2,,,1.00e+01,4.10e+04,3.14e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5857,CH3C3N,,C3N,CH3,,,1.00e+01,4.10e+04,2.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5858,CH3C4H,,C4H,CH3,,,1.00e+01,4.10e+04,2.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5859,CH3C5N,,CH3,C5N,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5860,CH3C6H,,CH3,C6H,,,1.00e+01,4.10e+04,2.00e-11 * user_xi * exp((user_gamma_CO - 5.00) * user_Auv / user_AuvAv)
+5861,CH3C7N,,CH3,C7N,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5862,CH3CCH,,C3H4+,E,,,1.00e+01,4.10e+04,2.20e-09 * user_xi * exp((user_gamma_CO - 2.40) * user_Auv / user_AuvAv)
+5863,CH3CCH,,CH2CCH,H,,,1.00e+01,4.10e+04,3.30e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5864,CH3CCH,,H2CCC,H2,,,1.00e+01,4.10e+04,2.25e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5865,CH3CH3,,CH3CH3+,E,,,1.00e+01,4.10e+04,2.26e-10 * user_xi * exp((user_gamma_CO - 4.17) * user_Auv / user_AuvAv)
+5866,CH3CHCH2,,C2H4,CH2,,,1.00e+01,4.10e+04,1.13e-09 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5867,CH3CHO,,CH3CHO+,E,,,1.00e+01,4.10e+04,8.40e-10 * user_xi * exp((user_gamma_CO - 3.42) * user_Auv / user_AuvAv)
+5868,CH3CHO,,CO,CH4,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 2.46) * user_Auv / user_AuvAv)
+5869,CH3CHO,,HCO,CH3,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 2.46) * user_Auv / user_AuvAv)
+5870,CH3CN,,CH3CN+,E,,,1.00e+01,4.10e+04,1.20e-10 * user_xi * exp((user_gamma_CO - 4.19) * user_Auv / user_AuvAv)
+5871,CH3CN,,CN,CH3,,,1.00e+01,4.10e+04,2.95e-09 * user_xi * exp((user_gamma_CO - 3.07) * user_Auv / user_AuvAv)
+5872,CH3COCH3,,CH3COCH3+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5873,CH3COCH3,,CO,CH3,CH3,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5874,CH3OCH3,,CH3OCH3+,E,,,1.00e+01,4.10e+04,4.60e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+5875,CH3OCH3,,H2CO,CH4,,,1.00e+01,4.10e+04,1.50e-09 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5876,CH3OH,,CH3OH+,E,,,1.00e+01,4.10e+04,3.08e-10 * user_xi * exp((user_gamma_CO - 3.78) * user_Auv / user_AuvAv)
+5877,CH3OH,,H2CO,H2,,,1.00e+01,4.10e+04,6.90e-10 * user_xi * exp((user_gamma_CO - 2.76) * user_Auv / user_AuvAv)
+5878,CH3OH,,H3CO+,H,E,,1.00e+01,4.10e+04,1.22e-10 * user_xi * exp((user_gamma_CO - 2.76) * user_Auv / user_AuvAv)
+5879,CH3OH,,OH,CH3,,,1.00e+01,4.10e+04,6.90e-10 * user_xi * exp((user_gamma_CO - 2.76) * user_Auv / user_AuvAv)
+5880,CH4+,,CH2+,H2,,,1.00e+01,4.10e+04,2.20e-10 * user_xi * exp((user_gamma_CO - 3.11) * user_Auv / user_AuvAv)
+5881,CH4+,,CH3+,H,,,1.00e+01,4.10e+04,5.50e-11 * user_xi * exp((user_gamma_CO - 3.11) * user_Auv / user_AuvAv)
+5882,CH4,,CH2,H2,,,1.00e+01,4.10e+04,1.06e-09 * user_xi * exp((user_gamma_CO - 3.08) * user_Auv / user_AuvAv)
+5883,CH4,,CH3,H,,,1.00e+01,4.10e+04,2.28e-10 * user_xi * exp((user_gamma_CO - 3.08) * user_Auv / user_AuvAv)
+5884,CH4,,CH4+,E,,,1.00e+01,4.10e+04,1.03e-11 * user_xi * exp((user_gamma_CO - 4.31) * user_Auv / user_AuvAv)
+5885,CH4,,CH,H2,H,,1.00e+01,4.10e+04,2.28e-10 * user_xi * exp((user_gamma_CO - 3.08) * user_Auv / user_AuvAv)
+5886,CH,,C,H,,,1.00e+01,4.10e+04,9.19e-10 * user_xi * exp((user_gamma_CO - 2.12) * user_Auv / user_AuvAv)
+5887,CH,,CH+,E,,,1.00e+01,4.10e+04,7.64e-10 * user_xi * exp((user_gamma_CO - 3.67) * user_Auv / user_AuvAv)
+5888,CN-,,CN,E,,,1.00e+01,4.10e+04,6.30e-09 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5889,CN,,N,C,,,1.00e+01,4.10e+04,5.19e-10 * user_xi * exp((user_gamma_CO - 3.50) * user_Auv / user_AuvAv)
+5890,CNO,,CN,O,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5891,CO+,,C+,O,,,1.00e+01,4.10e+04,1.01e-10 * user_xi * exp((user_gamma_CO - 2.89) * user_Auv / user_AuvAv)
+5892,CO2,,CO,O,,,1.00e+01,4.10e+04,9.20e-10 * user_xi * exp((user_gamma_CO - 3.40) * user_Auv / user_AuvAv)
 5893,CO,,O,C,,,1.00e+01,4.10e+04,user_CO_shielding
-5894,CP,,C,P,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-2.80 * user_Auv / user_AuvAv)
-5895,CS+,,S+,C,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5896,CS,,CS+,E,,,1.00e+01,4.10e+04,2.60e-11 * user_xi * exp(-3.59 * user_Auv / user_AuvAv)
-5897,CS,,S,C,,,1.00e+01,4.10e+04,3.70e-10 * user_xi * exp(-2.77 * user_Auv / user_AuvAv)
-5898,Cl,,Cl+,E,,,1.00e+01,4.10e+04,4.70e-11 * user_xi * exp(-4.30 * user_Auv / user_AuvAv)
-5899,ClO,,Cl,O,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5900,Fe,,Fe+,E,,,1.00e+01,4.10e+04,4.70e-10 * user_xi * exp(-2.62 * user_Auv / user_AuvAv)
-5901,H-,,H,E,,,1.00e+01,4.10e+04,1.52e-07 * user_xi * exp(-1.24 * user_Auv / user_AuvAv)
-5902,H2+,,H+,H,,,1.00e+01,4.10e+04,5.72e-10 * user_xi * exp(-2.78 * user_Auv / user_AuvAv)
-5903,H2CCC,,C3,H2,,,1.00e+01,4.10e+04,2.07e-09 * user_xi * exp(-2.51 * user_Auv / user_AuvAv)
-5904,H2CCC,,C3H,H,,,1.00e+01,4.10e+04,2.07e-09 * user_xi * exp(-2.51 * user_Auv / user_AuvAv)
-5905,H2CN,,HCN,H,,,1.00e+01,4.10e+04,5.48e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5906,H2CO,,CO,H2,,,1.00e+01,4.10e+04,8.70e-10 * user_xi * exp(-2.54 * user_Auv / user_AuvAv)
-5907,H2CO,,CO,H,H,,1.00e+01,4.10e+04,5.80e-10 * user_xi * exp(-2.54 * user_Auv / user_AuvAv)
-5908,H2CO,,H2CO+,E,,,1.00e+01,4.10e+04,3.84e-10 * user_xi * exp(-3.66 * user_Auv / user_AuvAv)
-5909,H2CO,,HCO+,H,E,,1.00e+01,4.10e+04,1.20e-11 * user_xi * exp(-2.54 * user_Auv / user_AuvAv)
-5910,H2CS,,CS,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5911,H2O+,,OH+,H,,,1.00e+01,4.10e+04,1.00e-12 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5912,H2O2,,OH,OH,,,1.00e+01,4.10e+04,8.08e-10 * user_xi * exp(-2.61 * user_Auv / user_AuvAv)
-5913,H2O,,H2O+,E,,,1.00e+01,4.10e+04,2.71e-11 * user_xi * exp(-4.27 * user_Auv / user_AuvAv)
-5914,H2O,,OH,H,,,1.00e+01,4.10e+04,7.72e-10 * user_xi * exp(-2.63 * user_Auv / user_AuvAv)
-5915,H2S2,,HS,HS,,,1.00e+01,4.10e+04,8.30e-10 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5916,H2S,,H2S+,E,,,1.00e+01,4.10e+04,7.82e-10 * user_xi * exp(-3.53 * user_Auv / user_AuvAv)
-5917,H2S,,HS,H,,,1.00e+01,4.10e+04,1.56e-09 * user_xi * exp(-2.64 * user_Auv / user_AuvAv)
-5918,H2S,,S,H2,,,1.00e+01,4.10e+04,1.56e-09 * user_xi * exp(-2.64 * user_Auv / user_AuvAv)
-5919,H2SiO,,SiO,H2,,,1.00e+01,4.10e+04,4.40e-10 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5920,H2SiO,,SiO,H,H,,1.00e+01,4.10e+04,4.40e-10 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5921,H3+,,H2+,H,,,1.00e+01,4.10e+04,0.00e+00 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-5922,H3+,,H2,H+,,,1.00e+01,4.10e+04,0.00e+00 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5923,HC2P,,CCP,H,,,1.00e+01,4.10e+04,5.48e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5924,HC3N,,CN,C2H,,,1.00e+01,4.10e+04,7.10e-09 * user_xi * exp(-2.59 * user_Auv / user_AuvAv)
-5925,HC4H,,C2H,C2H,,,1.00e+01,4.10e+04,1.90e-09 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5926,HC4H,,C4H2+,E,,,1.00e+01,4.10e+04,4.60e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-5927,HC4H,,C4H,H,,,1.00e+01,4.10e+04,1.90e-09 * user_xi * exp(-1.60 * user_Auv / user_AuvAv)
-5928,HC5N,,C4H,CN,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5929,HC5N,,C5N,H,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5930,HC7N,,C6H,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5931,HC7N,,HC7N+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5932,HC9N,,C8H,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5933,HC9N,,HC9N+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5934,HCN,,CN,H,,,1.00e+01,4.10e+04,1.64e-09 * user_xi * exp(-3.12 * user_Auv / user_AuvAv)
-5935,HCNO,,CH,NO,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5936,HCO+,,CO+,H,,,1.00e+01,4.10e+04,5.39e-12 * user_xi * exp(-3.67 * user_Auv / user_AuvAv)
-5937,HCO,,CO,H,,,1.00e+01,4.10e+04,1.11e-09 * user_xi * exp(-2.43 * user_Auv / user_AuvAv)
-5938,HCO,,HCO+,E,,,1.00e+01,4.10e+04,5.60e-10 * user_xi * exp(-2.10 * user_Auv / user_AuvAv)
-5939,HCOOCH3,,H2CO,H2CO,,,1.00e+01,4.10e+04,1.38e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5940,HCOOH,,HCO,OH,,,1.00e+01,4.10e+04,4.10e-10 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5941,HCOOH,,HCOOH+,E,,,1.00e+01,4.10e+04,2.60e-10 * user_xi * exp(-2.60 * user_Auv / user_AuvAv)
-5942,HCP,,CP,H,,,1.00e+01,4.10e+04,5.48e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5943,HCS,,HCS+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5944,HCSi,,HCSi+,E,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5945,HCSi,,SiC,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5946,HCl,,Cl,H,,,1.00e+01,4.10e+04,1.73e-09 * user_xi * exp(-2.88 * user_Auv / user_AuvAv)
-5947,HCl,,HCl+,E,,,1.00e+01,4.10e+04,4.45e-11 * user_xi * exp(-4.27 * user_Auv / user_AuvAv)
-5948,HF,,H,F,,,1.00e+01,4.10e+04,1.17e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5949,HNC3,,C3N,H,,,1.00e+01,4.10e+04,9.54e-10 * user_xi * exp(-1.80 * user_Auv / user_AuvAv)
-5950,HNC,,CN,H,,,1.00e+01,4.10e+04,1.50e-09 * user_xi * exp(-2.10 * user_Auv / user_AuvAv)
-5951,HNCO,,NH,CO,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5952,HNO,,NO,H,,,1.00e+01,4.10e+04,1.70e-10 * user_xi * exp(-0.50 * user_Auv / user_AuvAv)
-5953,HNSi,,SiN,H,,,1.00e+01,4.10e+04,5.48e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5954,HOCN,,OH,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5955,HONC,,OH,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5956,HPO,,PO,H,,,1.00e+01,4.10e+04,1.70e-10 * user_xi * exp(-5.30 * user_Auv / user_AuvAv)
-5957,HS+,,S+,H,,,1.00e+01,4.10e+04,6.86e-10 * user_xi * exp(-2.83 * user_Auv / user_AuvAv)
-5958,HS+,,S,H+,,,1.00e+01,4.10e+04,0.00e+00 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5959,HS2,,HS2+,E,,,1.00e+01,4.10e+04,6.20e-12 * user_xi * exp(-3.10 * user_Auv / user_AuvAv)
-5960,HS2,,S,HS,,,1.00e+01,4.10e+04,3.30e-10 * user_xi * exp(-1.40 * user_Auv / user_AuvAv)
-5961,HS,,H,S,,,1.00e+01,4.10e+04,1.25e-09 * user_xi * exp(-2.40 * user_Auv / user_AuvAv)
-5962,Mg,,Mg+,E,,,1.00e+01,4.10e+04,6.59e-11 * user_xi * exp(-2.43 * user_Auv / user_AuvAv)
-5963,N2,,N,N,,,1.00e+01,4.10e+04,1.70e-10 * user_xi * exp(-4.25 * user_Auv / user_AuvAv)
-5964,N2O,,N2,O,,,1.00e+01,4.10e+04,9.40e-10 * user_xi * exp(-2.81 * user_Auv / user_AuvAv)
-5965,N2O,,NO,N,,,1.00e+01,4.10e+04,9.40e-10 * user_xi * exp(-2.81 * user_Auv / user_AuvAv)
-5966,N2O,,N2O+,E,,,1.00e+01,4.10e+04,1.73e-10 * user_xi * exp(-4.30 * user_Auv / user_AuvAv)
-5967,NCCN,,C2N2+,E,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5968,NCCN,,CN,CN,,,1.00e+01,4.10e+04,4.70e-11 * user_xi * exp(-2.60 * user_Auv / user_AuvAv)
-5969,NH+,,N,H+,,,1.00e+01,4.10e+04,5.42e-11 * user_xi * exp(-2.07 * user_Auv / user_AuvAv)
-5970,NH2,,NH2+,E,,,1.00e+01,4.10e+04,1.90e-10 * user_xi * exp(-3.97 * user_Auv / user_AuvAv)
-5971,NH2,,NH,H,,,1.00e+01,4.10e+04,9.51e-10 * user_xi * exp(-2.31 * user_Auv / user_AuvAv)
-5972,NH2CN,,NH2,CN,,,1.00e+01,4.10e+04,1.38e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-5973,NH3,,NH2,H,,,1.00e+01,4.10e+04,1.08e-09 * user_xi * exp(-2.61 * user_Auv / user_AuvAv)
-5974,NH3,,NH,H2,,,1.00e+01,4.10e+04,3.22e-10 * user_xi * exp(-2.61 * user_Auv / user_AuvAv)
-5975,NH3,,NH3+,E,,,1.00e+01,4.10e+04,2.69e-10 * user_xi * exp(-3.49 * user_Auv / user_AuvAv)
-5976,NH,,N,H,,,1.00e+01,4.10e+04,5.95e-10 * user_xi * exp(-2.63 * user_Auv / user_AuvAv)
-5977,NH,,NH+,E,,,1.00e+01,4.10e+04,1.33e-12 * user_xi * exp(-4.34 * user_Auv / user_AuvAv)
-5978,NO2,,NO2+,E,,,1.00e+01,4.10e+04,1.52e-10 * user_xi * exp(-3.75 * user_Auv / user_AuvAv)
-5979,NO2,,NO,O,,,1.00e+01,4.10e+04,1.39e-09 * user_xi * exp(-2.50 * user_Auv / user_AuvAv)
-5980,NO,,NO+,E,,,1.00e+01,4.10e+04,2.60e-10 * user_xi * exp(-3.38 * user_Auv / user_AuvAv)
-5981,NO,,O,N,,,1.00e+01,4.10e+04,4.73e-10 * user_xi * exp(-2.56 * user_Auv / user_AuvAv)
-5982,NS,,S,N,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5983,Na,,Na+,E,,,1.00e+01,4.10e+04,1.36e-11 * user_xi * exp(-2.62 * user_Auv / user_AuvAv)
-5984,O-,,O,E,,,1.00e+01,4.10e+04,1.13e-08 * user_xi * exp(-0.50 * user_Auv / user_AuvAv)
-5985,O2+,,O+,O,,,1.00e+01,4.10e+04,3.46e-11 * user_xi * exp(-2.38 * user_Auv / user_AuvAv)
-5986,O2-,,O2,E,,,1.00e+01,4.10e+04,8.37e-08 * user_xi * exp(-0.50 * user_Auv / user_AuvAv)
-5987,O2,,O2+,E,,,1.00e+01,4.10e+04,5.10e-11 * user_xi * exp(-4.22 * user_Auv / user_AuvAv)
-5988,O2,,O,O,,,1.00e+01,4.10e+04,7.91e-10 * user_xi * exp(-2.45 * user_Auv / user_AuvAv)
-5989,O2H,,O2,H,,,1.00e+01,4.10e+04,3.38e-10 * user_xi * exp(-2.46 * user_Auv / user_AuvAv)
-5990,O2H,,OH,O,,,1.00e+01,4.10e+04,3.38e-10 * user_xi * exp(-2.46 * user_Auv / user_AuvAv)
-5991,OCN,,CN,O,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-5992,OCS,,OCS+,E,,,1.00e+01,4.10e+04,7.67e-10 * user_xi * exp(-3.85 * user_Auv / user_AuvAv)
-5993,OCS,,S,CO,,,1.00e+01,4.10e+04,4.67e-09 * user_xi * exp(-2.46 * user_Auv / user_AuvAv)
-5994,OH+,,O+,H,,,1.00e+01,4.10e+04,1.08e-11 * user_xi * exp(-3.97 * user_Auv / user_AuvAv)
-5995,OH-,,OH,E,,,1.00e+01,4.10e+04,7.61e-09 * user_xi * exp(-1.00 * user_Auv / user_AuvAv)
-5996,OH,,O,H,,,1.00e+01,4.10e+04,3.79e-10 * user_xi * exp(-2.66 * user_Auv / user_AuvAv)
-5997,OH,,OH+,E,,,1.00e+01,4.10e+04,1.60e-12 * user_xi * exp(-3.10 * user_Auv / user_AuvAv)
-5998,P,,P+,E,,,1.00e+01,4.10e+04,1.89e-09 * user_xi * exp(-3.45 * user_Auv / user_AuvAv)
-5999,PH2,,PH2+,E,,,1.00e+01,4.10e+04,1.73e-10 * user_xi * exp(-2.60 * user_Auv / user_AuvAv)
-6000,PH2,,PH,H,,,1.00e+01,4.10e+04,2.11e-10 * user_xi * exp(-1.50 * user_Auv / user_AuvAv)
-6001,PH,,H,P,,,1.00e+01,4.10e+04,5.79e-10 * user_xi * exp(-2.48 * user_Auv / user_AuvAv)
-6002,PN,,P,N,,,1.00e+01,4.10e+04,5.00e-12 * user_xi * exp(-3.00 * user_Auv / user_AuvAv)
-6003,PO,,P,O,,,1.00e+01,4.10e+04,3.00e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-6004,S-,,S,E,,,1.00e+01,4.10e+04,6.01e-09 * user_xi * exp(-0.90 * user_Auv / user_AuvAv)
-6005,S2,,S2+,E,,,1.00e+01,4.10e+04,1.26e-10 * user_xi * exp(-3.27 * user_Auv / user_AuvAv)
-6006,S2,,S,S,,,1.00e+01,4.10e+04,6.85e-10 * user_xi * exp(-1.90 * user_Auv / user_AuvAv)
-6007,S,,S+,E,,,1.00e+01,4.10e+04,1.12e-09 * user_xi * exp(-3.52 * user_Auv / user_AuvAv)
-6008,SO2,,SO,O,,,1.00e+01,4.10e+04,2.44e-09 * user_xi * exp(-2.78 * user_Auv / user_AuvAv)
-6009,SO,,S,O,,,1.00e+01,4.10e+04,4.20e-09 * user_xi * exp(-2.76 * user_Auv / user_AuvAv)
-6010,SO,,SO+,E,,,1.00e+01,4.10e+04,5.31e-10 * user_xi * exp(-3.46 * user_Auv / user_AuvAv)
-6011,Si,,Si+,E,,,1.00e+01,4.10e+04,4.45e-09 * user_xi * exp(-2.61 * user_Auv / user_AuvAv)
-6012,SiC2,,C2,Si,,,1.00e+01,4.10e+04,2.60e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6013,SiC2H2,,SiC2H,H,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6014,SiC2H,,SiC2,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-6015,SiC3,,C2,SiC,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6016,SiC3,,SiC2,C,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6017,SiC3H,,SiC3,H,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6018,SiC4,,Si,C4,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6019,SiC,,Si,C,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6020,SiCH2,,HCSi,H,,,1.00e+01,4.10e+04,1.81e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-6021,SiCH2,,SiCH2+,E,,,1.00e+01,4.10e+04,2.07e-10 * user_xi * exp(-2.70 * user_Auv / user_AuvAv)
-6022,SiCH3,,SiCH2,H,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6023,SiH+,,Si+,H,,,1.00e+01,4.10e+04,2.65e-09 * user_xi * exp(-1.55 * user_Auv / user_AuvAv)
-6024,SiH2,,SiH2+,E,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
-6025,SiH2,,SiH,H,,,1.00e+01,4.10e+04,5.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-6026,SiH3,,SiH2,H,,,1.00e+01,4.10e+04,3.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-6027,SiH3,,SiH3+,E,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.10 * user_Auv / user_AuvAv)
-6028,SiH3,,SiH,H2,,,1.00e+01,4.10e+04,3.00e-11 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-6029,SiH4,,Si,H2,H2,,1.00e+01,4.10e+04,7.30e-10 * user_xi * exp(-2.20 * user_Auv / user_AuvAv)
-6030,SiH4,,SiH3,H,,,1.00e+01,4.10e+04,0.00e+00 * user_xi * exp(-2.20 * user_Auv / user_AuvAv)
-6031,SiH4,,SiH,H,H2,,1.00e+01,4.10e+04,2.92e-09 * user_xi * exp(-2.20 * user_Auv / user_AuvAv)
-6032,SiH,,Si,H,,,1.00e+01,4.10e+04,2.79e-09 * user_xi * exp(-1.95 * user_Auv / user_AuvAv)
-6033,SiN,,Si,N,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-2.80 * user_Auv / user_AuvAv)
-6034,SiNC,,C,SiN,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-6035,SiNC,,CN,Si,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp(-1.70 * user_Auv / user_AuvAv)
-6036,SiO+,,Si+,O,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-6037,SiO2,,SiO,O,,,1.00e+01,4.10e+04,3.13e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-6038,SiO,,Si,O,,,1.00e+01,4.10e+04,1.58e-09 * user_xi * exp(-2.66 * user_Auv / user_AuvAv)
-6039,SiO,,SiO+,E,,,1.00e+01,4.10e+04,2.40e-10 * user_xi * exp(-2.00 * user_Auv / user_AuvAv)
-6040,SiS,,S,Si,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp(-2.30 * user_Auv / user_AuvAv)
+5894,CP,,C,P,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 2.80) * user_Auv / user_AuvAv)
+5895,CS+,,S+,C,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5896,CS,,CS+,E,,,1.00e+01,4.10e+04,2.60e-11 * user_xi * exp((user_gamma_CO - 3.59) * user_Auv / user_AuvAv)
+5897,CS,,S,C,,,1.00e+01,4.10e+04,3.70e-10 * user_xi * exp((user_gamma_CO - 2.77) * user_Auv / user_AuvAv)
+5898,Cl,,Cl+,E,,,1.00e+01,4.10e+04,4.70e-11 * user_xi * exp((user_gamma_CO - 4.30) * user_Auv / user_AuvAv)
+5899,ClO,,Cl,O,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5900,Fe,,Fe+,E,,,1.00e+01,4.10e+04,4.70e-10 * user_xi * exp((user_gamma_CO - 2.62) * user_Auv / user_AuvAv)
+5901,H-,,H,E,,,1.00e+01,4.10e+04,1.52e-07 * user_xi * exp((user_gamma_CO - 1.24) * user_Auv / user_AuvAv)
+5902,H2+,,H+,H,,,1.00e+01,4.10e+04,5.72e-10 * user_xi * exp((user_gamma_CO - 2.78) * user_Auv / user_AuvAv)
+5903,H2CCC,,C3,H2,,,1.00e+01,4.10e+04,2.07e-09 * user_xi * exp((user_gamma_CO - 2.51) * user_Auv / user_AuvAv)
+5904,H2CCC,,C3H,H,,,1.00e+01,4.10e+04,2.07e-09 * user_xi * exp((user_gamma_CO - 2.51) * user_Auv / user_AuvAv)
+5905,H2CN,,HCN,H,,,1.00e+01,4.10e+04,5.48e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5906,H2CO,,CO,H2,,,1.00e+01,4.10e+04,8.70e-10 * user_xi * exp((user_gamma_CO - 2.54) * user_Auv / user_AuvAv)
+5907,H2CO,,CO,H,H,,1.00e+01,4.10e+04,5.80e-10 * user_xi * exp((user_gamma_CO - 2.54) * user_Auv / user_AuvAv)
+5908,H2CO,,H2CO+,E,,,1.00e+01,4.10e+04,3.84e-10 * user_xi * exp((user_gamma_CO - 3.66) * user_Auv / user_AuvAv)
+5909,H2CO,,HCO+,H,E,,1.00e+01,4.10e+04,1.20e-11 * user_xi * exp((user_gamma_CO - 2.54) * user_Auv / user_AuvAv)
+5910,H2CS,,CS,H2,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5911,H2O+,,OH+,H,,,1.00e+01,4.10e+04,1.00e-12 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5912,H2O2,,OH,OH,,,1.00e+01,4.10e+04,8.08e-10 * user_xi * exp((user_gamma_CO - 2.61) * user_Auv / user_AuvAv)
+5913,H2O,,H2O+,E,,,1.00e+01,4.10e+04,2.71e-11 * user_xi * exp((user_gamma_CO - 4.27) * user_Auv / user_AuvAv)
+5914,H2O,,OH,H,,,1.00e+01,4.10e+04,7.72e-10 * user_xi * exp((user_gamma_CO - 2.63) * user_Auv / user_AuvAv)
+5915,H2S2,,HS,HS,,,1.00e+01,4.10e+04,8.30e-10 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5916,H2S,,H2S+,E,,,1.00e+01,4.10e+04,7.82e-10 * user_xi * exp((user_gamma_CO - 3.53) * user_Auv / user_AuvAv)
+5917,H2S,,HS,H,,,1.00e+01,4.10e+04,1.56e-09 * user_xi * exp((user_gamma_CO - 2.64) * user_Auv / user_AuvAv)
+5918,H2S,,S,H2,,,1.00e+01,4.10e+04,1.56e-09 * user_xi * exp((user_gamma_CO - 2.64) * user_Auv / user_AuvAv)
+5919,H2SiO,,SiO,H2,,,1.00e+01,4.10e+04,4.40e-10 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5920,H2SiO,,SiO,H,H,,1.00e+01,4.10e+04,4.40e-10 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5921,H3+,,H2+,H,,,1.00e+01,4.10e+04,0.00e+00 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+5922,H3+,,H2,H+,,,1.00e+01,4.10e+04,0.00e+00 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5923,HC2P,,CCP,H,,,1.00e+01,4.10e+04,5.48e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5924,HC3N,,CN,C2H,,,1.00e+01,4.10e+04,7.10e-09 * user_xi * exp((user_gamma_CO - 2.59) * user_Auv / user_AuvAv)
+5925,HC4H,,C2H,C2H,,,1.00e+01,4.10e+04,1.90e-09 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5926,HC4H,,C4H2+,E,,,1.00e+01,4.10e+04,4.60e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+5927,HC4H,,C4H,H,,,1.00e+01,4.10e+04,1.90e-09 * user_xi * exp((user_gamma_CO - 1.60) * user_Auv / user_AuvAv)
+5928,HC5N,,C4H,CN,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5929,HC5N,,C5N,H,,,1.00e+01,4.10e+04,5.00e-10 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5930,HC7N,,C6H,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5931,HC7N,,HC7N+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5932,HC9N,,C8H,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5933,HC9N,,HC9N+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5934,HCN,,CN,H,,,1.00e+01,4.10e+04,1.64e-09 * user_xi * exp((user_gamma_CO - 3.12) * user_Auv / user_AuvAv)
+5935,HCNO,,CH,NO,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5936,HCO+,,CO+,H,,,1.00e+01,4.10e+04,5.39e-12 * user_xi * exp((user_gamma_CO - 3.67) * user_Auv / user_AuvAv)
+5937,HCO,,CO,H,,,1.00e+01,4.10e+04,1.11e-09 * user_xi * exp((user_gamma_CO - 2.43) * user_Auv / user_AuvAv)
+5938,HCO,,HCO+,E,,,1.00e+01,4.10e+04,5.60e-10 * user_xi * exp((user_gamma_CO - 2.10) * user_Auv / user_AuvAv)
+5939,HCOOCH3,,H2CO,H2CO,,,1.00e+01,4.10e+04,1.38e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5940,HCOOH,,HCO,OH,,,1.00e+01,4.10e+04,4.10e-10 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5941,HCOOH,,HCOOH+,E,,,1.00e+01,4.10e+04,2.60e-10 * user_xi * exp((user_gamma_CO - 2.60) * user_Auv / user_AuvAv)
+5942,HCP,,CP,H,,,1.00e+01,4.10e+04,5.48e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5943,HCS,,HCS+,E,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5944,HCSi,,HCSi+,E,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5945,HCSi,,SiC,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5946,HCl,,Cl,H,,,1.00e+01,4.10e+04,1.73e-09 * user_xi * exp((user_gamma_CO - 2.88) * user_Auv / user_AuvAv)
+5947,HCl,,HCl+,E,,,1.00e+01,4.10e+04,4.45e-11 * user_xi * exp((user_gamma_CO - 4.27) * user_Auv / user_AuvAv)
+5948,HF,,H,F,,,1.00e+01,4.10e+04,1.17e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5949,HNC3,,C3N,H,,,1.00e+01,4.10e+04,9.54e-10 * user_xi * exp((user_gamma_CO - 1.80) * user_Auv / user_AuvAv)
+5950,HNC,,CN,H,,,1.00e+01,4.10e+04,1.50e-09 * user_xi * exp((user_gamma_CO - 2.10) * user_Auv / user_AuvAv)
+5951,HNCO,,NH,CO,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5952,HNO,,NO,H,,,1.00e+01,4.10e+04,1.70e-10 * user_xi * exp((user_gamma_CO - 0.50) * user_Auv / user_AuvAv)
+5953,HNSi,,SiN,H,,,1.00e+01,4.10e+04,5.48e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5954,HOCN,,OH,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5955,HONC,,OH,CN,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5956,HPO,,PO,H,,,1.00e+01,4.10e+04,1.70e-10 * user_xi * exp((user_gamma_CO - 5.30) * user_Auv / user_AuvAv)
+5957,HS+,,S+,H,,,1.00e+01,4.10e+04,6.86e-10 * user_xi * exp((user_gamma_CO - 2.83) * user_Auv / user_AuvAv)
+5958,HS+,,S,H+,,,1.00e+01,4.10e+04,0.00e+00 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5959,HS2,,HS2+,E,,,1.00e+01,4.10e+04,6.20e-12 * user_xi * exp((user_gamma_CO - 3.10) * user_Auv / user_AuvAv)
+5960,HS2,,S,HS,,,1.00e+01,4.10e+04,3.30e-10 * user_xi * exp((user_gamma_CO - 1.40) * user_Auv / user_AuvAv)
+5961,HS,,H,S,,,1.00e+01,4.10e+04,1.25e-09 * user_xi * exp((user_gamma_CO - 2.40) * user_Auv / user_AuvAv)
+5962,Mg,,Mg+,E,,,1.00e+01,4.10e+04,6.59e-11 * user_xi * exp((user_gamma_CO - 2.43) * user_Auv / user_AuvAv)
+5963,N2,,N,N,,,1.00e+01,4.10e+04,1.70e-10 * user_xi * exp((user_gamma_CO - 4.25) * user_Auv / user_AuvAv)
+5964,N2O,,N2,O,,,1.00e+01,4.10e+04,9.40e-10 * user_xi * exp((user_gamma_CO - 2.81) * user_Auv / user_AuvAv)
+5965,N2O,,NO,N,,,1.00e+01,4.10e+04,9.40e-10 * user_xi * exp((user_gamma_CO - 2.81) * user_Auv / user_AuvAv)
+5966,N2O,,N2O+,E,,,1.00e+01,4.10e+04,1.73e-10 * user_xi * exp((user_gamma_CO - 4.30) * user_Auv / user_AuvAv)
+5967,NCCN,,C2N2+,E,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5968,NCCN,,CN,CN,,,1.00e+01,4.10e+04,4.70e-11 * user_xi * exp((user_gamma_CO - 2.60) * user_Auv / user_AuvAv)
+5969,NH+,,N,H+,,,1.00e+01,4.10e+04,5.42e-11 * user_xi * exp((user_gamma_CO - 2.07) * user_Auv / user_AuvAv)
+5970,NH2,,NH2+,E,,,1.00e+01,4.10e+04,1.90e-10 * user_xi * exp((user_gamma_CO - 3.97) * user_Auv / user_AuvAv)
+5971,NH2,,NH,H,,,1.00e+01,4.10e+04,9.51e-10 * user_xi * exp((user_gamma_CO - 2.31) * user_Auv / user_AuvAv)
+5972,NH2CN,,NH2,CN,,,1.00e+01,4.10e+04,1.38e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+5973,NH3,,NH2,H,,,1.00e+01,4.10e+04,1.08e-09 * user_xi * exp((user_gamma_CO - 2.61) * user_Auv / user_AuvAv)
+5974,NH3,,NH,H2,,,1.00e+01,4.10e+04,3.22e-10 * user_xi * exp((user_gamma_CO - 2.61) * user_Auv / user_AuvAv)
+5975,NH3,,NH3+,E,,,1.00e+01,4.10e+04,2.69e-10 * user_xi * exp((user_gamma_CO - 3.49) * user_Auv / user_AuvAv)
+5976,NH,,N,H,,,1.00e+01,4.10e+04,5.95e-10 * user_xi * exp((user_gamma_CO - 2.63) * user_Auv / user_AuvAv)
+5977,NH,,NH+,E,,,1.00e+01,4.10e+04,1.33e-12 * user_xi * exp((user_gamma_CO - 4.34) * user_Auv / user_AuvAv)
+5978,NO2,,NO2+,E,,,1.00e+01,4.10e+04,1.52e-10 * user_xi * exp((user_gamma_CO - 3.75) * user_Auv / user_AuvAv)
+5979,NO2,,NO,O,,,1.00e+01,4.10e+04,1.39e-09 * user_xi * exp((user_gamma_CO - 2.50) * user_Auv / user_AuvAv)
+5980,NO,,NO+,E,,,1.00e+01,4.10e+04,2.60e-10 * user_xi * exp((user_gamma_CO - 3.38) * user_Auv / user_AuvAv)
+5981,NO,,O,N,,,1.00e+01,4.10e+04,4.73e-10 * user_xi * exp((user_gamma_CO - 2.56) * user_Auv / user_AuvAv)
+5982,NS,,S,N,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5983,Na,,Na+,E,,,1.00e+01,4.10e+04,1.36e-11 * user_xi * exp((user_gamma_CO - 2.62) * user_Auv / user_AuvAv)
+5984,O-,,O,E,,,1.00e+01,4.10e+04,1.13e-08 * user_xi * exp((user_gamma_CO - 0.50) * user_Auv / user_AuvAv)
+5985,O2+,,O+,O,,,1.00e+01,4.10e+04,3.46e-11 * user_xi * exp((user_gamma_CO - 2.38) * user_Auv / user_AuvAv)
+5986,O2-,,O2,E,,,1.00e+01,4.10e+04,8.37e-08 * user_xi * exp((user_gamma_CO - 0.50) * user_Auv / user_AuvAv)
+5987,O2,,O2+,E,,,1.00e+01,4.10e+04,5.10e-11 * user_xi * exp((user_gamma_CO - 4.22) * user_Auv / user_AuvAv)
+5988,O2,,O,O,,,1.00e+01,4.10e+04,7.91e-10 * user_xi * exp((user_gamma_CO - 2.45) * user_Auv / user_AuvAv)
+5989,O2H,,O2,H,,,1.00e+01,4.10e+04,3.38e-10 * user_xi * exp((user_gamma_CO - 2.46) * user_Auv / user_AuvAv)
+5990,O2H,,OH,O,,,1.00e+01,4.10e+04,3.38e-10 * user_xi * exp((user_gamma_CO - 2.46) * user_Auv / user_AuvAv)
+5991,OCN,,CN,O,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+5992,OCS,,OCS+,E,,,1.00e+01,4.10e+04,7.67e-10 * user_xi * exp((user_gamma_CO - 3.85) * user_Auv / user_AuvAv)
+5993,OCS,,S,CO,,,1.00e+01,4.10e+04,4.67e-09 * user_xi * exp((user_gamma_CO - 2.46) * user_Auv / user_AuvAv)
+5994,OH+,,O+,H,,,1.00e+01,4.10e+04,1.08e-11 * user_xi * exp((user_gamma_CO - 3.97) * user_Auv / user_AuvAv)
+5995,OH-,,OH,E,,,1.00e+01,4.10e+04,7.61e-09 * user_xi * exp((user_gamma_CO - 1.00) * user_Auv / user_AuvAv)
+5996,OH,,O,H,,,1.00e+01,4.10e+04,3.79e-10 * user_xi * exp((user_gamma_CO - 2.66) * user_Auv / user_AuvAv)
+5997,OH,,OH+,E,,,1.00e+01,4.10e+04,1.60e-12 * user_xi * exp((user_gamma_CO - 3.10) * user_Auv / user_AuvAv)
+5998,P,,P+,E,,,1.00e+01,4.10e+04,1.89e-09 * user_xi * exp((user_gamma_CO - 3.45) * user_Auv / user_AuvAv)
+5999,PH2,,PH2+,E,,,1.00e+01,4.10e+04,1.73e-10 * user_xi * exp((user_gamma_CO - 2.60) * user_Auv / user_AuvAv)
+6000,PH2,,PH,H,,,1.00e+01,4.10e+04,2.11e-10 * user_xi * exp((user_gamma_CO - 1.50) * user_Auv / user_AuvAv)
+6001,PH,,H,P,,,1.00e+01,4.10e+04,5.79e-10 * user_xi * exp((user_gamma_CO - 2.48) * user_Auv / user_AuvAv)
+6002,PN,,P,N,,,1.00e+01,4.10e+04,5.00e-12 * user_xi * exp((user_gamma_CO - 3.00) * user_Auv / user_AuvAv)
+6003,PO,,P,O,,,1.00e+01,4.10e+04,3.00e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+6004,S-,,S,E,,,1.00e+01,4.10e+04,6.01e-09 * user_xi * exp((user_gamma_CO - 0.90) * user_Auv / user_AuvAv)
+6005,S2,,S2+,E,,,1.00e+01,4.10e+04,1.26e-10 * user_xi * exp((user_gamma_CO - 3.27) * user_Auv / user_AuvAv)
+6006,S2,,S,S,,,1.00e+01,4.10e+04,6.85e-10 * user_xi * exp((user_gamma_CO - 1.90) * user_Auv / user_AuvAv)
+6007,S,,S+,E,,,1.00e+01,4.10e+04,1.12e-09 * user_xi * exp((user_gamma_CO - 3.52) * user_Auv / user_AuvAv)
+6008,SO2,,SO,O,,,1.00e+01,4.10e+04,2.44e-09 * user_xi * exp((user_gamma_CO - 2.78) * user_Auv / user_AuvAv)
+6009,SO,,S,O,,,1.00e+01,4.10e+04,4.20e-09 * user_xi * exp((user_gamma_CO - 2.76) * user_Auv / user_AuvAv)
+6010,SO,,SO+,E,,,1.00e+01,4.10e+04,5.31e-10 * user_xi * exp((user_gamma_CO - 3.46) * user_Auv / user_AuvAv)
+6011,Si,,Si+,E,,,1.00e+01,4.10e+04,4.45e-09 * user_xi * exp((user_gamma_CO - 2.61) * user_Auv / user_AuvAv)
+6012,SiC2,,C2,Si,,,1.00e+01,4.10e+04,2.60e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6013,SiC2H2,,SiC2H,H,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6014,SiC2H,,SiC2,H,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+6015,SiC3,,C2,SiC,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6016,SiC3,,SiC2,C,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6017,SiC3H,,SiC3,H,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6018,SiC4,,Si,C4,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6019,SiC,,Si,C,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6020,SiCH2,,HCSi,H,,,1.00e+01,4.10e+04,1.81e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+6021,SiCH2,,SiCH2+,E,,,1.00e+01,4.10e+04,2.07e-10 * user_xi * exp((user_gamma_CO - 2.70) * user_Auv / user_AuvAv)
+6022,SiCH3,,SiCH2,H,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6023,SiH+,,Si+,H,,,1.00e+01,4.10e+04,2.65e-09 * user_xi * exp((user_gamma_CO - 1.55) * user_Auv / user_AuvAv)
+6024,SiH2,,SiH2+,E,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
+6025,SiH2,,SiH,H,,,1.00e+01,4.10e+04,5.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+6026,SiH3,,SiH2,H,,,1.00e+01,4.10e+04,3.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+6027,SiH3,,SiH3+,E,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.10) * user_Auv / user_AuvAv)
+6028,SiH3,,SiH,H2,,,1.00e+01,4.10e+04,3.00e-11 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+6029,SiH4,,Si,H2,H2,,1.00e+01,4.10e+04,7.30e-10 * user_xi * exp((user_gamma_CO - 2.20) * user_Auv / user_AuvAv)
+6030,SiH4,,SiH3,H,,,1.00e+01,4.10e+04,0.00e+00 * user_xi * exp((user_gamma_CO - 2.20) * user_Auv / user_AuvAv)
+6031,SiH4,,SiH,H,H2,,1.00e+01,4.10e+04,2.92e-09 * user_xi * exp((user_gamma_CO - 2.20) * user_Auv / user_AuvAv)
+6032,SiH,,Si,H,,,1.00e+01,4.10e+04,2.79e-09 * user_xi * exp((user_gamma_CO - 1.95) * user_Auv / user_AuvAv)
+6033,SiN,,Si,N,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 2.80) * user_Auv / user_AuvAv)
+6034,SiNC,,C,SiN,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+6035,SiNC,,CN,Si,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((user_gamma_CO - 1.70) * user_Auv / user_AuvAv)
+6036,SiO+,,Si+,O,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+6037,SiO2,,SiO,O,,,1.00e+01,4.10e+04,3.13e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+6038,SiO,,Si,O,,,1.00e+01,4.10e+04,1.58e-09 * user_xi * exp((user_gamma_CO - 2.66) * user_Auv / user_AuvAv)
+6039,SiO,,SiO+,E,,,1.00e+01,4.10e+04,2.40e-10 * user_xi * exp((user_gamma_CO - 2.00) * user_Auv / user_AuvAv)
+6040,SiS,,S,Si,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((user_gamma_CO - 2.30) * user_Auv / user_AuvAv)
 6041,C+,C10,C11+,,,,1.00e+01,4.10e+04,1.00e-09
 6042,C+,C3,C4+,,,,1.00e+01,3.00e+02,1.00e-13 * (Tgas / 3.0e2)**(-1.00)
 6043,C+,C4,C5+,,,,1.00e+01,3.00e+02,1.00e-09
@@ -6180,3 +6180,675 @@
 6177,SiH,O2,SiO2,H,,,1.00e+01,5.00e+02,1.00e-10
 6178,SiH4,,Si,H2,H2,,1.00e+01,4.10e+04,1.30e-17 * (Tgas / 3.0e2)**(0.00) * (1./(1.-user_alb)) * (150.00)
 6179,SiH,O2,SiO,OH,,,1.00e+01,5.00e+02,1.50e-10
+6180,C-,,C,E,,,1.00e+01,4.10e+04,0
+6181,C10-,,C10,E,,,1.00e+01,4.10e+04,0
+6182,C10,,C10+,E,,,1.00e+01,4.10e+04,0
+6183,C10,,C6,C3,C,,1.00e+01,4.10e+04,0
+6184,C10,,C6,C4,,,1.00e+01,4.10e+04,0
+6185,C10,,C7,C2,C,,1.00e+01,4.10e+04,0
+6186,C10,,C8,C2,,,1.00e+01,4.10e+04,0
+6187,C10,,C9,C,,,1.00e+01,4.10e+04,0
+6188,C10H-,,C10H,E,,,1.00e+01,3.00e+02,0
+6189,C10H2,,C10,H,H,,1.00e+01,4.10e+04,0
+6190,C10H2,,C10H2+,E,,,1.00e+01,4.10e+04,0
+6191,C10H2,,C10H,H,,,1.00e+01,4.10e+04,0
+6192,C10H2,,C7H,C3,H,,1.00e+01,4.10e+04,0
+6193,C10H,,C10,H,,,1.00e+01,4.10e+04,0
+6194,C10H,,C10H+,E,,,1.00e+01,4.10e+04,0
+6195,C10H,,C5,C5,H,,1.00e+01,4.10e+04,0
+6196,C10H,,C5H,C5,,,1.00e+01,4.10e+04,0
+6197,C10H,,C7,C3,H,,1.00e+01,4.10e+04,0
+6198,C10H,,C7H,C3,,,1.00e+01,4.10e+04,0
+6199,C10H,,C8,C2,H,,1.00e+01,4.10e+04,0
+6200,C10H,,C9,C,H,,1.00e+01,4.10e+04,0
+6201,C11,,C11+,E,,,1.00e+01,4.10e+04,0
+6202,C11,,C5,C3,C3,,1.00e+01,4.10e+04,0
+6203,C11,,C6,C5,,,1.00e+01,4.10e+04,0
+6204,C11,,C7,C4,,,1.00e+01,4.10e+04,0
+6205,C11,,C8,C3,,,1.00e+01,4.10e+04,0
+6206,C11,,C9,C2,,,1.00e+01,4.10e+04,0
+6207,C2+,,C+,C,,,1.00e+01,4.10e+04,0
+6208,C2-,,C2,E,,,1.00e+01,4.10e+04,0
+6209,C2,,C2+,E,,,1.00e+01,4.10e+04,0
+6210,C2,,C,C,,,1.00e+01,4.10e+04,0
+6211,C2H+,,C2+,H,,,1.00e+01,4.10e+04,0
+6212,C2H-,,C2H,E,,,1.00e+01,4.10e+04,0
+6213,C2H2,,C2H2+,E,,,1.00e+01,4.10e+04,0
+6214,C2H2,,C2H,H,,,1.00e+01,4.10e+04,0
+6215,C2H3,,C2H2,H,,,1.00e+01,4.10e+04,0
+6216,C2H3,,C2H3+,E,,,1.00e+01,4.10e+04,0
+6217,C2H4,,C2H2,H2,,,1.00e+01,4.10e+04,0
+6218,C2H4,,C2H4+,E,,,1.00e+01,4.10e+04,0
+6219,C2H5,,C2H3,H2,,,1.00e+01,4.10e+04,0
+6220,C2H5,,C2H5+,E,,,1.00e+01,4.10e+04,0
+6221,C2H5CN,,CH2CHCNH+,H,E,,1.00e+01,4.10e+04,0
+6222,C2H5CN,,CN,C2H5,,,1.00e+01,4.10e+04,0
+6223,C2H5OH,,C2H5,OH,,,1.00e+01,4.10e+04,0
+6224,C2H5OH,,C2H5OH+,E,,,1.00e+01,4.10e+04,0
+6225,C2H,,C2,H,,,1.00e+01,4.10e+04,0
+6226,C2H,,C2H+,E,,,1.00e+01,4.10e+04,0
+6227,C2N,,C2,N,,,1.00e+01,4.10e+04,0
+6228,C2N,,CN,C,,,1.00e+01,4.10e+04,0
+6229,C2O,,C2,O,,,1.00e+01,4.10e+04,0
+6230,C2O,,CO,C,,,1.00e+01,4.10e+04,0
+6231,C2S,,S,C2,,,1.00e+01,4.10e+04,0
+6232,C3-,,C3,E,,,1.00e+01,4.10e+04,0
+6233,C3,,C2,C,,,1.00e+01,4.10e+04,0
+6234,C3H-,,C3H,E,,,1.00e+01,4.10e+04,0
+6235,C3H2,,C3H,H,,,1.00e+01,4.10e+04,0
+6236,C3H,,C3,H,,,1.00e+01,4.10e+04,0
+6237,C3N-,,C3N,E,,,1.00e+01,3.00e+02,0
+6238,C3N,,CN,C2,,,1.00e+01,4.10e+04,0
+6239,C3O,,CO,C2,,,1.00e+01,4.10e+04,0
+6240,C3P,,C2,CP,,,1.00e+01,4.10e+04,0
+6241,C3S,,CS,C2,,,1.00e+01,4.10e+04,0
+6242,C4-,,C4,E,,,1.00e+01,4.10e+04,0
+6243,C4,,C2,C2,,,1.00e+01,4.10e+04,0
+6244,C4,,C3,C,,,1.00e+01,4.10e+04,0
+6245,C4H-,,C4H,E,,,1.00e+01,4.10e+04,0
+6246,C4H3,,C4H,H2,,,1.00e+01,4.10e+04,0
+6247,C4H3,,HC4H,H,,,1.00e+01,4.10e+04,0
+6248,C4H,,C2H,C2,,,1.00e+01,4.10e+04,0
+6249,C4H,,C4,H,,,1.00e+01,4.10e+04,0
+6250,C4N,,C3,CN,,,1.00e+01,4.10e+04,0
+6251,C4N,,C4,N,,,1.00e+01,4.10e+04,0
+6252,C4P,,C3,CP,,,1.00e+01,4.10e+04,0
+6253,C4S,,CS,C3,,,1.00e+01,4.10e+04,0
+6254,C5-,,C5,E,,,1.00e+01,4.10e+04,0
+6255,C5,,C3,C2,,,1.00e+01,4.10e+04,0
+6256,C5H-,,C5H,E,,,1.00e+01,4.10e+04,0
+6257,C5H2,,C3H,C2H,,,1.00e+01,4.10e+04,0
+6258,C5H2,,C5H,H,,,1.00e+01,4.10e+04,0
+6259,C5H,,C3,C2H,,,1.00e+01,4.10e+04,0
+6260,C5H,,C3H,C2,,,1.00e+01,4.10e+04,0
+6261,C5H,,C5,H,,,1.00e+01,4.10e+04,0
+6262,C5N-,,C5N,E,,,1.00e+01,3.00e+02,0
+6263,C5N,,C4,CN,,,1.00e+01,4.10e+04,0
+6264,C6-,,C6,E,,,1.00e+01,4.10e+04,0
+6265,C6,,C5,C,,,1.00e+01,4.10e+04,0
+6266,C6,,C6+,E,,,1.00e+01,4.10e+04,0
+6267,C6H-,,C6H,E,,,1.00e+01,4.10e+04,0
+6268,C6H2,,C6H2+,E,,,1.00e+01,4.10e+04,0
+6269,C6H2,,C6H,H,,,1.00e+01,4.10e+04,0
+6270,C6H6,,C2H2,CH2CHCCH,,,1.00e+01,4.10e+04,0
+6271,C6H,,C3H,C3,,,1.00e+01,4.10e+04,0
+6272,C6H,,C4,C2H,,,1.00e+01,4.10e+04,0
+6273,C7-,,C7,E,,,1.00e+01,4.10e+04,0
+6274,C7,,C6,C,,,1.00e+01,4.10e+04,0
+6275,C7,,C7+,E,,,1.00e+01,4.10e+04,0
+6276,C7H-,,C7H,E,,,1.00e+01,4.10e+04,0
+6277,C7H2,,C7H2+,E,,,1.00e+01,4.10e+04,0
+6278,C7H2,,C7H,H,,,1.00e+01,4.10e+04,0
+6279,C7H,,C7,H,,,1.00e+01,4.10e+04,0
+6280,C7H,,C7H+,E,,,1.00e+01,4.10e+04,0
+6281,C7N,,C6,CN,,,1.00e+01,4.10e+04,0
+6282,C7N,,C7N+,E,,,1.00e+01,4.10e+04,0
+6283,C8-,,C8,E,,,1.00e+01,4.10e+04,0
+6284,C8,,C7,C,,,1.00e+01,4.10e+04,0
+6285,C8,,C8+,E,,,1.00e+01,4.10e+04,0
+6286,C8H-,,C8H,E,,,1.00e+01,4.10e+04,0
+6287,C8H2,,C8H2+,E,,,1.00e+01,4.10e+04,0
+6288,C8H2,,C8H,H,,,1.00e+01,4.10e+04,0
+6289,C8H,,C8,H,,,1.00e+01,4.10e+04,0
+6290,C8H,,C8H+,E,,,1.00e+01,4.10e+04,0
+6291,C9-,,C9,E,,,1.00e+01,4.10e+04,0
+6292,C9,,C8,C,,,1.00e+01,4.10e+04,0
+6293,C9,,C9+,E,,,1.00e+01,4.10e+04,0
+6294,C9H-,,C9H,E,,,1.00e+01,4.10e+04,0
+6295,C9H2,,C9H2+,E,,,1.00e+01,4.10e+04,0
+6296,C9H2,,C9H,H,,,1.00e+01,4.10e+04,0
+6297,C9H,,C9,H,,,1.00e+01,4.10e+04,0
+6298,C9H,,C9H+,E,,,1.00e+01,4.10e+04,0
+6299,C9N,,C8,CN,,,1.00e+01,4.10e+04,0
+6300,C9N,,C9N+,E,,,1.00e+01,4.10e+04,0
+6301,C,,C+,E,,,1.00e+01,4.10e+04,0
+6302,CCP,,C2,P,,,1.00e+01,4.10e+04,0
+6303,CCP,,CP,C,,,1.00e+01,4.10e+04,0
+6304,CCl,,Cl,C,,,1.00e+01,4.10e+04,0
+6305,CH+,,C,H+,,,1.00e+01,4.10e+04,0
+6306,CH-,,CH,E,,,1.00e+01,4.10e+04,0
+6307,CH2+,,C+,H2,,,1.00e+01,4.10e+04,0
+6308,CH2+,,CH+,H,,,1.00e+01,4.10e+04,0
+6309,CH2+,,CH,H+,,,1.00e+01,4.10e+04,0
+6310,CH2,,CH2+,E,,,1.00e+01,4.10e+04,0
+6311,CH2,,CH,H,,,1.00e+01,4.10e+04,0
+6312,CH2CCH2,,C3H4+,E,,,1.00e+01,4.10e+04,0
+6313,CH2CCH2,,CH2CCH,H,,,1.00e+01,4.10e+04,0
+6314,CH2CCH2,,H2CCC,H2,,,1.00e+01,4.10e+04,0
+6315,CH2CCH,,C3H2,H,,,1.00e+01,4.10e+04,0
+6316,CH2CCH,,C3H,H2,,,1.00e+01,4.10e+04,0
+6317,CH2CHCCH,,CH2CCH2,C,,,1.00e+01,4.10e+04,0
+6318,CH2CHCCH,,CH3CCH,C,,,1.00e+01,4.10e+04,0
+6319,CH2CHCHCH2,,CH3CHCH2,C,,,1.00e+01,4.10e+04,0
+6320,CH2CHCN,,C2H3,CN,,,1.00e+01,4.10e+04,0
+6321,CH2CHCN,,CH2CHCN+,E,,,1.00e+01,4.10e+04,0
+6322,CH2CN,,CH2,CN,,,1.00e+01,4.10e+04,0
+6323,CH2CO,,CH2CO+,E,,,1.00e+01,4.10e+04,0
+6324,CH2CO,,CO,CH2,,,1.00e+01,4.10e+04,0
+6325,CH2NH,,HNC,H2,,,1.00e+01,4.10e+04,0
+6326,CH2PH,,CH2,PH,,,1.00e+01,4.10e+04,0
+6327,CH3+,,CH+,H2,,,1.00e+01,4.10e+04,0
+6328,CH3+,,CH2+,H,,,1.00e+01,4.10e+04,0
+6329,CH3,,CH2,H,,,1.00e+01,4.10e+04,0
+6330,CH3,,CH3+,E,,,1.00e+01,4.10e+04,0
+6331,CH3,,CH,H2,,,1.00e+01,4.10e+04,0
+6332,CH3C3N,,C3N,CH3,,,1.00e+01,4.10e+04,0
+6333,CH3C4H,,C4H,CH3,,,1.00e+01,4.10e+04,0
+6334,CH3C5N,,CH3,C5N,,,1.00e+01,4.10e+04,0
+6335,CH3C6H,,CH3,C6H,,,1.00e+01,4.10e+04,0
+6336,CH3C7N,,CH3,C7N,,,1.00e+01,4.10e+04,0
+6337,CH3CCH,,C3H4+,E,,,1.00e+01,4.10e+04,0
+6338,CH3CCH,,CH2CCH,H,,,1.00e+01,4.10e+04,0
+6339,CH3CCH,,H2CCC,H2,,,1.00e+01,4.10e+04,0
+6340,CH3CH3,,CH3CH3+,E,,,1.00e+01,4.10e+04,0
+6341,CH3CHCH2,,C2H4,CH2,,,1.00e+01,4.10e+04,0
+6342,CH3CHO,,CH3CHO+,E,,,1.00e+01,4.10e+04,0
+6343,CH3CHO,,CO,CH4,,,1.00e+01,4.10e+04,0
+6344,CH3CHO,,HCO,CH3,,,1.00e+01,4.10e+04,0
+6345,CH3CN,,CH3CN+,E,,,1.00e+01,4.10e+04,0
+6346,CH3CN,,CN,CH3,,,1.00e+01,4.10e+04,0
+6347,CH3COCH3,,CH3COCH3+,E,,,1.00e+01,4.10e+04,0
+6348,CH3COCH3,,CO,CH3,CH3,,1.00e+01,4.10e+04,0
+6349,CH3OCH3,,CH3OCH3+,E,,,1.00e+01,4.10e+04,0
+6350,CH3OCH3,,H2CO,CH4,,,1.00e+01,4.10e+04,0
+6351,CH3OH,,CH3OH+,E,,,1.00e+01,4.10e+04,0
+6352,CH3OH,,H2CO,H2,,,1.00e+01,4.10e+04,0
+6353,CH3OH,,H3CO+,H,E,,1.00e+01,4.10e+04,0
+6354,CH3OH,,OH,CH3,,,1.00e+01,4.10e+04,0
+6355,CH4+,,CH2+,H2,,,1.00e+01,4.10e+04,0
+6356,CH4+,,CH3+,H,,,1.00e+01,4.10e+04,0
+6357,CH4,,CH2,H2,,,1.00e+01,4.10e+04,0
+6358,CH4,,CH3,H,,,1.00e+01,4.10e+04,0
+6359,CH4,,CH4+,E,,,1.00e+01,4.10e+04,0
+6360,CH4,,CH,H2,H,,1.00e+01,4.10e+04,0
+6361,CH,,C,H,,,1.00e+01,4.10e+04,0
+6362,CH,,CH+,E,,,1.00e+01,4.10e+04,0
+6363,CN-,,CN,E,,,1.00e+01,4.10e+04,0
+6364,CN,,N,C,,,1.00e+01,4.10e+04,0
+6365,CNO,,CN,O,,,1.00e+01,4.10e+04,0
+6366,CO+,,C+,O,,,1.00e+01,4.10e+04,0
+6367,CO2,,CO,O,,,1.00e+01,4.10e+04,0
+6368,CO,,O,C,,,1.00e+01,4.10e+04,0
+6369,CP,,C,P,,,1.00e+01,4.10e+04,0
+6370,CS+,,S+,C,,,1.00e+01,4.10e+04,0
+6371,CS,,CS+,E,,,1.00e+01,4.10e+04,0
+6372,CS,,S,C,,,1.00e+01,4.10e+04,0
+6373,Cl,,Cl+,E,,,1.00e+01,4.10e+04,0
+6374,ClO,,Cl,O,,,1.00e+01,4.10e+04,0
+6375,Fe,,Fe+,E,,,1.00e+01,4.10e+04,0
+6376,H-,,H,E,,,1.00e+01,4.10e+04,0
+6377,H2+,,H+,H,,,1.00e+01,4.10e+04,0
+6378,H2CCC,,C3,H2,,,1.00e+01,4.10e+04,0
+6379,H2CCC,,C3H,H,,,1.00e+01,4.10e+04,0
+6380,H2CN,,HCN,H,,,1.00e+01,4.10e+04,0
+6381,H2CO,,CO,H2,,,1.00e+01,4.10e+04,0
+6382,H2CO,,CO,H,H,,1.00e+01,4.10e+04,0
+6383,H2CO,,H2CO+,E,,,1.00e+01,4.10e+04,0
+6384,H2CO,,HCO+,H,E,,1.00e+01,4.10e+04,0
+6385,H2CS,,CS,H2,,,1.00e+01,4.10e+04,0
+6386,H2O+,,OH+,H,,,1.00e+01,4.10e+04,0
+6387,H2O2,,OH,OH,,,1.00e+01,4.10e+04,0
+6388,H2O,,H2O+,E,,,1.00e+01,4.10e+04,0
+6389,H2O,,OH,H,,,1.00e+01,4.10e+04,0
+6390,H2S2,,HS,HS,,,1.00e+01,4.10e+04,0
+6391,H2S,,H2S+,E,,,1.00e+01,4.10e+04,0
+6392,H2S,,HS,H,,,1.00e+01,4.10e+04,0
+6393,H2S,,S,H2,,,1.00e+01,4.10e+04,0
+6394,H2SiO,,SiO,H2,,,1.00e+01,4.10e+04,0
+6395,H2SiO,,SiO,H,H,,1.00e+01,4.10e+04,0
+6396,H3+,,H2+,H,,,1.00e+01,4.10e+04,0
+6397,H3+,,H2,H+,,,1.00e+01,4.10e+04,0
+6398,HC2P,,CCP,H,,,1.00e+01,4.10e+04,0
+6399,HC3N,,CN,C2H,,,1.00e+01,4.10e+04,0
+6400,HC4H,,C2H,C2H,,,1.00e+01,4.10e+04,0
+6401,HC4H,,C4H2+,E,,,1.00e+01,4.10e+04,0
+6402,HC4H,,C4H,H,,,1.00e+01,4.10e+04,0
+6403,HC5N,,C4H,CN,,,1.00e+01,4.10e+04,0
+6404,HC5N,,C5N,H,,,1.00e+01,4.10e+04,0
+6405,HC7N,,C6H,CN,,,1.00e+01,4.10e+04,0
+6406,HC7N,,HC7N+,E,,,1.00e+01,4.10e+04,0
+6407,HC9N,,C8H,CN,,,1.00e+01,4.10e+04,0
+6408,HC9N,,HC9N+,E,,,1.00e+01,4.10e+04,0
+6409,HCN,,CN,H,,,1.00e+01,4.10e+04,0
+6410,HCNO,,CH,NO,,,1.00e+01,4.10e+04,0
+6411,HCO+,,CO+,H,,,1.00e+01,4.10e+04,0
+6412,HCO,,CO,H,,,1.00e+01,4.10e+04,0
+6413,HCO,,HCO+,E,,,1.00e+01,4.10e+04,0
+6414,HCOOCH3,,H2CO,H2CO,,,1.00e+01,4.10e+04,0
+6415,HCOOH,,HCO,OH,,,1.00e+01,4.10e+04,0
+6416,HCOOH,,HCOOH+,E,,,1.00e+01,4.10e+04,0
+6417,HCP,,CP,H,,,1.00e+01,4.10e+04,0
+6418,HCS,,HCS+,E,,,1.00e+01,4.10e+04,0
+6419,HCSi,,HCSi+,E,,,1.00e+01,4.10e+04,0
+6420,HCSi,,SiC,H,,,1.00e+01,4.10e+04,0
+6421,HCl,,Cl,H,,,1.00e+01,4.10e+04,0
+6422,HCl,,HCl+,E,,,1.00e+01,4.10e+04,0
+6423,HF,,H,F,,,1.00e+01,4.10e+04,0
+6424,HNC3,,C3N,H,,,1.00e+01,4.10e+04,0
+6425,HNC,,CN,H,,,1.00e+01,4.10e+04,0
+6426,HNCO,,NH,CO,,,1.00e+01,4.10e+04,0
+6427,HNO,,NO,H,,,1.00e+01,4.10e+04,0
+6428,HNSi,,SiN,H,,,1.00e+01,4.10e+04,0
+6429,HOCN,,OH,CN,,,1.00e+01,4.10e+04,0
+6430,HONC,,OH,CN,,,1.00e+01,4.10e+04,0
+6431,HPO,,PO,H,,,1.00e+01,4.10e+04,0
+6432,HS+,,S+,H,,,1.00e+01,4.10e+04,0
+6433,HS+,,S,H+,,,1.00e+01,4.10e+04,0
+6434,HS2,,HS2+,E,,,1.00e+01,4.10e+04,0
+6435,HS2,,S,HS,,,1.00e+01,4.10e+04,0
+6436,HS,,H,S,,,1.00e+01,4.10e+04,0
+6437,Mg,,Mg+,E,,,1.00e+01,4.10e+04,0
+6438,N2,,N,N,,,1.00e+01,4.10e+04,0
+6439,N2O,,N2,O,,,1.00e+01,4.10e+04,0
+6440,N2O,,N2O+,E,,,1.00e+01,4.10e+04,0
+6441,N2O,,NO,N,,,1.00e+01,4.10e+04,0
+6442,NCCN,,C2N2+,E,,,1.00e+01,4.10e+04,0
+6443,NCCN,,CN,CN,,,1.00e+01,4.10e+04,0
+6444,NH+,,N,H+,,,1.00e+01,4.10e+04,0
+6445,NH2,,NH2+,E,,,1.00e+01,4.10e+04,0
+6446,NH2,,NH,H,,,1.00e+01,4.10e+04,0
+6447,NH2CN,,NH2,CN,,,1.00e+01,4.10e+04,0
+6448,NH3,,NH2,H,,,1.00e+01,4.10e+04,0
+6449,NH3,,NH3+,E,,,1.00e+01,4.10e+04,0
+6450,NH3,,NH,H2,,,1.00e+01,4.10e+04,0
+6451,NH,,N,H,,,1.00e+01,4.10e+04,0
+6452,NH,,NH+,E,,,1.00e+01,4.10e+04,0
+6453,NO2,,NO2+,E,,,1.00e+01,4.10e+04,0
+6454,NO2,,NO,O,,,1.00e+01,4.10e+04,0
+6455,NO,,NO+,E,,,1.00e+01,4.10e+04,0
+6456,NO,,O,N,,,1.00e+01,4.10e+04,0
+6457,NS,,S,N,,,1.00e+01,4.10e+04,0
+6458,Na,,Na+,E,,,1.00e+01,4.10e+04,0
+6459,O-,,O,E,,,1.00e+01,4.10e+04,0
+6460,O2+,,O+,O,,,1.00e+01,4.10e+04,0
+6461,O2-,,O2,E,,,1.00e+01,4.10e+04,0
+6462,O2,,O2+,E,,,1.00e+01,4.10e+04,0
+6463,O2,,O,O,,,1.00e+01,4.10e+04,0
+6464,O2H,,O2,H,,,1.00e+01,4.10e+04,0
+6465,O2H,,OH,O,,,1.00e+01,4.10e+04,0
+6466,OCN,,CN,O,,,1.00e+01,4.10e+04,0
+6467,OCS,,OCS+,E,,,1.00e+01,4.10e+04,0
+6468,OCS,,S,CO,,,1.00e+01,4.10e+04,0
+6469,OH+,,O+,H,,,1.00e+01,4.10e+04,0
+6470,OH-,,OH,E,,,1.00e+01,4.10e+04,0
+6471,OH,,O,H,,,1.00e+01,4.10e+04,0
+6472,OH,,OH+,E,,,1.00e+01,4.10e+04,0
+6473,P,,P+,E,,,1.00e+01,4.10e+04,0
+6474,PH2,,PH2+,E,,,1.00e+01,4.10e+04,0
+6475,PH2,,PH,H,,,1.00e+01,4.10e+04,0
+6476,PH,,H,P,,,1.00e+01,4.10e+04,0
+6477,PN,,P,N,,,1.00e+01,4.10e+04,0
+6478,PO,,P,O,,,1.00e+01,4.10e+04,0
+6479,S-,,S,E,,,1.00e+01,4.10e+04,0
+6480,S2,,S2+,E,,,1.00e+01,4.10e+04,0
+6481,S2,,S,S,,,1.00e+01,4.10e+04,0
+6482,S,,S+,E,,,1.00e+01,4.10e+04,0
+6483,SO2,,SO,O,,,1.00e+01,4.10e+04,0
+6484,SO,,S,O,,,1.00e+01,4.10e+04,0
+6485,SO,,SO+,E,,,1.00e+01,4.10e+04,0
+6486,Si,,Si+,E,,,1.00e+01,4.10e+04,0
+6487,SiC2,,C2,Si,,,1.00e+01,4.10e+04,0
+6488,SiC2H2,,SiC2H,H,,,1.00e+01,4.10e+04,0
+6489,SiC2H,,SiC2,H,,,1.00e+01,4.10e+04,0
+6490,SiC3,,C2,SiC,,,1.00e+01,4.10e+04,0
+6491,SiC3,,SiC2,C,,,1.00e+01,4.10e+04,0
+6492,SiC3H,,SiC3,H,,,1.00e+01,4.10e+04,0
+6493,SiC4,,Si,C4,,,1.00e+01,4.10e+04,0
+6494,SiC,,Si,C,,,1.00e+01,4.10e+04,0
+6495,SiCH2,,HCSi,H,,,1.00e+01,4.10e+04,0
+6496,SiCH2,,SiCH2+,E,,,1.00e+01,4.10e+04,0
+6497,SiCH3,,SiCH2,H,,,1.00e+01,4.10e+04,0
+6498,SiH+,,Si+,H,,,1.00e+01,4.10e+04,0
+6499,SiH2,,SiH2+,E,,,1.00e+01,4.10e+04,0
+6500,SiH2,,SiH,H,,,1.00e+01,4.10e+04,0
+6501,SiH3,,SiH2,H,,,1.00e+01,4.10e+04,0
+6502,SiH3,,SiH3+,E,,,1.00e+01,4.10e+04,0
+6503,SiH3,,SiH,H2,,,1.00e+01,4.10e+04,0
+6504,SiH4,,Si,H2,H2,,1.00e+01,4.10e+04,0
+6505,SiH4,,SiH3,H,,,1.00e+01,4.10e+04,0
+6506,SiH4,,SiH,H,H2,,1.00e+01,4.10e+04,0
+6507,SiH,,Si,H,,,1.00e+01,4.10e+04,0
+6508,SiN,,Si,N,,,1.00e+01,4.10e+04,0
+6509,SiNC,,C,SiN,,,1.00e+01,4.10e+04,0
+6510,SiNC,,CN,Si,,,1.00e+01,4.10e+04,0
+6511,SiO+,,Si+,O,,,1.00e+01,4.10e+04,0
+6512,SiO2,,SiO,O,,,1.00e+01,4.10e+04,0
+6513,SiO,,Si,O,,,1.00e+01,4.10e+04,0
+6514,SiO,,SiO+,E,,,1.00e+01,4.10e+04,0
+6515,SiS,,S,Si,,,1.00e+01,4.10e+04,0
+6516,C-,,C,E,,,1.00e+01,4.10e+04,0
+6517,C10-,,C10,E,,,1.00e+01,4.10e+04,0
+6518,C10,,C10+,E,,,1.00e+01,4.10e+04,0
+6519,C10,,C6,C3,C,,1.00e+01,4.10e+04,0
+6520,C10,,C6,C4,,,1.00e+01,4.10e+04,0
+6521,C10,,C7,C2,C,,1.00e+01,4.10e+04,0
+6522,C10,,C8,C2,,,1.00e+01,4.10e+04,0
+6523,C10,,C9,C,,,1.00e+01,4.10e+04,0
+6524,C10H-,,C10H,E,,,1.00e+01,3.00e+02,0
+6525,C10H2,,C10,H,H,,1.00e+01,4.10e+04,0
+6526,C10H2,,C10H2+,E,,,1.00e+01,4.10e+04,0
+6527,C10H2,,C10H,H,,,1.00e+01,4.10e+04,0
+6528,C10H2,,C7H,C3,H,,1.00e+01,4.10e+04,0
+6529,C10H,,C10,H,,,1.00e+01,4.10e+04,0
+6530,C10H,,C10H+,E,,,1.00e+01,4.10e+04,0
+6531,C10H,,C5,C5,H,,1.00e+01,4.10e+04,0
+6532,C10H,,C5H,C5,,,1.00e+01,4.10e+04,0
+6533,C10H,,C7,C3,H,,1.00e+01,4.10e+04,0
+6534,C10H,,C7H,C3,,,1.00e+01,4.10e+04,0
+6535,C10H,,C8,C2,H,,1.00e+01,4.10e+04,0
+6536,C10H,,C9,C,H,,1.00e+01,4.10e+04,0
+6537,C11,,C11+,E,,,1.00e+01,4.10e+04,0
+6538,C11,,C5,C3,C3,,1.00e+01,4.10e+04,0
+6539,C11,,C6,C5,,,1.00e+01,4.10e+04,0
+6540,C11,,C7,C4,,,1.00e+01,4.10e+04,0
+6541,C11,,C8,C3,,,1.00e+01,4.10e+04,0
+6542,C11,,C9,C2,,,1.00e+01,4.10e+04,0
+6543,C2+,,C+,C,,,1.00e+01,4.10e+04,0
+6544,C2-,,C2,E,,,1.00e+01,4.10e+04,0
+6545,C2,,C2+,E,,,1.00e+01,4.10e+04,0
+6546,C2,,C,C,,,1.00e+01,4.10e+04,0
+6547,C2H+,,C2+,H,,,1.00e+01,4.10e+04,0
+6548,C2H-,,C2H,E,,,1.00e+01,4.10e+04,0
+6549,C2H2,,C2H2+,E,,,1.00e+01,4.10e+04,0
+6550,C2H2,,C2H,H,,,1.00e+01,4.10e+04,0
+6551,C2H3,,C2H2,H,,,1.00e+01,4.10e+04,0
+6552,C2H3,,C2H3+,E,,,1.00e+01,4.10e+04,0
+6553,C2H4,,C2H2,H2,,,1.00e+01,4.10e+04,0
+6554,C2H4,,C2H4+,E,,,1.00e+01,4.10e+04,0
+6555,C2H5,,C2H3,H2,,,1.00e+01,4.10e+04,0
+6556,C2H5,,C2H5+,E,,,1.00e+01,4.10e+04,0
+6557,C2H5CN,,CH2CHCNH+,H,E,,1.00e+01,4.10e+04,0
+6558,C2H5CN,,CN,C2H5,,,1.00e+01,4.10e+04,0
+6559,C2H5OH,,C2H5,OH,,,1.00e+01,4.10e+04,0
+6560,C2H5OH,,C2H5OH+,E,,,1.00e+01,4.10e+04,0
+6561,C2H,,C2,H,,,1.00e+01,4.10e+04,0
+6562,C2H,,C2H+,E,,,1.00e+01,4.10e+04,0
+6563,C2N,,C2,N,,,1.00e+01,4.10e+04,0
+6564,C2N,,CN,C,,,1.00e+01,4.10e+04,0
+6565,C2O,,C2,O,,,1.00e+01,4.10e+04,0
+6566,C2O,,CO,C,,,1.00e+01,4.10e+04,0
+6567,C2S,,S,C2,,,1.00e+01,4.10e+04,0
+6568,C3-,,C3,E,,,1.00e+01,4.10e+04,0
+6569,C3,,C2,C,,,1.00e+01,4.10e+04,0
+6570,C3H-,,C3H,E,,,1.00e+01,4.10e+04,0
+6571,C3H2,,C3H,H,,,1.00e+01,4.10e+04,0
+6572,C3H,,C3,H,,,1.00e+01,4.10e+04,0
+6573,C3N-,,C3N,E,,,1.00e+01,3.00e+02,0
+6574,C3N,,CN,C2,,,1.00e+01,4.10e+04,0
+6575,C3O,,CO,C2,,,1.00e+01,4.10e+04,0
+6576,C3P,,C2,CP,,,1.00e+01,4.10e+04,0
+6577,C3S,,CS,C2,,,1.00e+01,4.10e+04,0
+6578,C4-,,C4,E,,,1.00e+01,4.10e+04,0
+6579,C4,,C2,C2,,,1.00e+01,4.10e+04,0
+6580,C4,,C3,C,,,1.00e+01,4.10e+04,0
+6581,C4H-,,C4H,E,,,1.00e+01,4.10e+04,0
+6582,C4H3,,C4H,H2,,,1.00e+01,4.10e+04,0
+6583,C4H3,,HC4H,H,,,1.00e+01,4.10e+04,0
+6584,C4H,,C2H,C2,,,1.00e+01,4.10e+04,0
+6585,C4H,,C4,H,,,1.00e+01,4.10e+04,0
+6586,C4N,,C3,CN,,,1.00e+01,4.10e+04,0
+6587,C4N,,C4,N,,,1.00e+01,4.10e+04,0
+6588,C4P,,C3,CP,,,1.00e+01,4.10e+04,0
+6589,C4S,,CS,C3,,,1.00e+01,4.10e+04,0
+6590,C5-,,C5,E,,,1.00e+01,4.10e+04,0
+6591,C5,,C3,C2,,,1.00e+01,4.10e+04,0
+6592,C5H-,,C5H,E,,,1.00e+01,4.10e+04,0
+6593,C5H2,,C3H,C2H,,,1.00e+01,4.10e+04,0
+6594,C5H2,,C5H,H,,,1.00e+01,4.10e+04,0
+6595,C5H,,C3,C2H,,,1.00e+01,4.10e+04,0
+6596,C5H,,C3H,C2,,,1.00e+01,4.10e+04,0
+6597,C5H,,C5,H,,,1.00e+01,4.10e+04,0
+6598,C5N-,,C5N,E,,,1.00e+01,3.00e+02,0
+6599,C5N,,C4,CN,,,1.00e+01,4.10e+04,0
+6600,C6-,,C6,E,,,1.00e+01,4.10e+04,0
+6601,C6,,C5,C,,,1.00e+01,4.10e+04,0
+6602,C6,,C6+,E,,,1.00e+01,4.10e+04,0
+6603,C6H-,,C6H,E,,,1.00e+01,4.10e+04,0
+6604,C6H2,,C6H2+,E,,,1.00e+01,4.10e+04,0
+6605,C6H2,,C6H,H,,,1.00e+01,4.10e+04,0
+6606,C6H6,,C2H2,CH2CHCCH,,,1.00e+01,4.10e+04,0
+6607,C6H,,C3H,C3,,,1.00e+01,4.10e+04,0
+6608,C6H,,C4,C2H,,,1.00e+01,4.10e+04,0
+6609,C7-,,C7,E,,,1.00e+01,4.10e+04,0
+6610,C7,,C6,C,,,1.00e+01,4.10e+04,0
+6611,C7,,C7+,E,,,1.00e+01,4.10e+04,0
+6612,C7H-,,C7H,E,,,1.00e+01,4.10e+04,0
+6613,C7H2,,C7H2+,E,,,1.00e+01,4.10e+04,0
+6614,C7H2,,C7H,H,,,1.00e+01,4.10e+04,0
+6615,C7H,,C7,H,,,1.00e+01,4.10e+04,0
+6616,C7H,,C7H+,E,,,1.00e+01,4.10e+04,0
+6617,C7N,,C6,CN,,,1.00e+01,4.10e+04,0
+6618,C7N,,C7N+,E,,,1.00e+01,4.10e+04,0
+6619,C8-,,C8,E,,,1.00e+01,4.10e+04,0
+6620,C8,,C7,C,,,1.00e+01,4.10e+04,0
+6621,C8,,C8+,E,,,1.00e+01,4.10e+04,0
+6622,C8H-,,C8H,E,,,1.00e+01,4.10e+04,0
+6623,C8H2,,C8H2+,E,,,1.00e+01,4.10e+04,0
+6624,C8H2,,C8H,H,,,1.00e+01,4.10e+04,0
+6625,C8H,,C8,H,,,1.00e+01,4.10e+04,0
+6626,C8H,,C8H+,E,,,1.00e+01,4.10e+04,0
+6627,C9-,,C9,E,,,1.00e+01,4.10e+04,0
+6628,C9,,C8,C,,,1.00e+01,4.10e+04,0
+6629,C9,,C9+,E,,,1.00e+01,4.10e+04,0
+6630,C9H-,,C9H,E,,,1.00e+01,4.10e+04,0
+6631,C9H2,,C9H2+,E,,,1.00e+01,4.10e+04,0
+6632,C9H2,,C9H,H,,,1.00e+01,4.10e+04,0
+6633,C9H,,C9,H,,,1.00e+01,4.10e+04,0
+6634,C9H,,C9H+,E,,,1.00e+01,4.10e+04,0
+6635,C9N,,C8,CN,,,1.00e+01,4.10e+04,0
+6636,C9N,,C9N+,E,,,1.00e+01,4.10e+04,0
+6637,C,,C+,E,,,1.00e+01,4.10e+04,0
+6638,CCP,,C2,P,,,1.00e+01,4.10e+04,0
+6639,CCP,,CP,C,,,1.00e+01,4.10e+04,0
+6640,CCl,,Cl,C,,,1.00e+01,4.10e+04,0
+6641,CH+,,C,H+,,,1.00e+01,4.10e+04,0
+6642,CH-,,CH,E,,,1.00e+01,4.10e+04,0
+6643,CH2+,,C+,H2,,,1.00e+01,4.10e+04,0
+6644,CH2+,,CH+,H,,,1.00e+01,4.10e+04,0
+6645,CH2+,,CH,H+,,,1.00e+01,4.10e+04,0
+6646,CH2,,CH2+,E,,,1.00e+01,4.10e+04,0
+6647,CH2,,CH,H,,,1.00e+01,4.10e+04,0
+6648,CH2CCH2,,C3H4+,E,,,1.00e+01,4.10e+04,0
+6649,CH2CCH2,,CH2CCH,H,,,1.00e+01,4.10e+04,0
+6650,CH2CCH2,,H2CCC,H2,,,1.00e+01,4.10e+04,0
+6651,CH2CCH,,C3H2,H,,,1.00e+01,4.10e+04,0
+6652,CH2CCH,,C3H,H2,,,1.00e+01,4.10e+04,0
+6653,CH2CHCCH,,CH2CCH2,C,,,1.00e+01,4.10e+04,0
+6654,CH2CHCCH,,CH3CCH,C,,,1.00e+01,4.10e+04,0
+6655,CH2CHCHCH2,,CH3CHCH2,C,,,1.00e+01,4.10e+04,0
+6656,CH2CHCN,,C2H3,CN,,,1.00e+01,4.10e+04,0
+6657,CH2CHCN,,CH2CHCN+,E,,,1.00e+01,4.10e+04,0
+6658,CH2CN,,CH2,CN,,,1.00e+01,4.10e+04,0
+6659,CH2CO,,CH2CO+,E,,,1.00e+01,4.10e+04,0
+6660,CH2CO,,CO,CH2,,,1.00e+01,4.10e+04,0
+6661,CH2NH,,HNC,H2,,,1.00e+01,4.10e+04,0
+6662,CH2PH,,CH2,PH,,,1.00e+01,4.10e+04,0
+6663,CH3+,,CH+,H2,,,1.00e+01,4.10e+04,0
+6664,CH3+,,CH2+,H,,,1.00e+01,4.10e+04,0
+6665,CH3,,CH2,H,,,1.00e+01,4.10e+04,0
+6666,CH3,,CH3+,E,,,1.00e+01,4.10e+04,0
+6667,CH3,,CH,H2,,,1.00e+01,4.10e+04,0
+6668,CH3C3N,,C3N,CH3,,,1.00e+01,4.10e+04,0
+6669,CH3C4H,,C4H,CH3,,,1.00e+01,4.10e+04,0
+6670,CH3C5N,,CH3,C5N,,,1.00e+01,4.10e+04,0
+6671,CH3C6H,,CH3,C6H,,,1.00e+01,4.10e+04,0
+6672,CH3C7N,,CH3,C7N,,,1.00e+01,4.10e+04,0
+6673,CH3CCH,,C3H4+,E,,,1.00e+01,4.10e+04,0
+6674,CH3CCH,,CH2CCH,H,,,1.00e+01,4.10e+04,0
+6675,CH3CCH,,H2CCC,H2,,,1.00e+01,4.10e+04,0
+6676,CH3CH3,,CH3CH3+,E,,,1.00e+01,4.10e+04,0
+6677,CH3CHCH2,,C2H4,CH2,,,1.00e+01,4.10e+04,0
+6678,CH3CHO,,CH3CHO+,E,,,1.00e+01,4.10e+04,0
+6679,CH3CHO,,CO,CH4,,,1.00e+01,4.10e+04,0
+6680,CH3CHO,,HCO,CH3,,,1.00e+01,4.10e+04,0
+6681,CH3CN,,CH3CN+,E,,,1.00e+01,4.10e+04,0
+6682,CH3CN,,CN,CH3,,,1.00e+01,4.10e+04,0
+6683,CH3COCH3,,CH3COCH3+,E,,,1.00e+01,4.10e+04,0
+6684,CH3COCH3,,CO,CH3,CH3,,1.00e+01,4.10e+04,0
+6685,CH3OCH3,,CH3OCH3+,E,,,1.00e+01,4.10e+04,0
+6686,CH3OCH3,,H2CO,CH4,,,1.00e+01,4.10e+04,0
+6687,CH3OH,,CH3OH+,E,,,1.00e+01,4.10e+04,0
+6688,CH3OH,,H2CO,H2,,,1.00e+01,4.10e+04,0
+6689,CH3OH,,H3CO+,H,E,,1.00e+01,4.10e+04,0
+6690,CH3OH,,OH,CH3,,,1.00e+01,4.10e+04,0
+6691,CH4+,,CH2+,H2,,,1.00e+01,4.10e+04,0
+6692,CH4+,,CH3+,H,,,1.00e+01,4.10e+04,0
+6693,CH4,,CH2,H2,,,1.00e+01,4.10e+04,0
+6694,CH4,,CH3,H,,,1.00e+01,4.10e+04,0
+6695,CH4,,CH4+,E,,,1.00e+01,4.10e+04,0
+6696,CH4,,CH,H2,H,,1.00e+01,4.10e+04,0
+6697,CH,,C,H,,,1.00e+01,4.10e+04,0
+6698,CH,,CH+,E,,,1.00e+01,4.10e+04,0
+6699,CN-,,CN,E,,,1.00e+01,4.10e+04,0
+6700,CN,,N,C,,,1.00e+01,4.10e+04,0
+6701,CNO,,CN,O,,,1.00e+01,4.10e+04,0
+6702,CO+,,C+,O,,,1.00e+01,4.10e+04,0
+6703,CO2,,CO,O,,,1.00e+01,4.10e+04,0
+6704,CO,,O,C,,,1.00e+01,4.10e+04,0
+6705,CP,,C,P,,,1.00e+01,4.10e+04,0
+6706,CS+,,S+,C,,,1.00e+01,4.10e+04,0
+6707,CS,,CS+,E,,,1.00e+01,4.10e+04,0
+6708,CS,,S,C,,,1.00e+01,4.10e+04,0
+6709,Cl,,Cl+,E,,,1.00e+01,4.10e+04,0
+6710,ClO,,Cl,O,,,1.00e+01,4.10e+04,0
+6711,Fe,,Fe+,E,,,1.00e+01,4.10e+04,0
+6712,H-,,H,E,,,1.00e+01,4.10e+04,0
+6713,H2+,,H+,H,,,1.00e+01,4.10e+04,0
+6714,H2CCC,,C3,H2,,,1.00e+01,4.10e+04,0
+6715,H2CCC,,C3H,H,,,1.00e+01,4.10e+04,0
+6716,H2CN,,HCN,H,,,1.00e+01,4.10e+04,0
+6717,H2CO,,CO,H2,,,1.00e+01,4.10e+04,0
+6718,H2CO,,CO,H,H,,1.00e+01,4.10e+04,0
+6719,H2CO,,H2CO+,E,,,1.00e+01,4.10e+04,0
+6720,H2CO,,HCO+,H,E,,1.00e+01,4.10e+04,0
+6721,H2CS,,CS,H2,,,1.00e+01,4.10e+04,0
+6722,H2O+,,OH+,H,,,1.00e+01,4.10e+04,0
+6723,H2O2,,OH,OH,,,1.00e+01,4.10e+04,0
+6724,H2O,,H2O+,E,,,1.00e+01,4.10e+04,0
+6725,H2O,,OH,H,,,1.00e+01,4.10e+04,0
+6726,H2S2,,HS,HS,,,1.00e+01,4.10e+04,0
+6727,H2S,,H2S+,E,,,1.00e+01,4.10e+04,0
+6728,H2S,,HS,H,,,1.00e+01,4.10e+04,0
+6729,H2S,,S,H2,,,1.00e+01,4.10e+04,0
+6730,H2SiO,,SiO,H2,,,1.00e+01,4.10e+04,0
+6731,H2SiO,,SiO,H,H,,1.00e+01,4.10e+04,0
+6732,H3+,,H2+,H,,,1.00e+01,4.10e+04,0
+6733,H3+,,H2,H+,,,1.00e+01,4.10e+04,0
+6734,HC2P,,CCP,H,,,1.00e+01,4.10e+04,0
+6735,HC3N,,CN,C2H,,,1.00e+01,4.10e+04,0
+6736,HC4H,,C2H,C2H,,,1.00e+01,4.10e+04,0
+6737,HC4H,,C4H2+,E,,,1.00e+01,4.10e+04,0
+6738,HC4H,,C4H,H,,,1.00e+01,4.10e+04,0
+6739,HC5N,,C4H,CN,,,1.00e+01,4.10e+04,0
+6740,HC5N,,C5N,H,,,1.00e+01,4.10e+04,0
+6741,HC7N,,C6H,CN,,,1.00e+01,4.10e+04,0
+6742,HC7N,,HC7N+,E,,,1.00e+01,4.10e+04,0
+6743,HC9N,,C8H,CN,,,1.00e+01,4.10e+04,0
+6744,HC9N,,HC9N+,E,,,1.00e+01,4.10e+04,0
+6745,HCN,,CN,H,,,1.00e+01,4.10e+04,0
+6746,HCNO,,CH,NO,,,1.00e+01,4.10e+04,0
+6747,HCO+,,CO+,H,,,1.00e+01,4.10e+04,0
+6748,HCO,,CO,H,,,1.00e+01,4.10e+04,0
+6749,HCO,,HCO+,E,,,1.00e+01,4.10e+04,0
+6750,HCOOCH3,,H2CO,H2CO,,,1.00e+01,4.10e+04,0
+6751,HCOOH,,HCO,OH,,,1.00e+01,4.10e+04,0
+6752,HCOOH,,HCOOH+,E,,,1.00e+01,4.10e+04,0
+6753,HCP,,CP,H,,,1.00e+01,4.10e+04,0
+6754,HCS,,HCS+,E,,,1.00e+01,4.10e+04,0
+6755,HCSi,,HCSi+,E,,,1.00e+01,4.10e+04,0
+6756,HCSi,,SiC,H,,,1.00e+01,4.10e+04,0
+6757,HCl,,Cl,H,,,1.00e+01,4.10e+04,0
+6758,HCl,,HCl+,E,,,1.00e+01,4.10e+04,0
+6759,HF,,H,F,,,1.00e+01,4.10e+04,0
+6760,HNC3,,C3N,H,,,1.00e+01,4.10e+04,0
+6761,HNC,,CN,H,,,1.00e+01,4.10e+04,0
+6762,HNCO,,NH,CO,,,1.00e+01,4.10e+04,0
+6763,HNO,,NO,H,,,1.00e+01,4.10e+04,0
+6764,HNSi,,SiN,H,,,1.00e+01,4.10e+04,0
+6765,HOCN,,OH,CN,,,1.00e+01,4.10e+04,0
+6766,HONC,,OH,CN,,,1.00e+01,4.10e+04,0
+6767,HPO,,PO,H,,,1.00e+01,4.10e+04,0
+6768,HS+,,S+,H,,,1.00e+01,4.10e+04,0
+6769,HS+,,S,H+,,,1.00e+01,4.10e+04,0
+6770,HS2,,HS2+,E,,,1.00e+01,4.10e+04,0
+6771,HS2,,S,HS,,,1.00e+01,4.10e+04,0
+6772,HS,,H,S,,,1.00e+01,4.10e+04,0
+6773,Mg,,Mg+,E,,,1.00e+01,4.10e+04,0
+6774,N2,,N,N,,,1.00e+01,4.10e+04,0
+6775,N2O,,N2,O,,,1.00e+01,4.10e+04,0
+6776,N2O,,N2O+,E,,,1.00e+01,4.10e+04,0
+6777,N2O,,NO,N,,,1.00e+01,4.10e+04,0
+6778,NCCN,,C2N2+,E,,,1.00e+01,4.10e+04,0
+6779,NCCN,,CN,CN,,,1.00e+01,4.10e+04,0
+6780,NH+,,N,H+,,,1.00e+01,4.10e+04,0
+6781,NH2,,NH2+,E,,,1.00e+01,4.10e+04,0
+6782,NH2,,NH,H,,,1.00e+01,4.10e+04,0
+6783,NH2CN,,NH2,CN,,,1.00e+01,4.10e+04,0
+6784,NH3,,NH2,H,,,1.00e+01,4.10e+04,0
+6785,NH3,,NH3+,E,,,1.00e+01,4.10e+04,0
+6786,NH3,,NH,H2,,,1.00e+01,4.10e+04,0
+6787,NH,,N,H,,,1.00e+01,4.10e+04,0
+6788,NH,,NH+,E,,,1.00e+01,4.10e+04,0
+6789,NO2,,NO2+,E,,,1.00e+01,4.10e+04,0
+6790,NO2,,NO,O,,,1.00e+01,4.10e+04,0
+6791,NO,,NO+,E,,,1.00e+01,4.10e+04,0
+6792,NO,,O,N,,,1.00e+01,4.10e+04,0
+6793,NS,,S,N,,,1.00e+01,4.10e+04,0
+6794,Na,,Na+,E,,,1.00e+01,4.10e+04,0
+6795,O-,,O,E,,,1.00e+01,4.10e+04,0
+6796,O2+,,O+,O,,,1.00e+01,4.10e+04,0
+6797,O2-,,O2,E,,,1.00e+01,4.10e+04,0
+6798,O2,,O2+,E,,,1.00e+01,4.10e+04,0
+6799,O2,,O,O,,,1.00e+01,4.10e+04,0
+6800,O2H,,O2,H,,,1.00e+01,4.10e+04,0
+6801,O2H,,OH,O,,,1.00e+01,4.10e+04,0
+6802,OCN,,CN,O,,,1.00e+01,4.10e+04,0
+6803,OCS,,OCS+,E,,,1.00e+01,4.10e+04,0
+6804,OCS,,S,CO,,,1.00e+01,4.10e+04,0
+6805,OH+,,O+,H,,,1.00e+01,4.10e+04,0
+6806,OH-,,OH,E,,,1.00e+01,4.10e+04,0
+6807,OH,,O,H,,,1.00e+01,4.10e+04,0
+6808,OH,,OH+,E,,,1.00e+01,4.10e+04,0
+6809,P,,P+,E,,,1.00e+01,4.10e+04,0
+6810,PH2,,PH2+,E,,,1.00e+01,4.10e+04,0
+6811,PH2,,PH,H,,,1.00e+01,4.10e+04,0
+6812,PH,,H,P,,,1.00e+01,4.10e+04,0
+6813,PN,,P,N,,,1.00e+01,4.10e+04,0
+6814,PO,,P,O,,,1.00e+01,4.10e+04,0
+6815,S-,,S,E,,,1.00e+01,4.10e+04,0
+6816,S2,,S2+,E,,,1.00e+01,4.10e+04,0
+6817,S2,,S,S,,,1.00e+01,4.10e+04,0
+6818,S,,S+,E,,,1.00e+01,4.10e+04,0
+6819,SO2,,SO,O,,,1.00e+01,4.10e+04,0
+6820,SO,,S,O,,,1.00e+01,4.10e+04,0
+6821,SO,,SO+,E,,,1.00e+01,4.10e+04,0
+6822,Si,,Si+,E,,,1.00e+01,4.10e+04,0
+6823,SiC2,,C2,Si,,,1.00e+01,4.10e+04,0
+6824,SiC2H2,,SiC2H,H,,,1.00e+01,4.10e+04,0
+6825,SiC2H,,SiC2,H,,,1.00e+01,4.10e+04,0
+6826,SiC3,,C2,SiC,,,1.00e+01,4.10e+04,0
+6827,SiC3,,SiC2,C,,,1.00e+01,4.10e+04,0
+6828,SiC3H,,SiC3,H,,,1.00e+01,4.10e+04,0
+6829,SiC4,,Si,C4,,,1.00e+01,4.10e+04,0
+6830,SiC,,Si,C,,,1.00e+01,4.10e+04,0
+6831,SiCH2,,HCSi,H,,,1.00e+01,4.10e+04,0
+6832,SiCH2,,SiCH2+,E,,,1.00e+01,4.10e+04,0
+6833,SiCH3,,SiCH2,H,,,1.00e+01,4.10e+04,0
+6834,SiH+,,Si+,H,,,1.00e+01,4.10e+04,0
+6835,SiH2,,SiH2+,E,,,1.00e+01,4.10e+04,0
+6836,SiH2,,SiH,H,,,1.00e+01,4.10e+04,0
+6837,SiH3,,SiH2,H,,,1.00e+01,4.10e+04,0
+6838,SiH3,,SiH3+,E,,,1.00e+01,4.10e+04,0
+6839,SiH3,,SiH,H2,,,1.00e+01,4.10e+04,0
+6840,SiH4,,Si,H2,H2,,1.00e+01,4.10e+04,0
+6841,SiH4,,SiH3,H,,,1.00e+01,4.10e+04,0
+6842,SiH4,,SiH,H,H2,,1.00e+01,4.10e+04,0
+6843,SiH,,Si,H,,,1.00e+01,4.10e+04,0
+6844,SiN,,Si,N,,,1.00e+01,4.10e+04,0
+6845,SiNC,,C,SiN,,,1.00e+01,4.10e+04,0
+6846,SiNC,,CN,Si,,,1.00e+01,4.10e+04,0
+6847,SiO+,,Si+,O,,,1.00e+01,4.10e+04,0
+6848,SiO2,,SiO,O,,,1.00e+01,4.10e+04,0
+6849,SiO,,Si,O,,,1.00e+01,4.10e+04,0
+6850,SiO,,SiO+,E,,,1.00e+01,4.10e+04,0
+6851,SiS,,S,Si,,,1.00e+01,4.10e+04,0
