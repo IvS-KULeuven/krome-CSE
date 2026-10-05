@@ -37,7 +37,6 @@ program main
 
     albedo = 0.5_real64
     auv_av = 4.65_real64
-    gamma_CO = 3.0_real64
 
     write (*, '(a)') ' >> CSE_run_krome is running ...'
     write (*, '(a)') '--------------------------------'
@@ -63,33 +62,8 @@ program main
     call krome_set_user_xi(radiation)
     call krome_set_user_alb(albedo)
     call krome_set_user_AuvAv(auv_av)
-    call krome_set_user_gamma_CO(gamma_CO)
-
-    ! fractional population of lower level
-    frace = 1.0_real64 / 3.0_real64
-    ! effective dissociative oscillator strength
-    fosce = 0.017_real64
-    ! effective wavelength (in cm)
-    lamdae = 1000.0_real64 * 1.0e-8_real64
-    ! effective number of bands
-    bands = 1.0_real64
-    ! unshielded photodissociation rate of co
-    ge0 = 2.4e-10_real64
-    ! calculate h2 column density
-    h2col = auv / auv_av * 1.87e21_real64
-    ! fractional abundance of co
-    xco = abundance(krome_idx_CO)
-    ! velocity (in cm/s)
-    v = 17.5e5_real64
-    ! calculate effective optical depth of co at radius
-    taue = 0.0265_real64 * frace * fosce * lamdae * h2col * xco / v
-    ! calculate continuum shielding by dust (morris and jura)
-    gammad = exp(-1.644_real64 * auv**0.86_real64)
-    ! morris/jura approximation to the full integral
-    betae = (1.0_real64 - exp(-1.5_real64 * taue)) / (1.5_real64 * taue)
-    ! calculate co photodissociation rate
-    getcor = ge0 * betae * gammad * bands
-    call krome_set_user_CO_shielding(getcor)
+    call krome_set_user_velocity(v)
+    call krome_set_user_CO_abundance(abundance(krome_idx_CO))
 
       ! if krome_set_user_rscale routine exists, call it here to set the radial scale.
       ! RADIUS AT WHICH PHOTORATES DUE TO BINARY PHOTONS ARE CALCULATED

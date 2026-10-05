@@ -17,13 +17,23 @@ fname = "network_umist.dat"  # output file
 
 skip = ["PHOTON", "CRPHOT", "CRP", "INPHOTON", "ACPHOTON"]
 body = "@format:idx,R,R,P,P,P,P,tmin,tmax,rate\n"
-body += "@common:user_Auv,user_alb,user_xi,user_AuvAv,user_gamma_CO,user_CO_shielding"
+body += "@common:user_Auv,user_alb,user_xi,user_AuvAv,user_velocity,user_CO_abundance"
 if IP or AP: body += ",user_rscale"
 if IP: body += ",user_Gstar,user_Auv_star"
 if AP: body += ",user_Gcomp,user_Auv_comp,user_rbinscale"
 body += "\n"
 count = 0
-for row in open(fname_umist):
+rows = open(fname_umist)
+
+# find gamma_co
+for row in rows:
+    srow = row.strip()
+    if srow and not srow.startswith("#") and srow.split(":")[2] == "CO" and srow.split(":")[1] == "PH":
+        gamma_CO = float(srow.split(":")[11])
+        break
+
+rows.seek(0)
+for row in rows:
     srow = row.strip()
     if srow == "" or srow.startswith("#"): continue
     arow = srow.split(":")
@@ -38,9 +48,21 @@ for row in open(fname_umist):
     elif rtype == 'CP':
         rate = "%.2e " % ka
     elif rtype == "PH":
-        rate = "%.2e * user_xi * exp((user_gamma_CO - %.2f) * user_Auv / user_AuvAv)" % (ka, kc)
-        if rr[0] == "CO":
-            rate = "user_CO_shielding"
+        rate = "%.2e * user_xi * exp((%.2f - %.2f) * user_Auv / user_AuvAv)" % (ka, gamma_CO, kc)
+        if rr[0] == "CO": # CO photodissociation
+            frace = 1.0 / 3.0        # fractional population of lower level
+            fosce = 0.017            # effective dissociative oscillator strength
+            lamdae = 1000.0 * 1.0e-8 # effective wavelength (in cm)
+            bands = 1.0 # effective number of bands
+            ge0 = 2.4e-10 # unshielded photodissociation rate of co
+            # h2col = auv / auv_av * 1.87e21 # calculate h2 column density
+            # xco = abundance(krome_idx_CO) # fractional abundance of co
+            # v = 17.5e5 # velocity (in cm/s)
+            # gammad = exp(-1.644 * auv**0.86) # calculate continuum shielding by dust (morris and jura)
+            # taue = 0.0265 * frace * fosce * lamdae * h2col * xco / v # calculate effective optical depth of co at radius
+            # betae = (1.0 - exp(-1.5 * taue)) / (1.5 * taue) # morris/jura approximation to the full integral
+            # getcor = ge0 * betae * gammad * bands # calculate co photodissociation rate
+            rate = f"{ge0*bands:.2e} * exp(-1.644 * user_Auv**0.86) * (1 - exp(-1.5 * {0.0265 * frace * fosce * lamdae * 1.87e21:.2e} * user_Auv / user_AuvAv * user_CO_abundance / user_velocity)) / (1.5 * {0.0265 * frace * fosce * lamdae * 1.87e21:.2e} * user_Auv / user_AuvAv * user_CO_abundance / user_velocity)"
     elif rtype in ["IP", "AP"]:
         rate = "0"
     else:
