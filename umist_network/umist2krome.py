@@ -17,7 +17,7 @@ fname = "network_umist.dat"  # output file
 
 skip = ["PHOTON", "CRPHOT", "CRP", "INPHOTON", "ACPHOTON"]
 body = "@format:idx,R,R,P,P,P,P,tmin,tmax,rate\n"
-body += "@common:user_Auv,user_alb,user_xi,user_AuvAv,user_V"
+body += "@common:user_Auv,user_alb,user_xi,user_AuvAv,user_zeta,user_V"
 if IP or AP: body += ",user_rscale"
 if IP: body += ",user_Gstar,user_Auv_star"
 if AP: body += ",user_Gcomp,user_Auv_comp,user_rbinscale"
@@ -53,13 +53,11 @@ for row in rows:
 
     rate = None
     if rtype == "CR":
-        rate = f"{ka:.2e} * (Tgas / 3.0e2)**({kb:.2f}) * (1./(1.-user_alb)) * ({kc:.2f})"
+        rate = f"user_zeta * {ka:.2e} * (Tgas / 3.0e2)**({kb:.2f}) * (1./(1.-user_alb)) * ({kc:.2f})"
     elif rtype == 'CP':
-        rate = f"{ka:.2e} "
+        rate = f"user_zeta * {ka:.2e}"
     elif rtype == "PH":
-        if rr[0] == "H2": # Add shielding to the H2 reaction (deactivate the H2 photodissociation reaction)
-            rate = "0"
-        elif rr[0] == "CO": # Add shielding to the CO reaction
+        if rr[0] == "CO": # Add shielding to the CO reaction
             frace = 1.0 / 3.0        # fractional population of lower level
             fosce = 0.017            # effective dissociative oscillator strength
             lamdae = 1000.0 * 1.0e-8 # effective wavelength (in cm)
@@ -68,6 +66,8 @@ for row in rows:
             h2col = f"user_Auv / user_AuvAv * 1.87e21"
             taue = f"{1.5 * 0.0265* frace * fosce * lamdae:.2e} * {h2col} * xCO / user_V"
             rate = f"{ge0*bands:.2e} * exp(-1.644 * user_Auv**0.86) * (1 - exp(-{taue})) / ({taue})"
+        # elif rr[0] == "H2": # Add shielding to the H2 reaction (deactivate the H2 photodissociation reaction)
+        #     rate = "0"
         else:
             rate = f"{ka:.2e} * user_xi * exp(({gamma_CO:.2f} - {kc:.2f}) * user_Auv / user_AuvAv)"
     elif rtype in ["IP", "AP"]:
@@ -88,7 +88,7 @@ if IP:
         if stripped is None: continue
         rtype, rr, pp, ka, kb, kc, tmin, tmax, comment = stripped
         rate = f"user_rscale * {ka:.2e} * exp(-{kc:.2f} * user_Auv_star / user_AuvAv)"
-        if not comment in ['"CWLeo"', '"Millar 2018"']:
+        if not ("CWLeo" in comment or "Millar 2018" in comment):
             rate = f"user_Gstar * {rate}"
         body += f"{count},{','.join(rr)},{','.join(pp)},{tmin:.2e},{tmax:.2e},{rate}\n"
         count += 1
@@ -99,9 +99,9 @@ if AP:
         if stripped is None: continue
         rtype, rr, pp, ka, kb, kc, tmin, tmax, comment = stripped
         rate = f"user_rscale * {ka:.2e} * exp(-{kc:.2f} * user_Auv_comp / user_AuvAv)"
-        if comment == '"CWLeo"':
+        if "CWLeo" in comment:
             rate = f"user_rbinscale * {rate}"
-        elif comment == '"Millar 2018"':
+        elif "Millar 2018" in comment:
             if AP == 4000:
                 rate = f"user_rbinscale * {rate}"
             elif AP == 10000:

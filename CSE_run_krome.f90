@@ -8,7 +8,7 @@ program main
     character(len=500) :: directory, index, label, message
     integer :: i, input_unit, parent_unit, output_unit, io_status
     real(real64) :: timestep, abundance(krome_nmols), density, final_time
-    real(real64) :: temperature, radiation, auv, albedo, auv_av, gamma_CO, CO_shielding
+    real(real64) :: temperature, radiation, auv, albedo, auv_av, zeta, CO_shielding
     real(real64) :: frace, lamdae, fosce, taue
     real(real64) :: v
 
@@ -37,7 +37,7 @@ program main
 
     albedo = 0.5_real64
     auv_av = 4.65_real64
-    gamma_CO = 3.0_real64
+    zeta = 1.0_real64
     v = 17.5e5_real64
 
     write (*, '(a)') ' >> CSE_run_krome is running ...'
@@ -65,6 +65,7 @@ program main
     call krome_set_user_alb(albedo)
     call krome_set_user_AuvAv(auv_av)
     call krome_set_user_V(v)
+    call krome_set_user_zeta(zeta)
 
       ! if krome_set_user_rscale routine exists, call it here to set the radial scale.
       ! RADIUS AT WHICH PHOTORATES DUE TO BINARY PHOTONS ARE CALCULATED

@@ -2,6 +2,13 @@
 
 # This script is to run the krome code with the CSE network, using the 'CSE_run_krome.f90' script.
 
+if [[ ${1:-} == 1D ]]; then
+	cp CSE_run_krome_1D.f90 krome/build
+	cp Makefile krome/build/Makefile
+	cd krome/build || exit 1
+	make gfortran runner=CSE_run_krome_1D exec=run_CSE_krome_1D
+	exit $?
+fi
 
 cp initial_abs.f krome/build
 cp Makefile_abs krome/build/Makefile

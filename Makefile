@@ -11,6 +11,7 @@ clib = -nofor_main
 
 #executable name
 exec = run_CSE_krome
+runner ?= CSE_run_krome
 
 #default libraries
 lib = -llapack
@@ -84,8 +85,8 @@ objs += krome.o
 cobjs = krome_header.o
 
 #default target
-all: 	$(objs) CSE_run_krome.o
-	$(fc) $(objs) CSE_run_krome.o -o $(exec) $(switch) $(lib)
+all: 	$(objs) $(runner).o
+	$(fc) $(objs) $(runner).o -o $(exec) $(switch) $(lib)
 
 #ifort full debug target
 debug: switch = $(switchDBG)

@@ -39,6 +39,29 @@ which runs
 ``
  with a inputfile as argument to properly run the executable.
 
+### Run a 1D model
+
+After generating the KROME network, build and run the radial runner from the
+repository root:
+
+```bash
+./benchmark_runs_1D.sh
+```
+
+There is an optional input filename that selects the sibling model directory, in this example
+`models/model_2025-09-11h09-55-22/csphyspar_smooth.out`. The historical absolute
+`OUTPUT_FOLDER` in the input is not used. The runner reads `VELOCITY` (cm/s),
+`ALBEDO`, and `AUV_AV` from the input, and radius (cm), hydrogen-nuclei density
+(cm^-3), temperature (K), effective UV extinction, and effective radiation from
+the first five profile columns after the four header lines.
+
+Initial fractional abundances follow `initial_abs.f`. Each radial interval uses
+its inner row's physical conditions and a timestep of `dr / VELOCITY`;
+fractional abundances are carried forward as density changes. Output is written
+to `csfrac_krome.out` in the selected model directory, with one row per radius
+and species names in the header. Fractions are relative to hydrogen nuclei,
+matching the existing KROME runner, not the `/H2` label in the reference output.
+
 ---
 
 ### Updates
