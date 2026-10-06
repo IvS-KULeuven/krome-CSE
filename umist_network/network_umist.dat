@@ -8259,7 +8259,7 @@
 8255,CNO,,CN,O,,,1.00e+01,4.10e+04,1.00e-11 * user_xi * exp((3.88 - 2.00) * user_Auv / user_AuvAv)
 8256,CO+,,C+,O,,,1.00e+01,4.10e+04,1.01e-10 * user_xi * exp((3.88 - 2.89) * user_Auv / user_AuvAv)
 8257,CO2,,CO,O,,,1.00e+01,4.10e+04,9.20e-10 * user_xi * exp((3.88 - 3.40) * user_Auv / user_AuvAv)
-8258,CO,,O,C,,,1.00e+01,4.10e+04,2.40e-10 * exp(-1.644 * user_Auv**0.86) * (1 - exp(-2.25e-09 * user_Auv / user_AuvAv * 1.87e21 * n(idx_CO) / get_Hnuclei(n(:)) / user_V)) / (2.25e-09 * user_Auv / user_AuvAv * 1.87e21 * n(idx_CO) / get_Hnuclei(n(:)) / user_V)
+8258,CO,,O,C,,,1.00e+01,4.10e+04,2.40e-10 * exp(-1.644 * user_Auv**0.86) * (1 - exp(-2.25e-09 * user_Auv / user_AuvAv * 1.87e21 * xCO / user_V)) / (2.25e-09 * user_Auv / user_AuvAv * 1.87e21 * xCO / user_V)
 8259,CP,,C,P,,,1.00e+01,4.10e+04,1.00e-09 * user_xi * exp((3.88 - 2.80) * user_Auv / user_AuvAv)
 8260,CS+,,S+,C,,,1.00e+01,4.10e+04,2.00e-10 * user_xi * exp((3.88 - 2.00) * user_Auv / user_AuvAv)
 8261,CS,,CS+,E,,,1.00e+01,4.10e+04,2.60e-11 * user_xi * exp((3.88 - 3.59) * user_Auv / user_AuvAv)
@@ -8268,7 +8268,7 @@
 8264,ClO,,Cl,O,,,1.00e+01,4.10e+04,1.00e-10 * user_xi * exp((3.88 - 2.00) * user_Auv / user_AuvAv)
 8265,Fe,,Fe+,E,,,1.00e+01,4.10e+04,4.70e-10 * user_xi * exp((3.88 - 2.62) * user_Auv / user_AuvAv)
 8266,H-,,H,E,,,1.00e+01,4.10e+04,1.52e-07 * user_xi * exp((3.88 - 1.24) * user_Auv / user_AuvAv)
-8267,H2,,H,H,,,1.00e+01,4.10e+04,5.70e-11 * user_xi * exp((3.88 - 4.18) * user_Auv / user_AuvAv) * 0
+8267,H2,,H,H,,,1.00e+01,4.10e+04,0
 8268,H2+,,H+,H,,,1.00e+01,4.10e+04,5.72e-10 * user_xi * exp((3.88 - 2.78) * user_Auv / user_AuvAv)
 8269,H2CCC,,C3,H2,,,1.00e+01,4.10e+04,2.07e-09 * user_xi * exp((3.88 - 2.51) * user_Auv / user_AuvAv)
 8270,H2CCC,,C3H,H,,,1.00e+01,4.10e+04,2.07e-09 * user_xi * exp((3.88 - 2.51) * user_Auv / user_AuvAv)

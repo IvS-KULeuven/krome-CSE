@@ -63,9 +63,6 @@ pwd
 echo ">> Building the UMIST $arg network in KROME format."
 python umist2krome.py $arg $extra_args
 
-# Add shielding to the H2 reaction (deactivate the H2 photodissociation reaction)
-sed -i '/,H2,,H,H,,,.*user_xi/s/$/ * 0/' network_umist.dat
-
 # Copy the network to the networks directory
 cp -r network_umist.dat ../krome/networks/
 

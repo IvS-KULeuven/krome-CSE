@@ -49,8 +49,9 @@ for row in rows:
     elif rtype == 'CP':
         rate = f"{ka:.2e} "
     elif rtype == "PH":
-        rate = f"{ka:.2e} * user_xi * exp(({gamma_CO:.2f} - {kc:.2f}) * user_Auv / user_AuvAv)"
-        if rr[0] == "CO":
+        if rr[0] == "H2": # Add shielding to the H2 reaction (deactivate the H2 photodissociation reaction)
+            rate = "0"
+        elif rr[0] == "CO": # Add shielding to the CO reaction
             frace = 1.0 / 3.0        # fractional population of lower level
             fosce = 0.017            # effective dissociative oscillator strength
             lamdae = 1000.0 * 1.0e-8 # effective wavelength (in cm)
@@ -59,6 +60,8 @@ for row in rows:
             h2col = f"user_Auv / user_AuvAv * 1.87e21"
             taue = f"{1.5 * 0.0265* frace * fosce * lamdae:.2e} * {h2col} * xCO / user_V"
             rate = f"{ge0*bands:.2e} * exp(-1.644 * user_Auv**0.86) * (1 - exp(-{taue})) / ({taue})"
+        else:
+            rate = f"{ka:.2e} * user_xi * exp(({gamma_CO:.2f} - {kc:.2f}) * user_Auv / user_AuvAv)"
     elif rtype in ["IP", "AP"]:
         rate = "0"
     else:
