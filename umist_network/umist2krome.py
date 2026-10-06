@@ -42,13 +42,14 @@ def strip_row(row):
     pp = arow[4:8]
     ka, kb, kc = [float(x.replace(',', '.')) for x in arow[9:12]]
     tmin, tmax = [float(x.replace(',', '.')) for x in arow[12:14]]
-    return rtype, rr, pp, ka, kb, kc, tmin, tmax
+    comment = arow[17]
+    return rtype, rr, pp, ka, kb, kc, tmin, tmax, comment
 
 rows.seek(0)
 for row in rows:
     stripped = strip_row(row)
     if stripped is None: continue
-    rtype, rr, pp, ka, kb, kc, tmin, tmax = stripped
+    rtype, rr, pp, ka, kb, kc, tmin, tmax, comment = stripped
 
     rate = None
     if rtype == "CR":
@@ -85,9 +86,9 @@ if IP:
     for row in open("IP.rates"):
         stripped = strip_row(row)
         if stripped is None: continue
-        rtype, rr, pp, ka, kb, kc, tmin, tmax = stripped
+        rtype, rr, pp, ka, kb, kc, tmin, tmax, comment = stripped
         rate = f"user_rscale * {ka:.2e} * exp(-{kc:.2f} * user_Auv_star / user_AuvAv)"
-        if not "CWLeo" in row:
+        if not comment in ['"CWLeo"', '"Millar 2018"']:
             rate = f"user_Gstar * {rate}"
         body += f"{count},{','.join(rr)},{','.join(pp)},{tmin:.2e},{tmax:.2e},{rate}\n"
         count += 1
@@ -96,11 +97,11 @@ if AP:
     for row in open(f"AP_{AP}K.rates"):
         stripped = strip_row(row)
         if stripped is None: continue
-        rtype, rr, pp, ka, kb, kc, tmin, tmax = stripped
+        rtype, rr, pp, ka, kb, kc, tmin, tmax, comment = stripped
         rate = f"user_rscale * {ka:.2e} * exp(-{kc:.2f} * user_Auv_comp / user_AuvAv)"
-        if "CWLeo" in row:
+        if comment == '"CWLeo"':
             rate = f"user_rbinscale * {rate}"
-        elif "Millar 2018" in row:
+        elif comment == '"Millar 2018"':
             if AP == 4000:
                 rate = f"user_rbinscale * {rate}"
             elif AP == 10000:
