@@ -17,12 +17,12 @@ fname = "network_umist.dat"  # output file
 
 skip = ["PHOTON", "CRPHOT", "CRP", "INPHOTON", "ACPHOTON"]
 body = "@format:idx,R,R,P,P,P,P,tmin,tmax,rate\n"
-body += "@common:user_Auv,user_alb,user_xi,user_AuvAv,user_V\n"
-body += "@var:xCO = n(idx_CO) / get_Hnuclei(n(:))"
+body += "@common:user_Auv,user_alb,user_xi,user_AuvAv,user_V"
 if IP or AP: body += ",user_rscale"
 if IP: body += ",user_Gstar,user_Auv_star"
 if AP: body += ",user_Gcomp,user_Auv_comp,user_rbinscale"
 body += "\n"
+body += "@var:xCO = n(idx_CO) / get_Hnuclei(n(:))\n"
 count = 0
 rows = open(fname_umist)
 
@@ -33,16 +33,23 @@ for row in rows:
         gamma_CO = float(srow.split(":")[11])
         break
 
-rows.seek(0)
-for row in rows:
+def strip_row(row):
     srow = row.strip()
-    if srow == "" or srow.startswith("#"): continue
+    if srow == "" or srow.startswith("#"): return None
     arow = srow.split(":")
     rtype = arow[1]
     rr = arow[2:4]
     pp = arow[4:8]
-    ka, kb, kc = [float(x) for x in arow[9:12]]
-    tmin, tmax = [float(x) for x in arow[12:14]]
+    ka, kb, kc = [float(x.replace(',', '.')) for x in arow[9:12]]
+    tmin, tmax = [float(x.replace(',', '.')) for x in arow[12:14]]
+    return rtype, rr, pp, ka, kb, kc, tmin, tmax
+
+rows.seek(0)
+for row in rows:
+    stripped = strip_row(row)
+    if stripped is None: continue
+    rtype, rr, pp, ka, kb, kc, tmin, tmax = stripped
+
     rate = None
     if rtype == "CR":
         rate = f"{ka:.2e} * (Tgas / 3.0e2)**({kb:.2f}) * (1./(1.-user_alb)) * ({kc:.2f})"
@@ -63,7 +70,7 @@ for row in rows:
         else:
             rate = f"{ka:.2e} * user_xi * exp(({gamma_CO:.2f} - {kc:.2f}) * user_Auv / user_AuvAv)"
     elif rtype in ["IP", "AP"]:
-        rate = "0"
+        continue
     else:
         rate = f"{ka:.2e}"
         if kb != 0e0:
@@ -76,34 +83,24 @@ for row in rows:
 
 if IP:
     for row in open("IP.rates"):
-        srow = row.strip()
-        if srow == "" or srow.startswith("#"): continue
-        arow = srow.split(":")
-        rtype = arow[1]
-        rr = arow[2:4]
-        pp = arow[4:8]
-        ka, kb, kc = [float(x.replace(',', '.')) for x in arow[9:12]]
-        tmin, tmax = [float(x.replace(',', '.')) for x in arow[12:14]]
+        stripped = strip_row(row)
+        if stripped is None: continue
+        rtype, rr, pp, ka, kb, kc, tmin, tmax = stripped
         rate = f"user_rscale * {ka:.2e} * exp(-{kc:.2f} * user_Auv_star / user_AuvAv)"
-        if not "CWLeo" in arow[17]:
+        if not "CWLeo" in row:
             rate = f"user_Gstar * {rate}"
         body += f"{count},{','.join(rr)},{','.join(pp)},{tmin:.2e},{tmax:.2e},{rate}\n"
         count += 1
 
 if AP:
     for row in open(f"AP_{AP}K.rates"):
-        srow = row.strip()
-        if srow == "" or srow.startswith("#"): continue
-        arow = srow.split(":")
-        rtype = arow[1]
-        rr = arow[2:4]
-        pp = arow[4:8]
-        ka, kb, kc = [float(x.replace(',', '.')) for x in arow[9:12]]
-        tmin, tmax = [float(x.replace(',', '.')) for x in arow[12:14]]
+        stripped = strip_row(row)
+        if stripped is None: continue
+        rtype, rr, pp, ka, kb, kc, tmin, tmax = stripped
         rate = f"user_rscale * {ka:.2e} * exp(-{kc:.2f} * user_Auv_comp / user_AuvAv)"
-        if "CWLeo" in arow[17]:
+        if "CWLeo" in row:
             rate = f"user_rbinscale * {rate}"
-        elif "Millar 2018" in arow[17]:
+        elif "Millar 2018" in row:
             if AP == 4000:
                 rate = f"user_rbinscale * {rate}"
             elif AP == 10000:
